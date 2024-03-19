@@ -1,3 +1,0 @@
-dkgjfgdhjdsfbdsjbdsf
-trachelngiel
-kelishatongweri
