@@ -9,16 +9,24 @@ header, footer {
     color: white;
     text-align: center;
 }
-nav {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #f3f3f3;
+.navbar-nav {
+    display: flex;
+    list-style-type: none; /* Remove default list styling */
 }
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: black;
+
+.navbar-nav li {
+    margin-right: 10px; /* Adjust as needed */
 }
+
+.navbar-nav li a {
+    text-decoration: none; /* Remove underlining */
+    color: black; /* Set font color */
+}
+
+.register-logo {
+    max-height: 40px;
+}
+
 .content {
     padding: 20px;
     text-align: center;
