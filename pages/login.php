@@ -3,18 +3,18 @@
 
 <head>
     <title>Pentester - Login</title>
-    <?php include "inc/head.inc.php"; ?>
+    <?php include "../inc/head.inc.php"; ?>
     <style>
         /* Add any custom styles for login page here */
     </style>
 </head>
 
 <body>
-    <?php include "inc/nav.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
     <main class="container">
         <h1>Login</h1>
         <p>Existing members log in here. For new members, please go to the <a href="register.php">Member Registration page</a>.</p>
-        <form action="process_login.php" method="post">
+        <form action="../processes/process_login.php" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
                 <input required type="email" id="email" name="email" class="form-control" placeholder="Enter email">
@@ -32,7 +32,7 @@
             </div>
         </form>
     </main>
-    <?php include "inc/footer.inc.php"; ?>
+    <?php include "../inc/footer.inc.php"; ?>
 </body>
 
 </html>

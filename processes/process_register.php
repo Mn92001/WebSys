@@ -4,7 +4,7 @@
  
 <head> 
     <title>World of Pets - Registration Result</title> 
-    <?php include "inc/head.inc.php"; ?> 
+    <?php include "../inc/head.inc.php"; ?> 
     <style> 
     body { 
         font-family: Arial, sans-serif; 
@@ -67,7 +67,7 @@
 </head> 
  
 <body> 
-    <?php include "inc/nav.inc.php"; ?> 
+    <?php include "../inc/nav.inc.php"; ?> 
  
     <?php 
     // Initialize variables to store form data and error messages 
@@ -211,7 +211,7 @@ if ($success) {
     }  
     ?> 
  
-    <?php include "inc/footer.inc.php"; ?> 
+    <?php include "../inc/footer.inc.php"; ?> 
 </body> 
  
  

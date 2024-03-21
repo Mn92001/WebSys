@@ -4,13 +4,13 @@
 <head>
     <title>Pentester - Client Registration</title>
     <?php
-    include "inc/head.inc.php";
+    include "../inc/head.inc.php";
     ?>
 </head>
 
 <body>
     <?php
-    include "inc/nav.inc.php";
+    include "../inc/nav.inc.php";
     ?>
     <main class="container">
         <h1>Client Registration</h1>
@@ -18,7 +18,7 @@
             For existing client, please go to the
             <a href="#">Sign In page</a>.
         </p>
-        <form action="process_register.php" method="post">
+        <form action="../processes/process_register.php" method="post">
             <div class="mb-3">
                 <label for="fname" class="form-label">First Name:</label>
                 <input type="text" id="fname" name="fname" class="form-control" placeholder="Enter first name">
@@ -56,7 +56,7 @@
         </form>
     </main>
     <?php
-    include "inc/footer.inc.php";
+    include "../inc/footer.inc.php";
     ?>
 </body>
 
