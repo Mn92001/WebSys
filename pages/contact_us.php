@@ -3,7 +3,7 @@
 
 <head>
     <title> Pentester - Contact Us </title> 
-    <?php include "inc/head.inc.php"; ?>
+    <?php include "../inc/head.inc.php"; ?>
 </head> 
 
 
@@ -11,7 +11,7 @@
     <header>
         <h1> Contact Us </h1> 
     </header>
-    <?php include "inc/nav.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="contact-form">
             <h2>Send us a message</h2>
@@ -37,6 +37,6 @@
             <p>Address: 123 Main Street, City, Country</p>
         </section>
     </main>
-    <?php include "inc/footer.inc.php"; ?>
+    <?php include "../inc/footer.inc.php"; ?>
 </body>
 </html> 

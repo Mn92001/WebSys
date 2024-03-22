@@ -5,10 +5,19 @@
     <?php include "inc/head.inc.php"; ?>
 </head> 
 
-
 <body>
     <?php include "inc/header.inc.php"; ?> 
     <?php include "inc/nav.inc.php"; ?>
+
+    <?php
+    session_start();
+    if (isset($_SESSION['success'])) {
+        $successMsg = $_SESSION['success'];
+        unset($_SESSION['success']); 
+
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+    } ?>
+
     <main class="container">
         <div id="home" class="content">
             <h2>Home</h2>

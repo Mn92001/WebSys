@@ -3,7 +3,7 @@
 
 <head>
     <title> Pentester - About us </title> 
-    <?php include "inc/head.inc.php"; ?>
+    <?php include "../inc/head.inc.php"; ?>
 </head> 
 
 
@@ -11,7 +11,7 @@
     <header>
         <h1> About us </h1> 
     </header>
-    <?php include "inc/nav.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="intro">
             <h2> Our Team</h2> 
@@ -40,6 +40,6 @@
         </section>
 
     </main>
-    <?php include "inc/footer.inc.php"; ?>
+    <?php include "../inc/footer.inc.php"; ?>
 </body> 
 </html> 
