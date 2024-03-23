@@ -1,70 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Pentester - Login Result</title>
-    <?php include "inc/head.inc.php"; ?>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .result-container {
-            max-width: 600px;
-            margin: auto;
-            text-align: center;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            margin-top: 50px;
-        }
-
-        h1,
-        h4 {
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 36px;
-            color: #ff6347; /* Red color for error */
-        }
-
-        h4 {
-            font-size: 24px;
-            color: #ff6347; /* Red color for error */
-        }
-
-        p {
-            font-size: 18px;
-            color: #555;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        .btn-warning {
-            background-color: #ff6347; /* Red color for error */
-            color: #fff;
-        }
-
-        .btn-success {
-            background-color: #008000; /* Green color for success */
-            color: #fff;
-        }
-    </style>
-</head>
-
-<body>
-    <?php include "inc/nav.inc.php"; ?>
-
-    
 
     <?php
     session_start();
@@ -96,10 +29,12 @@
             session_start(); 
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $row['Role'];
+            $_SESSION['user_id'] = $$row['UserID'];
+            $_SESSION['success'] = "Login successful.";
+
 
             // Option to return to home page
-            echo '<a href="../index.php" class="btn btn-success">Return to Home</a>';
-            echo "</div>";
+            header("Location: ../index.php");
         } else {
             // Password incorrect
             echo "<div class='result-container'>";
@@ -126,7 +61,3 @@
     $conn->close();
     ?>
 
-    <?php include "inc/footer.inc.php"; ?>
-</body>
-
-</html>
