@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Pentester - Login</title>
+    <title>Login</title>
     <?php include "../inc/head.inc.php"; ?>
     <style>
         /* Add any custom styles for login page here */
@@ -13,7 +13,7 @@
     <?php include "../inc/nav.inc.php"; ?>
     <main class="container">
         <h1>Login</h1>
-        <p>Existing members log in here. For new members, please go to the <a href="register_client.php">Member Registration page</a>.</p>
+        <p>Existing members log in here. For new members, please go to the <a href="register.php">Member Registration page</a>.</p>
         <form action="../processes/process_login.php" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>

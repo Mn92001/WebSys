@@ -10,13 +10,7 @@
 
     <?php
     session_start();
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-    
+   
     // Check if the user is logged in
     if (!isset($_SESSION['username'])) {
     // If not logged in, set a default role
@@ -26,9 +20,8 @@
     $username = $_SESSION['username'];
     $role = $_SESSION['role'];
     }
-    ?>
-    
-    <?php 
+
+
     if ($role === 'Client') {
         // Client navigation
         include "inc/navclient.inc.php";
@@ -42,6 +35,13 @@
         // Default navigation for guest
         include "inc/nav.inc.php";
     }
+
+    if (isset($_SESSION['success'])) {
+        $successMsg = $_SESSION['success'];
+        unset($_SESSION['success']); 
+
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+    } 
     ?>
      
 

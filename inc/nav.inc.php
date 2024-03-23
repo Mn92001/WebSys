@@ -36,7 +36,7 @@
         <div class="ml-auto">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/register_client.php">
+                    <a class="nav-link" href="../pages/register.php">
                         <img src="../images/register_logo.png" alt="Register" class="register-logo">
                     </a>
                 </li>
