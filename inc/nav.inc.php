@@ -27,6 +27,15 @@
         <div class="ms-auto">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link" href="../pages/login.php">
+                        <img src="../images/login_logo.png" alt="Login" class="login-logo">
+                    </a>
+                </li>
+            </ul>
+        </div> 
+        <div class="ml-auto">
+            <ul class="navbar-nav">
+                <li class="nav-item">
                     <a class="nav-link" href="../pages/register_client.php">
                         <img src="../images/register_logo.png" alt="Register" class="register-logo">
                     </a>

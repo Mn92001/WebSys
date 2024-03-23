@@ -64,49 +64,44 @@
 <body>
     <?php include "inc/nav.inc.php"; ?>
 
+    
+
     <?php
-    // Database configuration
-    $servername = "localhost"; // Change this to your MySQL server hostname
-    $username = "inf1005-sqldev"; // Change this to your MySQL username
-    $password = "racHelpoH09"; // Change this to your MySQL password
-    $database = "world_of_pets"; // Change this to your MySQL database name
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    include '../inc/db.php';
 
     // Retrieve input from login form
-    $email = $_POST['email'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
+
     // Query to retrieve user information based on email
-    $sql = "SELECT * FROM world_of_pets_members WHERE email = '$email'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM UserMaster WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         // User found, verify password
         $row = $result->fetch_assoc();
-        $hashed_password = $row['password'];
+        $hashed_password = $row['Password'];
         if (password_verify($password, $hashed_password)) {
             // Password verified, login successful
             echo "<div class='result-container'>";
             echo "<h1>Login successful!</h1>";
-            echo "<p>Welcome back, " . $row['fname'] . " " . $row['lname'] . ".</p>";
+            echo "<p>Welcome back, " . $row['Fullname'] . " </p>";
             // Option to return to home page
-            echo '<a href="home.php" class="btn btn-success">Return to Home</a>';
+            echo '<a href="index.php" class="btn btn-success">Return to Home</a>';
             echo "</div>";
         } else {
             // Password incorrect
             echo "<div class='result-container'>";
             echo "<h1>Oops!</h1>";
             echo "<h4>The following errors were detected:</h4>";
-            echo "<p>Email not found or password doesn't match...</p>";
+            echo "<p>Password doesn't match...</p>";
             // Option to return to login page
-            echo '<a href="login.php" class="btn btn-warning">Return to Login</a>';
+            echo '<a href="../pages/login.php"" class="btn btn-warning">Return to Login</a>';
             echo "</div>";
         }
     } else {
@@ -114,13 +109,14 @@
         echo "<div class='result-container'>";
         echo "<h1>Oops!</h1>";
         echo "<h4>The following errors were detected:</h4>";
-        echo "<p>Email not found or password doesn't match...</p>";
+        echo "<p>Email not found</p>";
         // Option to return to login page
-        echo '<a href="login.php" class="btn btn-warning">Return to Login</a>';
+        echo '<a href="../pages/login.php"" class="btn btn-warning">Return to Login</a>';
         echo "</div>";
     }
 
     // Close connection
+    $stmt->close();
     $conn->close();
     ?>
 
