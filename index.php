@@ -7,7 +7,6 @@
 
 <body>
     <?php include "inc/header.inc.php"; ?> 
-    <?php include "inc/nav.inc.php"; ?>
 
     <?php
     session_start();
@@ -16,8 +15,37 @@
         unset($_SESSION['success']); 
 
         echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } ?>
+    } 
+    
+    // Check if the user is logged in
+    if (!isset($_SESSION['username'])) {
+    // If not logged in, set a default role
+    $role = 'guest';
+    } else {
+    // Retrieve user information from session variables
+    $username = $_SESSION['username'];
+    $role = $_SESSION['role'];
+    }
+    ?>
+    
+    <?php 
+    if ($role === 'Client') {
+        // Client navigation
+        include "inc/navclient.inc.php";
+    } elseif ($role === 'Pentester') {
+        // Pentester navigation
+        include "inc/navpentester.inc.php";
+    } elseif ($role === 'Admin') {
+        // Admin navigation
+        include "inc/navadmin.inc.php";
+    } else {
+        // Default navigation for guest
+        include "inc/nav.inc.php";
+    }
+    ?>
+     
 
+    
     <main class="container">
         <div id="home" class="content">
             <h2>Home</h2>

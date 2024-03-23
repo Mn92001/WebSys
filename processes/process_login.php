@@ -67,7 +67,7 @@
     
 
     <?php
-
+    session_start();
     include '../inc/db.php';
 
     // Retrieve input from login form
@@ -90,9 +90,15 @@
             // Password verified, login successful
             echo "<div class='result-container'>";
             echo "<h1>Login successful!</h1>";
-            echo "<p>Welcome back, " . $row['Fullname'] . " </p>";
+            echo "<p>Welcome back, " . $row['FullName'] . " </p>";
+
+            // Start session after successful login
+            session_start(); 
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = $row['Role'];
+
             // Option to return to home page
-            echo '<a href="index.php" class="btn btn-success">Return to Home</a>';
+            echo '<a href="../index.php" class="btn btn-success">Return to Home</a>';
             echo "</div>";
         } else {
             // Password incorrect
