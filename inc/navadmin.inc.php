@@ -9,13 +9,13 @@
     <div class="collpase navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/about_us.php">Pentesters</a>
+                <a class="nav-link" href="../pages/list_of_pentesters.php">Pentesters</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/services.php">Trasnfer Coins</a>
+                <a class="nav-link" href="../pages/services.php">Transfer Coins</a>
             </li>
         </ul>
         <div class="ms-auto">
