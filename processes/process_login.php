@@ -24,12 +24,29 @@
 
             $role = $row['Role'];
 
+            // Login checks for pentesters
             if ($role == 'Pentester') {
                 $approvalStatus = checkApprovalOfPentester($conn, $row['UserID']);
                 // Handle not approved case
-                if ($approvalStatus != "Approved") {                  
+                if ($approvalStatus == "Pending") {                  
                     // Pentester account not yet approved
                     $errorMsg .= "Your account has not been approved. Please wait for an administrator to approve your account or contact support.";
+                    $_SESSION['error'] = $errorMsg;
+
+                    // Option to return to login page
+                     header("Location: ../pages/login.php");
+                     exit;
+                } else if ($approvalStatus == "Rejected"){
+                    // Pentester account rejected
+                    $errorMsg .= "Your registration has been rejected. Please contact support if you have queries.";
+                    $_SESSION['error'] = $errorMsg;
+
+                    // Option to return to login page
+                     header("Location: ../pages/login.php");
+                     exit;
+                } else if ($approvalStatus == "Suspended"){
+                    // Pentester account suspended
+                    $errorMsg .= "Your account has been suspended. Please contact support if you have queries.";
                     $_SESSION['error'] = $errorMsg;
 
                     // Option to return to login page
@@ -45,8 +62,9 @@
                     session_start(); 
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = $row['Role'];
-                    $_SESSION['user_id'] = $$row['UserID'];
+                    $_SESSION['user_id'] = $row['UserID'];
                     $_SESSION['success'] = "Login successful.";
+                    $_SESSION['approved'] = "Approved";
 
                     // Option to return to home page
                     header("Location: ../index.php");
@@ -62,16 +80,14 @@
                 session_start(); 
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $row['Role'];
-                $_SESSION['user_id'] = $$row['UserID'];
+                $_SESSION['user_id'] = $row['UserID'];
                 $_SESSION['success'] = "Login successful.";
 
 
                 // Option to return to home page
                 header("Location: ../index.php");
                 exit;
-            }
-
-            
+            }           
         } else {
             // Password incorrect
             echo "<div class='result-container'>";

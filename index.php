@@ -10,18 +10,21 @@
 
     <?php
     session_start();
-   
+
     // Check if the user is logged in
     if (!isset($_SESSION['username'])) {
-    // If not logged in, set a default role
-    $role = 'guest';
-    } else {
-    // Retrieve user information from session variables
-    $username = $_SESSION['username'];
-    $role = $_SESSION['role'];
-    $status = $_SESSION['pending'];
-    }
+        // If not logged in, set a default role
+        $role = 'guest';
 
+    } else {
+        // Retrieve user information from session variables
+        $username = $_SESSION['username'];
+        $role = $_SESSION['role'];
+
+        if (isset($_SESSION['approved'])) {
+            $status = $_SESSION['approved'];
+        } 
+    }
 
     if ($role === 'Client') {
         // Client navigation
