@@ -120,35 +120,35 @@ if (empty($_POST["completionDate"])) {
 } 
 
 
-// // 6. Validate and sanitize roePdf 
-//     if (isset($_FILES['roePdf']) && $_FILES['roePdf']['error'] == 0) {
-//    $result = processPdfUpload($_FILES['roePdf']);
-//    if (!$result) {
-//         $errorMsg .= "There was an error processing the roe PDF or file is too large.";
-//         $success = false;
-//     } else {
-//         $roePdfContent = $result['content'];
-//         $roePdfFileName = $result['name'];
-//     }
-// } else {
-//     $errorMsg .= "Roe PDF is required.";
-//     $success = false;
-// }
+ // 6. Validate and sanitize roePdf 
+     if (isset($_FILES['roePdf']) && $_FILES['roePdf']['error'] == 0) {
+    $result = processPdfUpload($_FILES['roePdf']);
+    if (!$result) {
+         $errorMsg .= "There was an error processing the roe PDF or file is too large.";
+         $success = false;
+     } else {
+         $roePdfContent = $result['content'];
+         $roePdfFileName = $result['name'];
+     }
+ } else {
+     $errorMsg .= "Roe PDF is required.";
+     $success = false;
+}
 
-// // 7. Validate and sanitize scopePdf 
-// if (isset($_FILES['scopePdf']) && $_FILES['scopePdf']['error'] == 0) {
-//     $result = processPdfUpload($_FILES['scopePdf']);
-//     if (!$result) {
-//         $errorMsg .= "There was an error processing the scope PDF or file is too large.";
-//         $success = false;
-//     } else {
-//         $scopePdfContent = $result['content'];
-//         $scopePdfFileName = $result['name'];
-//     }
-// } else {
-//     $errorMsg .= "Scope PDF is required.";
-//     $success = false;
-// }
+ // 7. Validate and sanitize scopePdf 
+ if (isset($_FILES['scopePdf']) && $_FILES['scopePdf']['error'] == 0) {
+     $result = processPdfUpload($_FILES['scopePdf']);
+     if (!$result) {
+         $errorMsg .= "There was an error processing the scope PDF or file is too large.";
+         $success = false;
+     } else {
+         $scopePdfContent = $result['content'];
+         $scopePdfFileName = $result['name'];
+     }
+ } else {
+     $errorMsg .= "Scope PDF is required.";
+     $success = false;
+ }
 
 
 if ($success) {  

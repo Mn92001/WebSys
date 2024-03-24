@@ -60,8 +60,8 @@
             </div>
         <?php endif; ?>
 
-        <!-- Client Registration Form -->
-        <form  action="../processes/new_project.php" method="post">
+        <!-- Add Project Form -->
+        <form  action="../processes/new_project.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="name" class="form-label">Project Name:</label>
                 <input type="text" id="name" name="name" class="form-control" placeholder="Enter Project Name" pattern="^[a-zA-Z0-9_]{5,}$" 
