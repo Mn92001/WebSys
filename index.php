@@ -10,13 +10,7 @@
 
     <?php
     session_start();
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-    
+   
     // Check if the user is logged in
     if (!isset($_SESSION['username'])) {
     // If not logged in, set a default role
@@ -25,14 +19,14 @@
     // Retrieve user information from session variables
     $username = $_SESSION['username'];
     $role = $_SESSION['role'];
+    $status = $_SESSION['pending'];
     }
-    ?>
-    
-    <?php 
+
+
     if ($role === 'Client') {
         // Client navigation
         include "inc/navclient.inc.php";
-    } elseif ($role === 'Pentester') {
+    } elseif ($role === 'Pentester' && $status === 'Approved') {
         // Pentester navigation
         include "inc/navpentester.inc.php";
     } elseif ($role === 'Admin') {
@@ -42,10 +36,16 @@
         // Default navigation for guest
         include "inc/nav.inc.php";
     }
+
+    // Display success message
+    if (isset($_SESSION['success'])) {
+        $successMsg = $_SESSION['success'];
+        unset($_SESSION['success']); 
+
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+    } 
     ?>
      
-
-    
     <main class="container">
         <div id="home" class="content">
             <h2>Home</h2>
