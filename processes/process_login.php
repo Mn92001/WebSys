@@ -62,7 +62,7 @@
                 session_start(); 
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $row['Role'];
-                $_SESSION['user_id'] = $$row['UserID'];
+                $_SESSION['user_id'] = $row['UserID'];
                 $_SESSION['success'] = "Login successful.";
 
 
