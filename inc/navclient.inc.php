@@ -9,10 +9,10 @@
     <div class="collpase navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/about_us.php">New Project</a>
+                <a class="nav-link" href="../pages/new_project.php">New Project</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/services.php">Project Status</a>
