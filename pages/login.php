@@ -1,3 +1,14 @@
+<?php 
+session_start(); 
+
+// Check for any error messages
+$errorMsg = "";
+if (isset($_SESSION['error'])) {
+    $errorMsg = $_SESSION['error'];
+    unset($_SESSION['error']); 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +22,15 @@
 
 <body>
     <?php include "../inc/nav.inc.php"; ?>
+
+    <!-- Display error messages -->
+    <?php if (!empty($errorMsg)): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo htmlspecialchars($errorMsg); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
     <main class="container">
         <h1>Login</h1>
         <p>Existing members log in here. For new members, please go to the <a href="register.php">Member Registration page</a>.</p>

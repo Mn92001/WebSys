@@ -1,11 +1,13 @@
 <?php
     session_start();
+
+    $errorMsg = "";
+
     include '../inc/db.php';
 
     // Retrieve input from login form
     $username = $_POST['username'];
     $password = $_POST['password'];
-
 
     // Query to retrieve user information based on email
     $sql = "SELECT * FROM UserMaster WHERE username = ?";
@@ -24,15 +26,15 @@
 
             if ($role == 'Pentester') {
                 $approvalStatus = checkApprovalOfPentester($conn, $row['UserID']);
-                if ($approvalStatus != "Approved") {
-                    // Handle not approved case
-                    // Password verified, login successful
-                    echo "<div class='result-container'>";
-                    echo "<h4>Your account has not been approved.</h4>";
-                    echo "<p>Please wait for an administrator to approve your account or contact support.</p>";
+                // Handle not approved case
+                if ($approvalStatus != "Approved") {                  
+                    // Pentester account not yet approved
+                    $errorMsg .= "Your account has not been approved. Please wait for an administrator to approve your account or contact support.";
+                    $_SESSION['error'] = $errorMsg;
 
-                    // Option to return to home page
-                     header("Location: ../index.php");
+                    // Option to return to login page
+                     header("Location: ../pages/login.php");
+                     exit;
                 } else {
                     // Password verified, login successful
                     echo "<div class='result-container'>";
@@ -48,6 +50,7 @@
 
                     // Option to return to home page
                     header("Location: ../index.php");
+                    exit;
                 }
             } else {
                 // Password verified, login successful
@@ -65,6 +68,7 @@
 
                 // Option to return to home page
                 header("Location: ../index.php");
+                exit;
             }
 
             
@@ -92,5 +96,41 @@
     // Close connection
     $stmt->close();
     $conn->close();
+    
+    
+    function checkApprovalOfPentester($conn, $userID) {
+        // Initialize the approval status
+        $approvalStatus = "Pending";
+    
+        // Get the pentesterID corresponding to the userID
+        $sql_pentester = "SELECT PentesterID FROM Pentester WHERE UserID = ?";
+        $stmt_pentester = $conn->prepare($sql_pentester);
+        $stmt_pentester->bind_param("i", $userID);
+        $stmt_pentester->execute();
+        $result_pentester = $stmt_pentester->get_result();
+        $stmt_pentester->close();
+    
+        if ($result_pentester->num_rows > 0) {
+            // Get the first row
+            $pentester_row = $result_pentester->fetch_assoc();
+            $pentesterID = $pentester_row['PentesterID'];
+    
+            // Query to check approval status
+            $sql_approval = "SELECT ApprovalStatus FROM ApprovalOfPentester WHERE PentesterID = ?";
+            $stmt_approval = $conn->prepare($sql_approval);
+            $stmt_approval->bind_param("i", $pentesterID);
+            $stmt_approval->execute();
+            $result_approval = $stmt_approval->get_result();
+            $stmt_approval->close();
+    
+            if ($result_approval->num_rows > 0) {
+                // Get the approval status
+                $approval_row = $result_approval->fetch_assoc();
+                $approvalStatus = $approval_row['ApprovalStatus'];
+            }
+        }
+        return $approvalStatus;
+    }
+    
     ?>
 

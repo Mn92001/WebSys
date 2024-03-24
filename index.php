@@ -19,13 +19,14 @@
     // Retrieve user information from session variables
     $username = $_SESSION['username'];
     $role = $_SESSION['role'];
+    $status = $_SESSION['pending'];
     }
 
 
     if ($role === 'Client') {
         // Client navigation
         include "inc/navclient.inc.php";
-    } elseif ($role === 'Pentester') {
+    } elseif ($role === 'Pentester' && $status === 'Approved') {
         // Pentester navigation
         include "inc/navpentester.inc.php";
     } elseif ($role === 'Admin') {
@@ -36,6 +37,7 @@
         include "inc/nav.inc.php";
     }
 
+    // Display success message
     if (isset($_SESSION['success'])) {
         $successMsg = $_SESSION['success'];
         unset($_SESSION['success']); 
@@ -44,8 +46,6 @@
     } 
     ?>
      
-
-    
     <main class="container">
         <div id="home" class="content">
             <h2>Home</h2>
