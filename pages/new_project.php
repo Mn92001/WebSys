@@ -13,30 +13,7 @@
 
     session_start();
    
-    // Check if the user is logged in
-    if (!isset($_SESSION['username'])) {
-    // If not logged in, set a default role
-    $role = 'guest';
-    } else {
-    // Retrieve user information from session variables
-    $username = $_SESSION['username'];
-    $role = $_SESSION['role'];
-    $status = $_SESSION['pending'];
-    }
-
-    if ($role === 'Client') {
-        // Client navigation
-        include "../inc/navclient.inc.php";
-    } elseif ($role === 'Pentester' && $status === 'Approved') {
-        // Pentester navigation
-        include "../inc/navpentester.inc.php";
-    } elseif ($role === 'Admin') {
-        // Admin navigation
-        include "../inc/navadmin.inc.php";
-    } else {
-        // Default navigation for guest
-        include "../inc/nav.inc.php";
-    }
+    include "../inc/navclient.inc.php";
 
     // Display success message
     if (isset($_SESSION['success'])) {
