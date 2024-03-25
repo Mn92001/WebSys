@@ -9,7 +9,9 @@
     <div class="collpase navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">Home</a>
+                <a class="nav-link" href="../index.php">
+                    <i class="fa-solid fa-house" title="Home"></i>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/about_us.php">About us</a>
@@ -21,14 +23,16 @@
                 <a class="nav-link" href="../pages/tools.php">Tools</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/contact_us.php">Contact</a>
+                <a class="nav-link" href="../pages/contact_us.php">
+                    <i class="fa-solid fa-phone" title="Contact Us"></i>
+                </a>
             </li>
         </ul>
         <div class="ms-auto">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/login.php">
-                        <img src="../images/login_logo.png" alt="Login" class="login-logo">
+                        <i class="fa-solid fa-circle-user" title="Login"></i>
                     </a>
                 </li>
             </ul>
@@ -37,7 +41,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/register.php">
-                        <img src="../images/register_logo.png" alt="Register" class="register-logo">
+                        <i class="fa-solid fa-pen-to-square" title="Register"></i>
                     </a>
                 </li>
             </ul>
