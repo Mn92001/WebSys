@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-secondary">
     <a class="navbar-brand" href="#">
-        <img src="images/logo.jpg" width="100" alt="">
+        <img src="../images/logo.jpg" width="100" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,13 +14,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about_us.php">About us</a>
+                <a class="nav-link" href="../pages/about_us.php">About us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="services.php">Services</a>
+                <a class="nav-link" href="../pages/services.php">Services</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="tools.php">Tools</a>
+                <a class="nav-link" href="../pages/tools.php">Tools</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/contact_us.php">

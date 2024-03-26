@@ -3,14 +3,14 @@
 
 <head>
     <title> Pentester - Our Services </title> 
-    <?php include "inc/head.inc.php"; ?>
+    <?php include "../inc/head.inc.php"; ?>
 </head> 
 
 <body>
     <header> 
         <h1> Our Services </h1> 
     </header> 
-    <?php include "inc/nav.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="service1">
             <h2>Penetration Testing</h2>
@@ -32,6 +32,6 @@
             <p>Our tailored security training programs help your employees understand the importance of cybersecurity and learn best practices for staying safe online.</p>
         </section>
     </main>
-    <?php include "inc/footer.inc.php"; ?>
+    <?php include "../inc/footer.inc.php"; ?>
 </body>
 </html> 
