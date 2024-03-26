@@ -14,7 +14,7 @@
     
     include "../inc/navpentester.inc.php";
     include "../processes/current_projects/query.php";
-
+    
     // Retrieve and display success message
     if (isset($_SESSION['success'])) {
         $successMsg = $_SESSION['success'];
