@@ -41,10 +41,10 @@ $lockedInDate = date("Y-m-d H:i:s");
 include "query.php";
 include '../../inc/db.php';
 
-if(mysqli_num_rows($result) > 0) { // Open curly brace for if statement
-    while($row = $result->fetch_assoc()) {
-        $lockedInExpiryDate = $row['ProjectExpiryDate'];
-        $projectID = $row['ProjectID'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve project_id and project_expiry_date from the form submission
+    $projectID = $_POST['project_id'];
+    $lockedInExpiryDate = $_POST['project_expiry_date'];
 
         // Query statement to update the LockInRecord table
         $query = "INSERT INTO LockInRecord (LockedInDate, LockedInExpiryDate, ProjectID, PentesterID) VALUES (?, ?, ?, ?)";
@@ -109,8 +109,12 @@ if(mysqli_num_rows($result) > 0) { // Open curly brace for if statement
             header("Location: ../../pages/list_of_pentesters.php");
             exit;
         }
-    } // End of while loop
-} // End of if statement
+     // End of while loop
+} else {
+    // Handle the case where the form was not submitted
+    header("Location: ../../pages/projects.php");
+    echo "Form not submitted!";
+}// End of if statement
 // Close connection
 $conn->close();
 ?>
