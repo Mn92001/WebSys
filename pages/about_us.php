@@ -14,9 +14,12 @@
     <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="intro">
-            <h2> Our Team</h2> 
-            <p>We are a team of skilled and experienced penetration testers dedicated to helping businesses identify and mitigate security vulnerabilities.</p>
+        <div class="panel panel-default">
+        <div class="panel-heading">Our Team</div>
+        <div class="panel-body">We are a team of skilled and experienced penetration testers dedicated to helping businesses identify and mitigate security vulnerabilities.</div>
+        </div>   
         </section>
+
 
         <section id="expertise">
             <h2>Our Expertise</h2>
@@ -43,3 +46,4 @@
     <?php include "../inc/footer.inc.php"; ?>
 </body> 
 </html> 
+
