@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include '../inc/db.php';
+    include '../../inc/db.php';
 
     // Query to get project info
     $query = "
