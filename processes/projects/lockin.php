@@ -66,9 +66,21 @@ if(mysqli_num_rows($result) > 0) { // Open curly brace for if statement
                     $stmt3 = $conn->prepare($updateQuery);
                     $stmt3->bind_param("ii", $lockInRecordID, $pentesterID);
                     if ($stmt3->execute()) {
-                        // Redirect to index.php or another page
-                        header("Location: ../../index.php");
-                        exit;
+                        // Update the Projects table with the status
+                        $updateProjectQuery = "UPDATE Project SET AvaliabilityStatus = 'Taken', ProjectStatus = 'In-progress' WHERE ProjectID = ?";
+                        $stmt4 = $conn->prepare($updateProjectQuery);
+                        $stmt4->bind_param("i", $projectID);
+                        if ($stmt4->execute()) {
+                            // Redirect to index.php or another page
+                            header("Location: ../../index.php");
+                            exit;
+                        } else {
+                            $errorMsg .= "Failed to update Project table.";
+                            $_SESSION['error'] = $errorMsg;
+                            header("Location: ../../pages/list_of_pentesters.php");
+                            exit;
+                        }
+                        $stmt4->close(); // Close the fourth prepared statement
                     } else {
                         $errorMsg .= "Failed to update Pentester table with lockInRecordID.";
                         $_SESSION['error'] = $errorMsg;
