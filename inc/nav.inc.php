@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-sm bg-secondary">
-    <a class="navbar-brand" href="#">
-        <img src="../images/logo.jpg" width="100" alt="">
-    </a>
+    <!-- <a class="navbar-brand" href="#"> -->
+        <img src="./assets/images/logo.png" alt="Logo" class="logo">
+        <span class="company-name"> FortifyTech </span>
+    <!-- </a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,9 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">
-                    <i class="fa-solid fa-house" title="Home"></i>
-                </a>
+                <a class="nav-link" href="../index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/about_us.php">About us</a>
@@ -23,9 +22,7 @@
                 <a class="nav-link" href="../pages/tools.php">Tools</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/contact_us.php">
-                    <i class="fa-solid fa-phone" title="Contact Us"></i>
-                </a>
+                <a class="nav-link" href="../pages/contact_us.php">Contact Us</a>
             </li>
         </ul>
         <div class="ms-auto">
