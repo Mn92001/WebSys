@@ -5,7 +5,7 @@ body {
 }
 header {
     padding: 20px;
-    background-color: #212529;
+    background-color: #9cafaa;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -16,7 +16,7 @@ header {
 
 footer {
     padding: 20px;
-    background-color: #212529;
+    background-color: #9cafaa;
     color: white;
     text-align: center;
 }

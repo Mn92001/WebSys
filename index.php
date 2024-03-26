@@ -5,7 +5,6 @@
     <?php include "inc/head.inc.php"; ?>
 </head> 
 
-
 <body>
     <?php include "inc/header.inc.php"; ?> 
 
