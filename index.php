@@ -63,12 +63,35 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="assets/images/Homepage.png" alt="Los Angeles" class="d-block" style="width:100%; height: 600px;">
+                    <div class="carousel-caption">
+                        <h3> Vulnerability Testing </h3> 
+                        <p> Identifying and assessing vulnerabilities in systems, networks and applications
+                            to prioritise and remediate security risks
+                            Continuous monitoring and vulnerability management: Implementing tools and processes
+                            for ongoing vulnerability scanning and management to ensure the security posture 
+                            remains robust over time
+                        </p>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="assets/images/Homepage2.png" alt="Chicago" class="d-block" style="width:100%; height: 600px;">
+                    <div class="carousel-caption">
+                        <h3> Security Auditing and Compliance </h3>
+                        <p> Conducting security audits and compliance assessments to evaluate adherence to industry
+                            standards and regulatory requirements.
+                            providing recommendations and guidance to help organisations achieve and maintain compliance
+                            with relevant security standards and regulations 
+                        </p>
+                    </div>
                 </div>
                 <div class="carousel-item">
                     <img src="assets/images/Homepage3.png" alt="New York" class="d-block" style="width:100%; height: 600px;">
+                    <div class="carousel-caption">
+                        <h3> Security Product Evaluation and Testing </h3>
+                        <p> Evaluating the effectiveness and security of third-party security products and solutions, including
+                            firewalls, antivirus software, intrusion detection systems and endpoint security tools.
+                        </p> 
+                    </div>
                 </div>
             </div>
 
