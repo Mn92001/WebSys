@@ -6,7 +6,6 @@
 </head> 
 
 <body>
-    <?php include "inc/header.inc.php"; ?> 
 
     <?php
     session_start();
@@ -60,50 +59,68 @@
 
         <!-- The slideshow/carousel -->
        
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/images/Homepage.png" alt="Los Angeles" class="d-block" style="width:100%; height: 600px;">
-                    <div class="carousel-caption">
-                        <h3> Vulnerability Testing </h3> 
-                        <p> Identifying and assessing vulnerabilities in systems, networks and applications
-                            to prioritise and remediate security risks
-                            Continuous monitoring and vulnerability management: Implementing tools and processes
-                            for ongoing vulnerability scanning and management to ensure the security posture 
-                            remains robust over time
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/Homepage2.png" alt="Chicago" class="d-block" style="width:100%; height: 600px;">
-                    <div class="carousel-caption">
-                        <h3> Security Auditing and Compliance </h3>
-                        <p> Conducting security audits and compliance assessments to evaluate adherence to industry
-                            standards and regulatory requirements.
-                            providing recommendations and guidance to help organisations achieve and maintain compliance
-                            with relevant security standards and regulations 
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/Homepage3.png" alt="New York" class="d-block" style="width:100%; height: 600px;">
-                    <div class="carousel-caption">
-                        <h3> Security Product Evaluation and Testing </h3>
-                        <p> Evaluating the effectiveness and security of third-party security products and solutions, including
-                            firewalls, antivirus software, intrusion detection systems and endpoint security tools.
-                        </p> 
-                    </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/images/Homepage.png" alt="Los Angeles" class="d-block" style="width:100%; height: 600px;">
+                <div class="carousel-caption">
+                    <h3> Vulnerability Testing </h3> 
+                    <p> Identifying and assessing vulnerabilities in systems, networks and applications
+                        to prioritise and remediate security risks
+                        Continuous monitoring and vulnerability management: Implementing tools and processes
+                        for ongoing vulnerability scanning and management to ensure the security posture 
+                        remains robust over time
+                    </p>
                 </div>
             </div>
+            <div class="carousel-item">
+                <img src="assets/images/Homepage2.png" alt="Chicago" class="d-block" style="width:100%; height: 600px;">
+                <div class="carousel-caption">
+                    <h3> Security Auditing and Compliance </h3>
+                    <p> Conducting security audits and compliance assessments to evaluate adherence to industry
+                        standards and regulatory requirements.
+                        providing recommendations and guidance to help organisations achieve and maintain compliance
+                        with relevant security standards and regulations 
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/images/Homepage3.png" alt="New York" class="d-block" style="width:100%; height: 600px;">
+                <div class="carousel-caption">
+                    <h3> Security Product Evaluation and Testing </h3>
+                    <p> Evaluating the effectiveness and security of third-party security products and solutions, including
+                        firewalls, antivirus software, intrusion detection systems and endpoint security tools.
+                    </p> 
+                </div>
+            </div>
+        </div>
 
-            <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    
     </div>
+    <section class="vulnerability-scanner-info">
+    <div class="container">
+        <div class="row">
+            <div class="col text-section">
+                <h2>Why do you need a website vulnerability scanner?</h2>
+                <ul>
+                    <li>Protect your most important sales and marketing tool.</li>
+                    <li>Fix weaknesses that could cause downtime, lose sales or damage your brand.</li>
+                    <li>Avoid any changes, plugins or new connections adding flaws.</li>
+                </ul>
+            </div>
+            <div class="col image-section">
+                <img src="assets/images/WebsiteVulnerability.png" alt="Website vulnerability" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    </section>
+
     
 </main>     
     <?php include "inc/footer.inc.php"; ?> 
