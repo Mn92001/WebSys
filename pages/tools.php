@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,4 +16,4 @@
     <?php include "../inc/footer.inc.php"; ?>
 
 </body>
-</html> 
+</html>  -->

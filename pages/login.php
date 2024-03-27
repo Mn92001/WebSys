@@ -31,7 +31,11 @@ if (isset($_SESSION['error'])) {
         </div>
     <?php endif; ?>
 
-    <main class="container">
+    <main>
+        <!-- <div class="container">
+            <div class="user signinBx">
+                <div class="imgBx"><img src="img1.jpg"></div> -->
+        
         <h1>Login</h1>
         <p>Existing members log in here. For new members, please go to the <a href="register.php">Member Registration page</a>.</p>
         <form action="../processes/process_login.php" method="post">
