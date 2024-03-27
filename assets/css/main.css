@@ -2,10 +2,12 @@ body {
     font-family:'Verdana', sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 header {
     padding: 20px;
-    background-color: #a3d0e8;
     color: #123548;
     display: flex;
     justify-content: space-between;
@@ -16,7 +18,7 @@ header {
 
 footer {
     padding: 20px;
-    background-color: #a3d0e8;
+    background-color: #ddf2fd;
     color: #123548;
     text-align: center;
     border: 2px solid #123548;
@@ -45,7 +47,7 @@ header h1 {
 }
 
 #navbar {
-    background-color: #e0eff7;
+    background-color: #ddf2fd;
     position: fixed;
     top: 0;
     width: 100%;
@@ -60,7 +62,7 @@ header h1 {
     text-align: center;
     padding: 10px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 15px;
   }
   
 #navbar a:hover {
@@ -82,6 +84,11 @@ header h1 {
     }
   }
 
+section {
+    flex: 1;
+    display: grid;
+    place-items: center;
+}
 
 .content {
     padding: 20px;
@@ -102,6 +109,7 @@ header h1 {
 
 .carousel-inner {
     position: relative; 
+    padding-top: 40px;
 }
 
 .carousel-item {
@@ -119,17 +127,37 @@ header h1 {
 }
 
 .carousel-caption {
-    text-align: center;
+    text-align: left;
+    text-shadow: 2px 2px 4px #000000;
     color: white; 
     position: absolute;
-    bottom: 20px;
+    bottom: 30%;
     left: 50%;
     transform: translateX(-50%);
     padding: 1em;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.5);
-    max-width: 80%;
+    max-width: 65%;
+    width: 75%;
+    transition: all 0.5s ease;
 
+}
+
+.carousel-caption h3 {
+    font-size: calc(1.5vw + 1rem);
+    font-family: 'Courier New', Courier, monospace
+}
+
+@media(max-width: 768px) {
+    .carousel-caption {
+        left: 10%;
+        bottom: 10%;
+        max-width: 80%;
+    }
+
+    .carousel-caption h3 {
+        font-size: calc(3vw + 1rem);
+    }
 }
 
 .d-block {
@@ -143,6 +171,7 @@ header h1 {
     color: #123548; /* font color */
     padding: 40px 0;
     font-family: 'Verdana', sans-serif;
+    width: 100vw;
 }
 
 .vulnerability-scanner-info .container {
@@ -261,7 +290,7 @@ header h1 {
 }
 
 /* Responsive grid if needed */
-@media (min-width: 768px) {
+@media (min-width: 991px) {
     .features-section .container {
         display: flex;
         justify-content: space-between;
@@ -274,7 +303,7 @@ header h1 {
 
 .compliance-section {
     background-color: skyblue;
-    padding: 80px 0;
+    padding: 20px 0;
 }
 
 .compliance-section .row {
@@ -314,7 +343,6 @@ header h1 {
     max-width: 100%;
     height: auto;
     display: block;
-    /* If you want to horizontally center the image in its column */
     margin-left: auto;
     margin-right: auto;
 }

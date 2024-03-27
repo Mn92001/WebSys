@@ -63,33 +63,38 @@
             <div class="carousel-item active">
                 <img src="assets/images/Homepage.png" alt="Vulnerability Testing" class="d-block"> 
                 <div class="carousel-caption">
-                    <h3> Vulnerability Testing </h3> 
-                    <p> Identifying and assessing vulnerabilities in systems, networks and applications
-                        to prioritise and remediate security risks
-                        Continuous monitoring and vulnerability management: Implementing tools and processes
-                        for ongoing vulnerability scanning and management to ensure the security posture 
-                        remains robust over time
-                    </p>
+                    <h3> Fun Facts about why it's important to do Pen Testing </h3> 
+                    <ul>
+                        <li>Just as fire drills prepares people for real-life fire situations, pen testing prepares organisations for actual cyberattacks.</li>
+                        <li>Pen tester use tools to find sensitive data or scan ports, a bit like cyber detectives.</li>
+                        <li>It has a bit of a spy movie element: Pen testers use psychological manipulation to trick people into giving up confidential information.</li>
+                    </ul>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="assets/images/Homepage2.png" alt="Security audit and compliance" class="d-block">
                 <div class="carousel-caption">
-                    <h3> Security Auditing and Compliance </h3>
-                    <p> Conducting security audits and compliance assessments to evaluate adherence to industry
-                        standards and regulatory requirements.
-                        providing recommendations and guidance to help organisations achieve and maintain compliance
-                        with relevant security standards and regulations 
-                    </p>
+                    <h3> Top Vulnerabilities </h3>
+                    <ul>
+                        <li>Broken authentication mechanisms that can allow attackers to use manual or automated methods to control user accounts.</li>
+                        <li>Cross-Site Scripting flaws, where attackers execute malicious scripts in a victim's browser.</li>
+                        <li>Security misconfigurations, which are the most commonly seen issues</li>
+                        <li>Sensitive data exposure due to inadequate encryption or protection</li>
+                        <li>Insufficient logging and monitoring, which delays the detection of security breaches.</li>
+                    </ul>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="assets/images/Homepage3.png" alt="security product evaluation and testing" class="d-block">
                 <div class="carousel-caption">
-                    <h3> Security Product Evaluation and Testing </h3>
-                    <p> Evaluating the effectiveness and security of third-party security products and solutions, including
-                        firewalls, antivirus software, intrusion detection systems and endpoint security tools.
-                    </p> 
+                    <h3>Advantages of Pen Testing </h3>
+                    <ul> 
+                        <li>Uncovers hidden vulnerabilites that routine security checks might miss.</li>
+                        <li>Provides a reality check for your security posture by simulating real-world cyberattacks.</li>
+                        <li>Assists in compliance with legal and regulatory requirements by identifying and addressing potential security issues.</li>
+                        <li>Helps organisations respond to cyberattacks effectively by training their security teams and staff.</li>
+                        <li>Protects the brand's reputation and saves potentially millions in costs associated with data breaches.</li>
+                    </ul> 
                 </div>
             </div>
         </div>
@@ -150,7 +155,7 @@
         <div class="feature">
             <img src="assets/images/support_icon.png" alt="Best Support Icon" class="feature-icon">
             <h3>The best support, seriously</h3>
-            <p>Intruder’s customer support team provides fast, human support so you can solve issues right away.</p>
+            <p>customer support team provides fast, human support so you can solve issues right away.</p>
         </div>
     </div>
     </section>
@@ -164,7 +169,7 @@
                             <!-- <a href="#" class="btn btn-primary">GET COMPLIANT</a> -->
                 </div>
                 <div class="col-lg-5 order-lg-1 image-content">
-                    <img src="assets/images/compliance.png" alt="compliance icon" class="compliance-icon">
+                    <img src="assets/images/compliance.png" alt="compliance icon" class="img-fluid">
                 </div>
             </div>  
         </div>
