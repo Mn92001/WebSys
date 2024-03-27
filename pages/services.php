@@ -6,10 +6,7 @@
     <?php include "../inc/head.inc.php"; ?>
 </head> 
 
-<body>
-    <header> 
-        <h1> Our Services </h1> 
-    </header> 
+<body> 
     <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="service1">

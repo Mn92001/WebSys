@@ -19,9 +19,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/services.php">Services</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="../pages/tools.php">Tools</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/contact_us.php">Contact Us</a>
                 </li>

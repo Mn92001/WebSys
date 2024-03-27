@@ -153,7 +153,27 @@
             <p>Intruder’s customer support team provides fast, human support so you can solve issues right away.</p>
         </div>
     </div>
+    </section>
+    <section class="compliance-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 order-lg-2 text-content">
+                    <h2>COMPLIANCE</h2>
+                    <h1>Meet requirements.<br>Prove it, effortlessly.</h1>
+                        <p>Noise filtered, concise and actionable results. Audit ready reports easily show your security posture to auditors, stakeholders and customers. Track your progress including your cyber hygiene score and time to fix issues.</p>
+                            <!-- <a href="#" class="btn btn-primary">GET COMPLIANT</a> -->
+                </div>
+                <div class="col-lg-5 order-lg-1 image-content">
+                    <img src="assets/images/compliance.png" alt="compliance icon" class="compliance-icon">
+                </div>
+            </div>  
+        </div>
+    </section>
+
+
+        
 </section>
+
 
 </main>     
     <?php include "inc/footer.inc.php"; ?> 
