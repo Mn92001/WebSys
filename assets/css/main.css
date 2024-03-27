@@ -19,6 +19,11 @@ footer {
     background-color: #a3d0e8;
     color: #123548;
     text-align: center;
+    border: 2px solid #123548;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar-brand {
@@ -39,38 +44,44 @@ header h1 {
     text-align: center;
 }
 
-.navbar.bg-secondary {
-    background-color: #e0eff7 !important;
-}
-
-
-.navbar-nav {
+#navbar {
+    background-color: #e0eff7;
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
-    margin-bottom: 0;
-    list-style-type: none; /* Remove default list styling */
-    margin-left: 10px;
-}
+    transition: top 0.3s;
+    z-index: 10;
+    /* padding: 0 1rem; */
+  }
+  
+#navbar a {
+    color: black;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
 
-.navbar-nav li {
-    margin-right: 8px; /* Adjust as needed */
-}
+  .navbar-nav, .navbar-nav li {
+    float: none;
+  }
 
-.navbar-nav li a {
-    text-decoration: none; /* Remove underlining */
-    color: black; /* Set font color */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  .navbar-toggler {
+    border:none
+  }
 
-.navbar-nav li:not(:last-child) {
-    margin-right: 10px;
-}
+  @media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #e0eff7;
+    }
+  }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-}
 
 .content {
     padding: 20px;
@@ -89,6 +100,43 @@ header h1 {
     margin-left: 0;
 }
 
+.carousel-inner {
+    position: relative; 
+}
+
+.carousel-item {
+    text-align: center; /* Center the text in the carousel */
+    border: 2px solid #123548;
+
+}
+
+.carousel-item img.d-block {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+.carousel-caption {
+    text-align: center;
+    color: white; 
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+
+}
+
+.d-block {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
 .vulnerability-scanner-info {
     background-color: white; /* or any other color you wish to use */
@@ -138,4 +186,45 @@ header h1 {
 .vulnerability-scanner-info .image-section .img-fluid {
     max-width: 100%; /* makes image responsive */
     height: auto;
+}
+
+
+/* Security Auditing and Compliance Section */
+.security-auditing-and-compliance {
+    background-color: skyblue; /* Light blue background for the section */
+    padding: 50px 0; /* Vertical padding for the section */
+}
+
+.security-auditing-and-compliance .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.security-auditing-and-compliance .row {
+    display: flex;
+    align-items: center; /* Centers items vertically within the row */
+    justify-content: space-between; /* Separates text and image */
+}
+
+.security-auditing-and-compliance .text-section {
+    text-align: right; /* Align text to the right */
+}
+
+.security-auditing-and-compliance .text-section h2 {
+    color: #123548; /* Color for the heading */
+    margin-bottom: 20px;
+}
+
+.security-auditing-and-compliance .text-section p {
+    color: #123548; /* Color for the paragraph */
+}
+
+.security-auditing-and-compliance .image-section {
+    text-align: left; /* Align the image to the left */
+}
+
+.security-auditing-and-compliance .image-section .img-fluid {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
 }

@@ -8,9 +8,9 @@
 
 
 <body> 
-    <header>
+    <!-- <header>
         <h1> About us </h1> 
-    </header>
+    </header> -->
     <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="intro">
