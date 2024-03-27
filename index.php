@@ -135,6 +135,26 @@
             </div>
         </div>
     </section>
+    <section class="features-section">
+    <div class="container">
+        <div class="feature">
+            <img src="assets/images/stopwatch.png" alt="Setup and Scan Icon" class="feature-icon">
+            <h3>Setup and scan in minutes</h3>
+            <p>Intruder's online vulnerability scanner is easy to set up and use, all you need to know is what to scan - infrastructure, web apps or APIs.</p>
+        </div>
+        <div class="feature">
+            <img src="assets/images/graph.png" alt="Reduce Attack Surface Icon" class="feature-icon">
+            <h3>Reduce your attack surface</h3>
+            <p>Intruder continuously scans your network, kicking off vulnerability scans when it sees a change, an unintentionally exposed service, or an emerging threat.</p>
+        </div>
+        <div class="feature">
+            <img src="assets/images/support_icon.png" alt="Best Support Icon" class="feature-icon">
+            <h3>The best support, seriously</h3>
+            <p>Intruder’s customer support team provides fast, human support so you can solve issues right away.</p>
+        </div>
+    </div>
+</section>
+
 </main>     
     <?php include "inc/footer.inc.php"; ?> 
 </body> 
