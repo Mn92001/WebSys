@@ -16,18 +16,20 @@ if (isset($_SESSION['error'])) {
     <?php
     include "../inc/head.inc.php";
     ?>
+    <link rel="stylesheet" href="/assets/css/register.css">
 </head>
 
 <body>
     <?php
     include "../inc/nav.inc.php";
     ?>
-    <main class="container">
-        <h1>Registration</h1>
+    <!-- <main class="container"> -->
+    <main> 
+        <!-- <h1>Registration</h1>
         <p>
             For existing client/pentester, please go to the
             <a href="../pages/login.php">Sign In page</a>.
-        </p>
+        </p> -->
 
         <?php if (!empty($errorMsg)): ?>
                 <div class="alert alert-danger" role="alert">
@@ -36,10 +38,25 @@ if (isset($_SESSION['error'])) {
         <?php endif; ?>
 
          <!-- Role Selection Buttons -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <button id="btnClient" class="btn btn-secondary" onclick="showForm('client')">Register as Client</button>
             <button id="btnPentester" class="btn btn-secondary" onclick="showForm('pentester')">Register as Pentester</button>
-        </div>
+        </div> -->
+        <section>
+            <div class="container">
+                <div class="client-registrationBx">
+                    <div class="imgBx"><img src="../assets/images/registration.png"></div>
+                    <div class="client-formBx">
+                        <form> 
+                            <h2>Registration</h2>
+                            <input type="button" id="btnClient" value="Register as Client" onclick="showForm('client')"> 
+                            <input type="button" id= "btnPentester" value="Register as PenTester" onclick="showForm('pentester')"> 
+                            <p class="register">for existing client/pentester, please go to the login page <a href="../pages/login.php">Login</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section> 
 
         <!-- Client Registration Form -->
         <form id="clientForm" style="display:none;" action="../processes/register_client.php" method="post">
@@ -134,35 +151,48 @@ if (isset($_SESSION['error'])) {
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+         
+                      
+                        
+                    
 
     </main>
     <?php
     include "../inc/footer.inc.php";
     ?>
 
-<script>
+<<script>
     function showForm(role) {
-    document.getElementById('clientForm').style.display = role === 'client' ? 'block' : 'none';
-    document.getElementById('pentesterForm').style.display = role === 'pentester' ? 'block' : 'none';
+        // Use the correct ID for the client form
+        var clientForm = document.getElementById('clientForm');
+        var pentesterForm = document.getElementById('pentesterForm');
+        var btnClient = document.getElementById('btnClient');
+        var btnPentester = document.getElementById('btnPentester');
 
-    // Handle button color change
-    if (role === 'client') {
-        
-        document.getElementById('btnClient').classList.remove('btn-secondary');
-        document.getElementById('btnClient').classList.add('btn-primary');
-        
-        document.getElementById('btnPentester').classList.remove('btn-primary');
-        document.getElementById('btnPentester').classList.add('btn-secondary');
-    } else if (role === 'pentester') {
-        
-        document.getElementById('btnPentester').classList.remove('btn-secondary');
-        document.getElementById('btnPentester').classList.add('btn-primary');
-        
-        document.getElementById('btnClient').classList.remove('btn-primary');
-        document.getElementById('btnClient').classList.add('btn-secondary');
+        if (clientForm && pentesterForm) {
+            clientForm.style.display = role === 'client' ? 'block' : 'none';
+            pentesterForm.style.display = role === 'pentester' ? 'block' : 'none';
+        }
+
+        // Handle button color change
+        if (btnClient && btnPentester) {
+            if (role === 'client') {
+                btnClient.classList.add('btn-primary');
+                btnClient.classList.remove('btn-secondary');
+                
+                btnPentester.classList.add('btn-secondary');
+                btnPentester.classList.remove('btn-primary');
+            } else if (role === 'pentester') {
+                btnPentester.classList.add('btn-primary');
+                btnPentester.classList.remove('btn-secondary');
+                
+                btnClient.classList.add('btn-secondary');
+                btnClient.classList.remove('btn-primary');
+            }
+        }
     }
-}
 </script>
+
 
 
     

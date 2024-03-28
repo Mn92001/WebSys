@@ -61,8 +61,13 @@
                             <td><?php echo htmlspecialchars($row['CoinsOffered']); ?></td>
                             <td>
                                 <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
-                                <button class="btn btn-success">Lock In</button>
-                            </td>
+                    <form action="../processes/projects/lockin.php" method="post">
+                        <input type="hidden" name="project_id" value="<?php echo htmlspecialchars($row['ProjectID']); ?>"> <!-- Hidden input field to send project ID -->
+                        <input type="hidden" name="project_expiry_date" value="<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>"> <!-- Hidden input field to send project expiry date -->
+                        <button type="submit" class="btn btn-primary">Lock In</button>
+                    </form>
+                                
+                            
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -95,8 +100,6 @@
         }
     </script>
 
-
-    
 </body> 
 
 </html> 

@@ -7,9 +7,9 @@
     <?php include "../inc/head.inc.php"; ?>
 </head>
 
-<body>
+<body> 
     <header>
-        <h1>About us</h1>
+        <h1> About us </h1> 
     </header>
     <?php include "../inc/nav.inc.php"; ?>
 

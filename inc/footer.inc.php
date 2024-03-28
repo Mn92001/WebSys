@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; 2024 Pentester Services</p>
+    <p>&copy; FortifyTech</p>
 </footer>
