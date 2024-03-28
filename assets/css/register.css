@@ -12,6 +12,7 @@ body {
     display: flex;
     height: 100vh;
     width: auto;
+    overflow: hidden;
 }
 
 section {
@@ -56,7 +57,7 @@ section .container .client-registrationBx .imgBx img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: cover;
 }
 
@@ -105,6 +106,44 @@ section .container .client-registrationBx .client-formBx input[type="button"] {
     font-weight: 500;
     letter-spacing: 1px;    
     transition: 0.5s;
+    margin-top: 20px;
+}
+
+section .container .client-registrationBx .client-formBx p {
+    margin-top: 20px;
+}
+
+.clientform-popup, .pentesterform-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Full width */
+    max-width: 800px;
+    height: auto; /* Full height */
+    max-height: 75%;
+    padding: 20px;
+    border: 1px solid #888;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: white; 
+    background-color: #e6f7ff; /* White background with opacity */
+    z-index: 9999; /* Sit on top */
+}
+
+.clientform-popup h2, .pentesterform-popup h2 {
+    text-transform: uppercase;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+#clientForm {
+    padding: 20px;
+}
+
+#pentesterForm {
+    padding: 20px;
 }
 
 @media (max-width: 768px) {
@@ -113,4 +152,25 @@ section .container .client-registrationBx .client-formBx input[type="button"] {
     }
 }
     
+@keyframes enlarge {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05); /* Adjust scale value to control the amount of enlargement */
+    }
+}
+
+.form-container {
+    animation: enlarge 0.3s ease forwards; /* Apply the animation with a duration of 0.3s */
+  }
+  
+  /* Optional: Animate the form on focus */
+  .form-container input:focus,
+  .form-container textarea:focus,
+  .form-container select:focus {
+    animation: enlarge 0.3s ease forwards;
+}
+  
+
 
