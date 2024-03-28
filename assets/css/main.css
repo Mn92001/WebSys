@@ -78,12 +78,6 @@ header h1 {
     border:none
   }
 
-  @media (max-width: 991px) {
-    .navbar-collapse {
-        background-color: #e0eff7;
-    }
-  }
-
 section {
     flex: 1;
     display: grid;
@@ -138,7 +132,7 @@ section {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.5);
     max-width: 65%;
-    width: 75%;
+    width: 80%;
     transition: all 0.5s ease;
 
 }
@@ -146,18 +140,6 @@ section {
 .carousel-caption h3 {
     font-size: calc(1.5vw + 1rem);
     font-family: 'Courier New', Courier, monospace
-}
-
-@media(max-width: 768px) {
-    .carousel-caption {
-        left: 10%;
-        bottom: 10%;
-        max-width: 80%;
-    }
-
-    .carousel-caption h3 {
-        font-size: calc(3vw + 1rem);
-    }
 }
 
 .d-block {
@@ -289,17 +271,6 @@ section {
     line-height: 1.6; /* Adjust as needed */
 }
 
-/* Responsive grid if needed */
-@media (min-width: 991px) {
-    .features-section .container {
-        display: flex;
-        justify-content: space-between;
-    }
-    .feature {
-        flex: 1;
-        padding: 0 10px; /* Spacing between columns */
-    }
-}
 
 .compliance-section {
     background-color: skyblue;
@@ -348,7 +319,35 @@ section {
 }
 
 /* Adjustments for smaller screens */
-@media (max-width: 991px) {
+@media (max-width: 769px) {
+    .features-section .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .carousel-inner {
+        padding-top: 40px;
+    }
+
+    .carousel-caption {
+        left: 5%;
+        bottom: 10%;
+        right: 5%;
+        transform: translateX(0);
+        max-width: none;
+        width: auto;
+        font-size: calc(8px + (17 - 8) * ((100vw - 320px) / (1920 - 320)));
+
+    }
+
+    .carousel-caption h3 {
+        font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1440 - 360)));
+    }
+
+    .feature {
+        flex: 1;
+        padding: 0 10px; /* Spacing between columns */
+    }
     .image-content,
     .text-content {
         padding-right: 30px;
@@ -359,6 +358,7 @@ section {
     .image-content {
         order: -1;
     }
+
 }
 
 
