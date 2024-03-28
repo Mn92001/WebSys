@@ -36,12 +36,23 @@ if (isset($_SESSION['error'])) {
                 <div class="user loginBx">
                     <div class="imgBx"><img src="../assets/images/login.png"></div>
                     <div class="formBx">
-                        <form> 
+                        <form action="../processes/process_login.php" method="post"> 
                             <h2>Login</h2>
-                            <input type="text" placeholder="Username">
-                            <input type="password" placeholder="Password">
-                            <input type="submit" value="Login">
-                            <p class="register">don't have an account? <a href="register.php">Register</a></p>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username:</label>
+                                <input required maxlength="45" required type="username" id="username" name="username" class="form-control" placeholder="Enter username">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input required type="password" id="password" name="password" class="form-control" placeholder="Enter password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}" >
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                            <div class="mb-3">
+                                <p class="register">Don't have an account? <a href="register.php">Register</a></p>
+                            </div>
                         </form>
                     </div>
                 </div>
