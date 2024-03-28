@@ -2,48 +2,112 @@
 <html lang="en">
 
 <head>
-    <title> Pentester - About us </title> 
+    <title>FortifyTech - About us</title>
+    <link rel="stylesheet" href="about_us.css">
     <?php include "../inc/head.inc.php"; ?>
-</head> 
+</head>
 
-
-<body> 
+<body>
     <header>
-        <h1> About us </h1> 
+        <h1>About us</h1>
     </header>
     <?php include "../inc/nav.inc.php"; ?>
-    <main>
-        <section id="intro">
-        <div class="panel panel-default">
-        <div class="panel-heading">Our Team</div>
-        <div class="panel-body">We are a team of skilled and experienced penetration testers dedicated to helping businesses identify and mitigate security vulnerabilities.</div>
-        </div>   
-        </section>
+
+    <!-- Image Section -->
+    <div class="image-section">
+        <img src="assets\images\annie-spratt-QckxruozjRg-unsplash.jpg" alt="About Us Image">
+        <div class="image-text">
+            <h2>Welcome to FortifyTech</h2>
+        </div>
+    </div>
+
+<!--================== Home Section Starts from Here ==================-->
+<div class="container">
+  <div class="card mission">
+    <div class="card-content">
+      <p class="card-title">Mission</p>
+      <p class="card-para">To provide top-notch pen testing services to fortify our clients' digital defenses.</p>
+    </div>
+  </div>
+  
+  <div class="card vision">
+    <div class="card-content">
+      <p class="card-title">Vision</p>
+      <p class="card-para">To become a global leader in cybersecurity by delivering innovative solutions and unparalleled expertise.</p>
+    </div>
+  </div>
+  
+  <div class="card goal">
+    <div class="card-content">
+      <p class="card-title">Goal</p>
+      <p class="card-para">To ensure the security and peace of mind of our clients by staying ahead of emerging cyber threats.</p>
+    </div>
+  </div>
+</div>
+<!--================== Home Section Ends Here -->
 
 
-        <section id="expertise">
-            <h2>Our Expertise</h2>
-            <p>With years of experience in cybersecurity and penetration testing, we have the knowledge and tools to uncover vulnerabilities across various systems and applications.</p>
-        </section>
+    <!--================== Our Team Section Starts from Here ==================-->
+    <section id="our-Team">
+        <h2>Our Team</h2>
+        <div class="teamContainer">
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">John Smith</h5>
+                <span class="role">Penetration Tester</span>
+            </div>
 
-        <section id="team">
-            <h2>Meet Our Team</h2>
-            <p>Our team consists of certified ethical hackers and cybersecurity experts who are passionate about protecting our clients' assets.</p>
-            <ul>
-                <li>John Smith - CEO and Lead Penetration Tester</li>
-                <li>Jane Doe - Chief Security Officer</li>
-                <li>Michael Johnson - Senior Penetration Tester</li>
-                <!-- Add more team members as needed -->
-            </ul>
-        </section>
+            <div class="card">
+        <div class="card-info">
+        <div class="card-avatar"></div>
+        <div class="card-title">Steve Jobs</div>
+        <div class="card-subtitle">CEO &amp; Co-Founder</div>
+        </div>
+        <ul class="card-social">
+        <li class="card-social__item">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"></path>
+      </svg></li>
+      <li class="card-social__item">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"></path>
+    </svg></li>
+    <li class="card-social__item">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"></path>
+      </svg>
+    </li>
+  </ul>
+</div>
 
-        <section id="mission">
-            <h2>Our Mission</h2>
-            <p>Our mission is to provide comprehensive penetration testing services to businesses of all sizes, helping them safeguard their data and infrastructure from cyber threats.</p>
-        </section>
 
-    </main>
+
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">Emily Johnson</h5>
+                <span class="role">Cybersecurity Analyst</span>
+            </div>
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">Michael Brown</h5>
+                <span class="role">Security Consultant</span>
+            </div>
+            <div class="team-item">
+                <img src="./teamMember.png" alt="">
+                <h5 class="member-name">Sarah Davis</h5>
+                <span class="role">Ethical Hacker</span>
+            </div>
+        </div>
+    </section>
+    <!--================== Our Team Section Ends Here -->
+
+    <!--================== Footer Starts from Here ==================-->
+    <footer>
+        <p>&copy; 2024 - All rights reserved - FortifyTech</p>
+    </footer>
+    <!--================== Footer Ends Here -->
+
     <?php include "../inc/footer.inc.php"; ?>
-</body> 
-</html> 
+</body>
 
+</html>
