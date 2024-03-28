@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-secondary">
+<nav class="navbar navbar-expand-sm">
     <div class="container-fluid" id="navbar"> 
         <div class="navbar-brand">
             <img src="../assets/images/logo.png" alt="Logo" class="logo">
