@@ -43,7 +43,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Expiry Date</th>
-                        <th>Client Approval Status</th>
+                        <th>Report Submission Status</th>
                         <th>Report Approval Status</th>
                     </tr>
                 </thead>
@@ -53,10 +53,19 @@
                         <tr>
                             <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
                             <td><?php echo htmlspecialchars($row['LockedInExpiryDate']); ?></td>
-                            <td><?php echo htmlspecialchars($row['ApprovalStatus']); ?></td>
-                            <td><?php echo htmlspecialchars($row['ClientApprovalStatus']); ?></td>
+                            <td><?php echo htmlspecialchars($row['ReportStatus']); ?></td>
                             <td>
-                            <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($projectName); ?>', '<?php echo htmlspecialchars($projectDescription); ?>', '<?php echo htmlspecialchars($coinsOffered); ?>', '<?php echo htmlspecialchars($projectExpiryDate); ?>', '<?php echo htmlspecialchars($roeFileName); ?>', '<?php echo htmlspecialchars($scopeFileName); ?>', '<?php echo htmlspecialchars($dateOfCompletion); ?>')">View Details</button>
+                                <?php echo $row['ClientApprovalStatus'] != null ? htmlspecialchars($row['ClientApprovalStatus']) : '-'; ?>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" onclick="openPopup(
+                                    '<?php echo htmlspecialchars($row['ProjectName']); ?>', 
+                                    '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', 
+                                    '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', 
+                                    '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', 
+                                    '<?php echo htmlspecialchars($row['ProjectID']); ?>', 
+                                    '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details
+                                </button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
