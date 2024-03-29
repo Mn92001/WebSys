@@ -15,7 +15,7 @@
                 <a class="nav-link" href="../pages/new_project.php">New Project</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/services.php">Project Status</a>
+                <a class="nav-link" href="../pages/project_status.php">Project Status</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../pages/tools.php">Account Statement</a>

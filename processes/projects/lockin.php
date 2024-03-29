@@ -71,33 +71,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt4 = $conn->prepare($updateProjectQuery);
                         $stmt4->bind_param("i", $projectID);
                         if ($stmt4->execute()) {
+
+                            //No default value for rest of the columns, wat values to assign?
+                            
+                            //$insertPentesterReportQuery = "INSERT INTO PentesterReport (LockedInID) VALUES (?)";
+                            //$stmt5 = $conn->prepare($insertPentesterReportQuery);
+                            //$stmt5->bind_param("i", $lockInRecordID);
+                            //if ($stmt5->execute()) {
+                                // Redirect to index.php or another page
+                            //    header("Location: ../../index.php");
+                             //   exit;
+                            //} else {
+                            //    $errorMsg .= "Failed to insert LockedInID into PentesterReport table.";
+                            //}
+                            //$stmt5->close(); // Close the fifth prepared statement
                             // Redirect to index.php or another page
-                            header("Location: ../../index.php");
+                            header("Location: ../../pages/projects.php");
                             exit;
                         } else {
                             $errorMsg .= "Failed to update Project table.";
                             $_SESSION['error'] = $errorMsg;
-                            header("Location: ../../pages/list_of_pentesters.php");
+                            header("Location: ../../pages/projects.php");
                             exit;
                         }
                         $stmt4->close(); // Close the fourth prepared statement
                     } else {
                         $errorMsg .= "Failed to update Pentester table with lockInRecordID.";
                         $_SESSION['error'] = $errorMsg;
-                        header("Location: ../../pages/list_of_pentesters.php");
+                        header("Location: ../../pages/projects.php");
                         exit;
                     }
                     $stmt3->close(); // Close the third prepared statement
                 } else {
                     $errorMsg .= "No changes were made. Check if the Pentester ID is correct.";
                     $_SESSION['error'] = $errorMsg;
-                    header("Location: ../../pages/list_of_pentesters.php");
+                    header("Location: ../../pages/projects.php");
                     exit;
                 }
             } else {
                 $errorMsg .= "ERROR: Could not execute query: $query. " . $conn->error;
                 $_SESSION['error'] = $errorMsg;
-                header("Location: ../../pages/list_of_pentesters.php");
+                header("Location: ../../pages/projects.php");
                 exit;
             }
 
@@ -106,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $errorMsg .= "ERROR: Could not prepare query: $query. " . $conn->error;
             $_SESSION['error'] = $errorMsg;
-            header("Location: ../../pages/list_of_pentesters.php");
+            header("Location: ../../pages/projects.php");
             exit;
         }
      // End of while loop

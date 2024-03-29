@@ -17,17 +17,22 @@
             lr.ApprovalStatus,
             lr.ProjectID,
             p.ProjectName, 
-            lr.PentesterID,
-            pr.ClientApprovalStatus
+            lr.PentesterID
+            
         FROM 
             LockInRecord lr
         JOIN 
             Project p ON lr.ProjectID = p.ProjectID
-        JOIN 
-            PentesterReport pr ON lr.LockedInID = pr.LockedInID
+
         WHERE 
             lr.PentesterID = ?; 
         ";
+
+        // PentesterReport table not updated, /processes/projects/lockin.php relevant code commented
+
+        // pr.ClientApprovalStatus
+        //JOIN 
+        //PentesterReport pr ON lr.LockedInID = pr.LockedInID
 
      // Statement for query
      if ($stmt = $conn->prepare($query)) {
@@ -65,4 +70,4 @@
     
         return $pentesterID;
     }
-?>
+?>        
