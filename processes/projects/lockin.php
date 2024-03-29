@@ -71,21 +71,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt4 = $conn->prepare($updateProjectQuery);
                         $stmt4->bind_param("i", $projectID);
                         if ($stmt4->execute()) {
-
-                            //No default value for rest of the columns, wat values to assign?
                             
-                            //$insertPentesterReportQuery = "INSERT INTO PentesterReport (LockedInID) VALUES (?)";
-                            //$stmt5 = $conn->prepare($insertPentesterReportQuery);
-                            //$stmt5->bind_param("i", $lockInRecordID);
-                            //if ($stmt5->execute()) {
-                                // Redirect to index.php or another page
-                            //    header("Location: ../../index.php");
-                             //   exit;
-                            //} else {
-                            //    $errorMsg .= "Failed to insert LockedInID into PentesterReport table.";
-                            //}
-                            //$stmt5->close(); // Close the fifth prepared statement
-                            // Redirect to index.php or another page
+                            $insertPentesterReportQuery = "INSERT INTO PentesterReport (LockedInID) VALUES (?)";
+                            $stmt5 = $conn->prepare($insertPentesterReportQuery);
+                            $stmt5->bind_param("i", $lockInRecordID);
+                            if ($stmt5->execute()) {
+                               // Redirect to index.php or another page
+                               header("Location: ../../index.php");
+                               exit;
+                            } else {
+                               $errorMsg .= "Failed to insert LockedInID into PentesterReport table.";
+                            }
+                            $stmt5->close(); // Close the fifth prepared statement
+                            
+                            //Redirect to index.php or another page
                             header("Location: ../../pages/projects.php");
                             exit;
                         } else {

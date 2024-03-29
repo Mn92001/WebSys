@@ -9,40 +9,33 @@
     $userID = $_SESSION['user_id'];
     $pentesterID = getPentesterID($conn, $userID);
 
-    // Query to get current project info
+    // Query to get pentester report info and findings info
     $query = "
         SELECT 
-            lr.LockedInID,
             lr.LockedInExpiryDate,
-            lr.ApprovalStatus,
-            lr.ProjectID,
             lr.PentesterID,
+            pr.PenReportID,
             pr.ClientApprovalStatus,
             pr.ReportStatus,
-            p.ProjectID,
-            p.ProjectName,
-            p.ProjectDescription,
-            p.ProjectExpiryDate,
-            p.CoinsOffered,
-            p.ROEFileName,
-            p.ScopeFileName,
-            p.DateOfCompletion
-            
+            pr.ReportFileName,
+            pr.ReportData,
+            GROUP_CONCAT(rf.Description) AS FindingsDescriptions,
+            GROUP_CONCAT(sl.SeverityLevel) AS SeverityLevels,
+            GROUP_CONCAT(sl.OWASP) AS OWASPs,
+            GROUP_CONCAT(sl.CVEDetails) AS CVEDetails
         FROM 
-            LockInRecord lr
+            PentesterReport pr
         JOIN 
-            Project p ON lr.ProjectID = p.ProjectID
-        JOIN 
-            PentesterReport pr ON lr.LockedInID = pr.LockedInID
+            LockInRecord lr ON pr.LockedInID = lr.LockedInID
+        JOIN
+            ReportFindings rf ON pr.PenReportID = rf.PenReportID
+        JOIN
+            SeverityListing sl ON rf.FindingID = sl.FindingID
         WHERE 
-            lr.PentesterID = ?; 
+            lr.PentesterID = ?
+        GROUP BY
+            pr.PenReportID;
         ";
-
-        // PentesterReport table not updated, /processes/projects/lockin.php relevant code commented
-
-        // pr.ClientApprovalStatus
-        //JOIN 
-        //PentesterReport pr ON lr.LockedInID = pr.LockedInID
 
      // Statement for query
      if ($stmt = $conn->prepare($query)) {
@@ -80,4 +73,4 @@
     
         return $pentesterID;
     }
-?>        
+?>  
