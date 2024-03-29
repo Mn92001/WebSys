@@ -15,19 +15,19 @@
         <section id="service1" class="blue-bg">
             <div class="service-section">
                 <div class="box" onclick="scrollToSection('service2')">
-                    <img src="assets\images\services (1).jpg" alt="Vulnerability Assessment">
+                    <img src="../assets/images/services (1).jpg" alt="Vulnerability Assessment">
                     <p>Vulnerability Assessment</p>
                 </div>
                 <div class="box" onclick="scrollToSection('service3')">
-                    <img src="assets\images\services (2).jpg" alt="Penetration Testing">
+                    <img src="../assets/images/services (2).jpg" alt="Penetration Testing">
                     <p>Penetration Testing</p>
                 </div>
                 <div class="box" onclick="scrollToSection('service4')">
-                    <img src="assets\images\services (3).jpg" alt="Security Audit">
+                    <img src="../assets/images/services (3).jpg" alt="Security Audit">
                     <p>Security Audit</p>
                 </div>
                 <div class="box" onclick="scrollToSection('service5')">
-                    <img src="assets\images\services (4).jpg" alt="Security Training">
+                    <img src="../assets/images/services (4).jpg" alt="Security Training">
                     <p>Security Training</p>
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <section id="service2" class="white-bg">
             <div class="service-section">
                 <div class="big-image">
-                    <img src="assets\images\Vulnerability.jpg" alt="Vulnerability Assessment">
+                    <img src="../assets/images/Vulnerability.jpg" alt="Vulnerability Assessment">
                 </div>
                 <div class="textbox">
                     <h2>Vulnerability Assessment</h2>
@@ -52,7 +52,7 @@
                     <p>Penetration testing, also known as pen testing, is a simulated cyberattack against a computer system to check for exploitable vulnerabilities. It's an essential component of a comprehensive security strategy and helps organizations identify and address security weaknesses before malicious actors can exploit them.</p>                
                 </div>
                 <div class="big-image">
-                    <img src="assets\images\Penetration.jpg" alt="Penetration Testing">
+                    <img src="../assets/images/Penetration_Testing.jpg" alt="Penetration Testing">
                 </div>
             </div>
         </section>
@@ -60,7 +60,7 @@
         <section id="service4" class="white-bg">
             <div class="service-section">
                 <div class="big-image">
-                    <img src="assets\images\SecurityAudit.jpg" alt="Security Audit">
+                    <img src="../assets/images/Security_Audit.jpg" alt="Security Audit">
                 </div>
                 <div class="textbox">
                     <h2>Security Audit</h2>
@@ -76,7 +76,7 @@
                     <p>Security training is essential for educating employees about cybersecurity best practices and reducing the risk of security incidents. Our customized security training programs cover topics such as phishing awareness, password security, and data protection, empowering employees to contribute to a secure work environment.</p>                
                 </div>
                 <div class="big-image">
-                    <img src="assets\images\SecurityTraining.jpg" alt="Security Training">
+                    <img src="../assets/images/Security_Training.jpg" alt="Security Training">
                 </div>
             </div>
         </section>
