@@ -34,7 +34,7 @@ if (isset($_SESSION['error'])) {
         <section>
             <div class="container">
                 <div class="client-registrationBx">
-                    <div class="imgBx"><img src="../assets/images/registration.png"></div>
+                    <div class="imgBx"><img src="../assets/images/Registration.png"></div>
                     <div class="client-formBx">
                         <form> 
                             <h2>Registration</h2>
