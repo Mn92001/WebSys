@@ -23,6 +23,17 @@
         .container .data-fields table {
             margin-top: 10px; /* Add margin between header fields and data fields */
         }
+
+        .btn-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 5px; /* Add margin between buttons and data fields */
+        }
+
+        .btn-group .btn {
+            margin-right: 10px; /* Add margin between buttons */
+        }
     </style>
 
 </head> 
@@ -72,22 +83,31 @@
                         <tr>
                             <th>Coins:</th>
                             <td><?php echo htmlspecialchars($row['TotalCoins']); ?></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Total Projects:</th>
                             <td><?php echo htmlspecialchars($row['Projects']); ?></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Username:</th>
                             <td><?php echo htmlspecialchars($row['Username']); ?></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Email:</th>
                             <td><?php echo htmlspecialchars($row['Email']); ?></td>
+                            <td><a href="../processes/account_client/update.php?type=email&id=<?php echo $userID; ?>" class="btn btn-primary">Change Email</a></td>
                         </tr>
                         <tr>
                             <th>Phone Number:</th>
                             <td><?php echo htmlspecialchars($row['PhoneNumber']); ?></td>
+                            <td><a href="../processes/account_client/update.php?type=phone&id=<?php echo $userID; ?>" class="btn btn-primary">Change Phone Number</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="../processes/account_client/update.php?type=password&id=<?php echo $userID; ?>" class="btn btn-primary">Change Password</a></td>
+                            <td><a href="../processes/account_client/update.php?type=delete&id=<?php echo $userID; ?>" class="btn btn-danger">Delete Account</a></td>
                         </tr>
                         <?php endwhile; ?>
                     </thead>
