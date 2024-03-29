@@ -195,32 +195,44 @@ function processPdfUpload($file) {
 }
 
 
-// Define the saveUserPentesterToDB function  
-function saveUserPentesterToDB($name, $description, $expiryDate, $completionDate, $coinsOffered, $roePdfContent, $roePdfFileName, $scopePdfContent, $scopePdfFileName, $availabilityStatus, $projectStatus, $clientID) {  
-    global $errorMsg, $success;  
+// Define the saveUserPentesterToDB function
+function saveUserPentesterToDB($name, $description, $expiryDate, $completionDate, $coinsOffered, $roePdfContent, $roePdfFileName, $scopePdfContent, $scopePdfFileName, $availabilityStatus, $projectStatus, $clientID) {
+    global $errorMsg, $success;
 
     include '../inc/db.php';
- 
+
     $stmt = $conn->prepare("INSERT INTO Project (ProjectName, ProjectDescription, ProjectExpiryDate, CoinsOffered, AvaliabilityStatus, ProjectStatus, ROEFileName, ROEData, ScopeFileName, ScopeData, DateOfCompletion, ClientID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     if (!$stmt) {
         echo "SQL prepare error: " . $conn->error;
     }
-    $stmt->bind_param("sssisssssssi", $name, $description, $expiryDate, $coinsOffered, $availabilityStatus, $projectStatus, $roePdfFileName, $roePdfContent, $scopePdfFileName, $scopePdfContent, $completionDate, $clientID);
-
 
     if (!$stmt->bind_param("sssisssssssi", $name, $description, $expiryDate, $coinsOffered, $availabilityStatus, $projectStatus, $roePdfFileName, $roePdfContent, $scopePdfFileName, $scopePdfContent, $completionDate, $clientID)) {
         echo "Parameter binding error: " . $stmt->error;
     }
 
-
-    if (!$stmt->execute()) {  
-        $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;  
-        $success = false;  
+    if (!$stmt->execute()) {
+        $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+        $success = false;
     } else {
+        // Increment project count in the Client table
+        $updateStmt = $conn->prepare("UPDATE Client SET Projects = Projects + 1 WHERE ClientID = ?");
+        if (!$updateStmt) {
+            echo "SQL prepare error: " . $conn->error;
+        }
 
+        if (!$updateStmt->bind_param("i", $clientID)) {
+            echo "Parameter binding error: " . $updateStmt->error;
+        }
+
+        if (!$updateStmt->execute()) {
+            $errorMsg = "Execute failed: (" . $updateStmt->errno . ") " . $updateStmt->error;
+            $success = false;
+        }
+
+        $updateStmt->close();
     }
 
-    $stmt->close();  
-    $conn->close();  
-}  
-?>
+    $stmt->close();
+    $conn->close();
+}
+?> 
