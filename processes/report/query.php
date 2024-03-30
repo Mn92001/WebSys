@@ -8,11 +8,11 @@
 
     $userID = $_SESSION['user_id'];
     $pentesterID = getPentesterID($conn, $userID);
-
+    $hasLockInRecords = checkForLockInRecords($conn, $pentesterID);
+    
     // Query to get pentester report info and findings info
     $query = "
         SELECT 
-            lr.LockedInExpiryDate,
             lr.PentesterID,
             pr.PenReportID,
             pr.ClientApprovalStatus,
@@ -20,34 +20,36 @@
             pr.ReportFileName,
             pr.ReportData,
             GROUP_CONCAT(rf.Description) AS FindingsDescriptions,
-            GROUP_CONCAT(sl.SeverityLevel) AS SeverityLevels,
-            GROUP_CONCAT(sl.OWASP) AS OWASPs,
-            GROUP_CONCAT(sl.CVEDetails) AS CVEDetails
+            GROUP_CONCAT(rf.SeverityLevel) AS SeverityLevels,
+            GROUP_CONCAT(rf.OWASP) AS OWASPs,
+            GROUP_CONCAT(rf.CVEDetail) AS CVEDetails
         FROM 
             PentesterReport pr
         JOIN 
             LockInRecord lr ON pr.LockedInID = lr.LockedInID
-        JOIN
+        LEFT JOIN
             ReportFindings rf ON pr.PenReportID = rf.PenReportID
-        JOIN
-            SeverityListing sl ON rf.FindingID = sl.FindingID
         WHERE 
             lr.PentesterID = ?
         GROUP BY
             pr.PenReportID;
         ";
-
+        
      // Statement for query
-     if ($stmt = $conn->prepare($query)) {
+     if ($hasLockInRecords != false && $stmt = $conn->prepare($query)) {
         $stmt->bind_param("i", $pentesterID);
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $_SESSION['PenReportID'] = $row['PenReportID'];
 
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
+            } 
+        }
         $stmt->close();
-     }
-
+    }
+    
     // Close connection
     $conn->close();
 
@@ -73,4 +75,28 @@
     
         return $pentesterID;
     }
+
+    // function to get the currently locked in records that have not yet been submitted
+    function checkForLockInRecords($conn, $pentesterID) {
+        $query = "
+            SELECT COUNT(lr.LockedInID) AS LockInCount
+            FROM LockInRecord lr
+            JOIN PentesterReport pr ON pr.LockedInID = lr.LockedInID
+            WHERE lr.PentesterID = ? AND pr.ClientApprovalStatus IS NULL;
+        ";
+    
+        if ($stmt = $conn->prepare($query)) {
+            $stmt->bind_param("i", $pentesterID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            
+            $stmt->close();
+            
+
+            return $row['LockInCount'] > 0;
+        }
+    
+        return false;
+    }   
 ?>  
