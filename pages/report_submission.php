@@ -10,6 +10,7 @@
 
 <body>
     <?php
+
     include "../inc/navpentester.inc.php";
     include "../processes/report/query.php";
 
@@ -34,54 +35,70 @@
     
     <main class="container mt-4">
         <h2>Report Submission</h2>
-        <?php if(mysqli_num_rows($result) > 0): ?>
-            
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Description</th>
-                        <th>Severity Level</th>
-                        <th>OWASP</th>
-                        <th>CVEDetails</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $no = 1;
-                    while($row = $result->fetch_assoc()):
-                        $descriptions = explode(',', $row['FindingsDescriptions']);
-                        $severityLevels = explode(',', $row['SeverityLevels']);
-                        $owasps = explode(',', $row['OWASPs']);
-                        $cveDetails = explode(',', $row['CVEDetails']);
+        
+        <!-- Check for any currently locked records that have not yet been submitted-->
+        <?php if ($hasLockInRecords): 
 
-                        for($i = 0; $i < count($descriptions); $i++): ?>
-                            <tr>
-                                <td><?php echo $no++; ?></td>
-                                <td><?php echo htmlspecialchars($descriptions[$i]); ?></td>
-                                <td><?php echo htmlspecialchars($severityLevels[$i]); ?></td>
-                                <td><?php echo htmlspecialchars($owasps[$i]); ?></td>
-                                <td><?php echo htmlspecialchars($cveDetails[$i]); ?></td>
-                            </tr>
-                            <?php $no += 1?>
-                        <?php endfor; ?>
-                    <?php endwhile; ?>
+            // Check for the first row, if description is not null, display table. Else, no findings 
+            $result->data_seek(0);
+            $row = $row = $result->fetch_assoc();
 
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
-                    </div>
-                </tbody>
-            </table>
+            if($row['FindingsDescriptions'] != NULL): ?>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Description</th>
+                            <th>Severity Level</th>
+                            <th>OWASP</th>
+                            <th>CVEDetails</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        $result->data_seek(0);
+                        
+                        while($row = $result->fetch_assoc()):
+                            
+                            $descriptions = explode(',', $row['FindingsDescriptions']);
+                            $severityLevels = explode(',', $row['SeverityLevels']);
+                            $owasps = explode(',', $row['OWASPs']);
+                            $cveDetails = explode(',', $row['CVEDetails']);
+                            
+                            for($i = 0; $i < count($descriptions); $i++): ?>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo htmlspecialchars($descriptions[$i]); ?></td>
+                                    <td><?php echo htmlspecialchars($severityLevels[$i]); ?></td>
+                                    <td><?php echo htmlspecialchars($owasps[$i]); ?></td>
+                                    <td><?php echo htmlspecialchars($cveDetails[$i]); ?></td>
+                                </tr>
+                                
+                            <?php endfor;?>                          
+                        <?php endwhile; ?>                                     
+                    </tbody>                  
+                </table>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
+                </div>
+
+            <?php else: ?>
+                <hr>
+                <p>No findings.</p>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
+                </div> 
+
+                <hr>
+            <?php endif; ?>
+
         <?php else: ?>
-            <hr>
-            <p>No findings.</p>
-            
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
-            </div>
-
-            <hr>
-        <?php endif; ?>
+        <p>No current locked in record found. Please go to the <a href="projects.php">New Projects</a> page.</p>
+    <?php endif; ?>
     </main>
 
 
