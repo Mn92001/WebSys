@@ -8,7 +8,7 @@
 
     $errorMsg = $successMsg = "";
     $success = true;
-    $reportPdfContent= $reportPdfFileName = "";
+    $reportPdfContent= $reportPdfFileName = $briefReportPdfContent = $briefReportPdfFileName = "";
 
     // Retrieve hidden input from approve form
     $userID = $_SESSION['user_id'];
@@ -16,33 +16,48 @@
     $submissionDate = date('Y-m-d H:i:s');
     $pentesterID = getPentesterID($conn, $userID);
     
-    // 1. Validate and sanitize resumePdf 
+    // 1. Validate and sanitize reportPdf 
     if (isset($_FILES['reportPdf']) && $_FILES['reportPdf']['error'] == 0) {
         $result = processPdfUpload($_FILES['reportPdf']);
         if (!$result) {
-            $errorMsg .= "There was an error processing the resume PDF or file is too large.";
+            $errorMsg .= "There was an error processing the report PDF or file is too large.";
             $success = false;
         } else {
             $reportPdfContent = $result['content'];
             $reportPdfFileName = $result['name'];
         }
     } else {
-        $errorMsg .= "Resume PDF is required.";
+        $errorMsg .= "Report PDF is required.";
+        $success = false;
+    }
+
+    // 2. Validate and sanitize briefReportPdf 
+    if (isset($_FILES['briefReportPdf']) && $_FILES['briefReportPdf']['error'] == 0) {
+        $result = processPdfUpload($_FILES['briefReportPdf']);
+        if (!$result) {
+            $errorMsg .= "There was an error processing the brief report PDF or file is too large.";
+            $success = false;
+        } else {
+            $briefReportPdfContent = $result['content'];
+            $briefReportPdfFileName = $result['name'];
+        }
+    } else {
+        $errorMsg .= "Brief Report PDF is required.";
         $success = false;
     }
 
     if($success){
         // Query statement to update the PentesterReport table
-        $query = "UPDATE PentesterReport SET ClientApprovalStatus = 'Pending', SubmissionDate = ?, ReportFileName = ?, ReportData = ?, ReportStatus = 'Submitted' WHERE PenReportID = ?";
+        $query = "UPDATE PentesterReport SET ClientApprovalStatus = 'Pending', SubmissionDate = ?, ReportFileName = ?, ReportData = ?, ReportStatus = 'Submitted', BriefReportFileName = ?, BriefReportData = ? WHERE PenReportID = ?";
 
         // Statement for query
         if ($stmt = $conn->prepare($query)) {
-            $stmt->bind_param("sssi", $submissionDate, $reportPdfFileName, $reportPdfContent, $penReportID);
+            $stmt->bind_param("sssssi", $submissionDate, $reportPdfFileName, $reportPdfContent, $briefReportPdfFileName, $briefReportPdfContent, $penReportID);
 
             if ($stmt->execute()) {
                 // Check if any rows were updated
                 if ($stmt->affected_rows > 0) {
-                    $successMsg .= "Successfully submitted pentester report. Please wait for the Client's approval. ";
+                    $successMsg .= "Successfully submitted pentester report. Please wait for the client to approve. ";
                     $_SESSION['success'] = $successMsg;
 
                 } else {

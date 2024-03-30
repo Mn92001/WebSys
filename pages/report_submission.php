@@ -91,6 +91,10 @@
                         <input type="file" id="reportPdf" name="reportPdf" class="form-control" accept="application/pdf" required>
                     </div>
                     <div class="mb-3">
+                        <label for="briefReportPdf" class="form-label">Brief Pentester Report (PDF):</label>
+                        <input type="file" id="briefReportPdf" name="briefReportPdf" class="form-control" accept="application/pdf" required>
+                    </div>
+                    <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>

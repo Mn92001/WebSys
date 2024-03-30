@@ -53,6 +53,7 @@ if (isset($_SESSION['error'])) {
                     <th>Name</th>
                     <th>Expiry Date</th>
                     <th>Status</th>
+                    <th>Brief Report</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -63,14 +64,22 @@ if (isset($_SESSION['error'])) {
                         <td><?php echo htmlspecialchars($row['ProjectExpiryDate']); ?></td>
                         <td><?php echo htmlspecialchars($row['ProjectStatus']); ?></td>
                         <td>
+                            <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
+                                <a href="../processes/projects/download.php?type=briefReport&id=<?php echo $row['ProjectID']; ?>" class="btn btn-link btn-sm">Download Brief Report</a>
+                            <?php else:?>
+                                <p>-</p>
+                            
+                            <?php endif; ?>
+                        </td>
+                        <td>
                             <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
 
-                            <?php if ($row['ProjectStatus'] == 'Completed'): ?>
-                                <button class="btn btn-primary" onclick="openApprovePopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">Approve</button>
+                            <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
+                                <button class="btn btn-success" onclick="openApprovePopup()">Approve</button>
                             <?php endif; ?>
-                            </td>
-                            </tr>
-                            <?php endwhile; ?>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
         
@@ -90,6 +99,19 @@ if (isset($_SESSION['error'])) {
                                "<p><strong>Coins Offered:</strong> " + coinsOffered + "</p>" +
                                "<p><strong>Expiry Date:</strong> " + expiryDate + "</p>" +
                                "<p><strong>Download Resume:</strong> <a href='../processes/projects/download.php?type=roe&id=" + projectID + "' class='btn btn-link btn-sm'>Download Rules of Engagemnt</a></p>" +
+                                "<p><strong>Download Certification:</strong> <a href='../processes/projects/download.php?type=scope&id=" + projectID + "' class='btn btn-link btn-sm'>Download Scope</a></p>" +
+                               "<p><strong>Completion Date:</strong> " + completionDate + "</p>" 
+
+            // Create popup window
+            var popupWindow = window.open("", "_blank", "width=400,height=400");
+
+            // Write content to popup window
+            popupWindow.document.write(popupContent);
+        }
+
+        function openApprovePopup() {
+            // Create popup content
+            var popupContent = "<p><strong>Download Brief Pentester Report:</strong> <a href='../processes/projects/download.php?type=roe&id=" + projectID + "' class='btn btn-link btn-sm'>Download Rules of Engagemnt</a></p>" +
                                 "<p><strong>Download Certification:</strong> <a href='../processes/projects/download.php?type=scope&id=" + projectID + "' class='btn btn-link btn-sm'>Download Scope</a></p>" +
                                "<p><strong>Completion Date:</strong> " + completionDate + "</p>" 
 
