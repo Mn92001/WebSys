@@ -61,10 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['success'] = $successMsg;
                     $_SESSION['approved'] = "Approved";
 
-                    // Update the Pentester table with the lockInRecordID
-                    $updateQuery = "UPDATE Pentester SET NoActiveLockedIn = ? WHERE PentesterID = ?";
+                    // Update the number of currently locked in projects in Pentester table
+                    $updateQuery = "UPDATE Pentester SET NoActiveLockedIn = 1 WHERE PentesterID = ?";
                     $stmt3 = $conn->prepare($updateQuery);
-                    $stmt3->bind_param("ii", $lockInRecordID, $pentesterID);
+                    $stmt3->bind_param("i", $pentesterID);
                     if ($stmt3->execute()) {
                         // Update the Projects table with the status
                         $updateProjectQuery = "UPDATE Project SET AvaliabilityStatus = 'Taken', ProjectStatus = 'In-progress' WHERE ProjectID = ?";

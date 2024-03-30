@@ -13,7 +13,7 @@
 
     include "../inc/navpentester.inc.php";
     include "../processes/current_projects/query.php";
-
+    include "../processes/current_projects/details.php"; 
     
 
     // Retrieve and display success message
@@ -49,7 +49,7 @@
                 </thead>
                 <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
-                        <?php include "../processes/current_projects/details.php"; ?>
+                        
                         <tr>
                             <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
                             <td><?php echo htmlspecialchars($row['LockedInExpiryDate']); ?></td>

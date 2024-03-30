@@ -30,7 +30,7 @@
         LEFT JOIN
             ReportFindings rf ON pr.PenReportID = rf.PenReportID
         WHERE 
-            lr.PentesterID = ?
+            lr.PentesterID = ? AND pr.ReportStatus = 'Pending'
         GROUP BY
             pr.PenReportID;
         ";
@@ -82,7 +82,7 @@
             SELECT COUNT(lr.LockedInID) AS LockInCount
             FROM LockInRecord lr
             JOIN PentesterReport pr ON pr.LockedInID = lr.LockedInID
-            WHERE lr.PentesterID = ? AND pr.ClientApprovalStatus IS NULL;
+            WHERE lr.PentesterID = ? AND pr.ReportStatus = 'Pending';
         ";
     
         if ($stmt = $conn->prepare($query)) {

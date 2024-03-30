@@ -122,11 +122,11 @@ if (isset($_SESSION['error'])) {
                 </div>
                 <div class="mb-3">
                     <label for="resumePdf" class="form-label">Resume (PDF):</label>
-                    <input type="file" id="resumePdf" name="resumePdf" class="form-control" accept="application/pdf">
+                    <input type="file" id="resumePdf" name="resumePdf" class="form-control" accept="application/pdf" required>
                 </div>
                 <div class="mb-3">
                     <label for="certPdf" class="form-label">Certification (PDF):</label>
-                    <input type="file" id="certPdf" name="certPdf" class="form-control" accept="application/pdf">
+                    <input type="file" id="certPdf" name="certPdf" class="form-control" accept="application/pdf" required>
                 </div>
                 <div class="mb-3">
                     <label for="pwd" class="form-label">Password:</label>
