@@ -85,6 +85,17 @@
                     <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
                 </div>
 
+                <form id="penReportForm" action="../processes/report/submit.php" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="reportPdf" class="form-label">Pentester Report (PDF):</label>
+                        <input type="file" id="reportPdf" name="reportPdf" class="form-control" accept="application/pdf" required>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+                </form>
+
             <?php else: ?>
                 <hr>
                 <p>No findings.</p>

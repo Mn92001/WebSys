@@ -25,11 +25,7 @@
 
     if (isset($_SESSION['PenReportID'])) {
         $penReportID = $_SESSION['PenReportID'];
-        echo "PenReportID: " . htmlspecialchars($_SESSION['PenReportID']);
-    } else {
-        // Handle the case where penReportID is not set in the session.
-        echo "PenReportID is not set or is null.";
-    }
+    } 
     ?>
      
      <main class="container">
