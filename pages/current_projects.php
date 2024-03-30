@@ -33,8 +33,8 @@
         echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
     }
     ?>
+ 
 
-    
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container mt-4">
             <h2>Current Projects</h2>
