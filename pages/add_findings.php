@@ -5,6 +5,7 @@
     <title>Add Findings</title>
     <?php
     include "../inc/head.inc.php";
+    include "../inc/header.inc.php";
     ?>
 </head>
 

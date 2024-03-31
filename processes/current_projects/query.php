@@ -35,14 +35,9 @@
         JOIN 
             PentesterReport pr ON lr.LockedInID = pr.LockedInID
         WHERE 
-            lr.PentesterID = ?; 
+            lr.PentesterID = ? 
+        ORDER BY FIELD(pr.ClientApprovalStatus, 'Pending', 'Approved'), p.ProjectName ASC;
         ";
-
-        // PentesterReport table not updated, /processes/projects/lockin.php relevant code commented
-
-        // pr.ClientApprovalStatus
-        //JOIN 
-        //PentesterReport pr ON lr.LockedInID = pr.LockedInID
 
      // Statement for query
      if ($stmt = $conn->prepare($query)) {

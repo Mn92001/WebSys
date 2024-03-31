@@ -50,7 +50,7 @@
                 <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         
-                        <tr>
+                        <tr class="<?php echo $row['ClientApprovalStatus'] == 'Approved' ? 'table-secondary' : ''; ?>">
                             <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
                             <td><?php echo htmlspecialchars($row['LockedInExpiryDate']); ?></td>
                             <td><?php echo htmlspecialchars($row['ReportStatus']); ?></td>
