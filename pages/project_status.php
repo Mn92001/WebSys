@@ -58,7 +58,7 @@ if (isset($_SESSION['error'])) {
             </thead>
             <tbody>
                 <?php while($row = $result->fetch_assoc()): ?>
-                    <tr class="<?php echo $row['ProjectStatus'] == 'Completed' ? 'table-info' : ''; ?>">
+                    <tr>
                         <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
                         <td><?php echo htmlspecialchars($row['ProjectExpiryDate']); ?></td>
                         <td><?php echo htmlspecialchars($row['ProjectStatus']); ?></td>
@@ -66,7 +66,7 @@ if (isset($_SESSION['error'])) {
                             <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
                                 <a href="../processes/projects/download.php?type=briefReport&id=<?php echo $row['ProjectID']; ?>" class="btn btn-link btn-sm">Download Brief Report</a>
                             <?php elseif($row['ClientApprovalStatus'] == 'Approved'): ?>
-                                <a href="../processes/projects/download.php?type=fullReport&id=<?php echo $row['ProjectID']; ?>" class="btn btn-link btn-sm">Download Full Report</a>
+                                <a href="../processes/projects/download.php?type=fullReport&id=<?php echo $row['ProjectID']; ?>" class="btn btn-link link-success btn-sm">Download Full Report</a>
                             <?php else:?>
                                 <p>-</p>   
                             <?php endif; ?>
