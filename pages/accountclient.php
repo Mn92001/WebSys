@@ -53,6 +53,7 @@
                         <tr>
                             <th>Coins:</th>
                             <td><?php echo htmlspecialchars($row['TotalCoins']); ?></td>
+                            <td><input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();"></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -87,6 +88,46 @@
                 </table>
             </div>
             
+            <div class="coinsform-popup" id="coinsFormPopup">
+                <!-- Coins Top-up Form -->
+                <form id="coinsForm" style="display:none;" action="../processes/account_client/update.php" method="post">
+                    <input type="hidden" name="update_type" value="coins">
+                    <h2>Top-up Coins</h2>
+                    <div class="mb-3">
+                        <label for="coins" class="form-label">Coins:</label>
+                        <input required type="number" id="coins" name="coins" class="form-control" placeholder="Enter coins to top up" min="1">
+                        <div class="invalid-feedback">
+                            Please enter a valid number for coins.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="creditCard" class="form-label">Credit Card Number:</label>
+                        <input required type="text" id="creditCard" name="creditCard" class="form-control" placeholder="Enter credit card number" pattern="\d{16}" title="Credit card number must be 16-digits">
+                        <div class="invalid-feedback">
+                            Please enter a 16-digit number for the credit card.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="expiryDate" class="form-label">Expiry Date (MM/YY):</label>
+                        <input required type="text" id="expiryDate" name="expiryDate" class="form-control" placeholder="Enter expiry date (MM/YY)" pattern="(0[1-9]|1[0-2])\/\d{2}" title="Expiry date must be in MM/YY format">
+                        <div class="invalid-feedback">
+                            Please enter expiry date in MM/YY format.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pin" class="form-label">3-digit PIN:</label>
+                        <input required type="password" id="pin" name="pin" class="form-control" placeholder="Enter 3-digit PIN" pattern="[0-9]{3}" title="PIN must be a 3-digit number">
+                        <div class="invalid-feedback">
+                            Please enter a 3-digit PIN.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
+                    </div>
+                </form>
+            </div>
+
             <div class="emailform-popup" id="emailFormPopup">
             <!-- The email Registration Form -->
             <form id="emailForm" style="display:none;" action="../processes/account_client/update.php" method="post">
@@ -179,16 +220,19 @@
             var numberForm = document.getElementById('numberForm');
             var passwordForm = document.getElementById('passwordForm');
             var deleteForm = document.getElementById('deleteForm');
+            var coinsForm = document.getElementById('coinsForm');
             var btnemail = document.getElementById('btnemail');
             var btnnumber = document.getElementById('btnnumber');
             var btnpassword = document.getElementById('btnpassword');
             var btndelete = document.getElementById('btndelete');
+            var btncoins = document.getElementById('btncoins');
 
-            if (emailForm && numberForm && passwordForm && deleteForm) {
+            if (emailForm && numberForm && passwordForm && deleteForm && coinsForm) {
                 emailForm.style.display = role === 'email' ? 'block' : 'none';
                 numberForm.style.display = role === 'number' ? 'block' : 'none';
                 passwordForm.style.display = role === 'password' ? 'block' : 'none';
                 deleteForm.style.display = role === 'delete' ? 'block' : 'none';
+                coinsForm.style.display = role === 'coins' ? 'block' : 'none';
             }
 
             
@@ -199,6 +243,7 @@
             document.getElementById("numberFormPopup").style.display = "none";
             document.getElementById("passwordFormPopup").style.display = "none";
             document.getElementById("deleteFormPopup").style.display = "none";
+            document.getElementById("coinsFormPopup").style.display = "none";
         }
 
         function opennumberForm() {
@@ -206,6 +251,7 @@
             document.getElementById("numberFormPopup").style.display = "block";
             document.getElementById("passwordFormPopup").style.display = "none";
             document.getElementById("deleteFormPopup").style.display = "none";
+            document.getElementById("coinsFormPopup").style.display = "none";
         }
 
         function openpasswordForm() {
@@ -213,6 +259,7 @@
             document.getElementById("numberFormPopup").style.display = "none";
             document.getElementById("passwordFormPopup").style.display = "block";
             document.getElementById("deleteFormPopup").style.display = "none";
+            document.getElementById("coinsFormPopup").style.display = "none";
         }
         
         function opendeleteForm() {
@@ -220,6 +267,15 @@
             document.getElementById("numberFormPopup").style.display = "none";
             document.getElementById("passwordFormPopup").style.display = "none";
             document.getElementById("deleteFormPopup").style.display = "block";
+            document.getElementById("coinsFormPopup").style.display = "none";
+        }
+
+        function opencoinsForm() {
+            document.getElementById("emailFormPopup").style.display = "none";
+            document.getElementById("numberFormPopup").style.display = "none";
+            document.getElementById("passwordFormPopup").style.display = "none";
+            document.getElementById("deleteFormPopup").style.display = "none";
+            document.getElementById("coinsFormPopup").style.display = "block";
         }
 
         // JavaScript function to close the popup form
@@ -228,6 +284,7 @@
             document.getElementById("numberFormPopup").style.display = "none";
             document.getElementById("passwordFormPopup").style.display = "none";
             document.getElementById("deleteFormPopup").style.display = "none";
+            document.getElementById("coinsFormPopup").style.display = "none";
         }
     </script>
 

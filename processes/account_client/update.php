@@ -130,6 +130,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->close();
             break;
 
+
+            case "coins":
+                // Handle coins top-up
+                    if (!empty($_POST["coins"])) {
+                        $coins = sanitize_input($_POST["coins"]);
+                
+                        // Ensure coins is a positive integer
+                        if (!is_numeric($coins) || $coins <= 0 || floor($coins) != $coins) {
+                            $errorMsg .= "Invalid coins value. Coins must be a positive integer.";
+                            $success = false;
+                        } else {
+                            // Update total coins for the user
+                            $stmt = $conn->prepare("UPDATE UserMaster SET TotalCoins = TotalCoins + ? WHERE UserID = ?");
+                            $stmt->bind_param("ii", $coins, $userID);
+                            $stmt->execute();
+                            if ($stmt->affected_rows === 0) {
+                                $errorMsg = "Failed to update coins.";
+                                $success = false;
+                            }
+                            $stmt->close();
+                        }
+                    } else {
+                        $errorMsg .= "Coins value is required.";
+                        $success = false;
+                    }
+                break;
+            
+
+
         default:
             // Handle unknown update type
             break;
