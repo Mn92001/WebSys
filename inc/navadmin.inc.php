@@ -15,7 +15,7 @@
                 <a class="nav-link" href="../pages/list_of_pentesters.php">Pentesters</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../pages/services.php">Transfer Coins</a>
+                <a class="nav-link" href="../pages/adminprojects.php">Ongoing Projects</a>
             </li>
         </ul>
         <div class="ms-auto">
