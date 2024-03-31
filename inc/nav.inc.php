@@ -29,7 +29,7 @@
             <div class="ms-auto">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/login.php">
+                        <a class="nav-link" href="../pages/login.php">Login
                             <i class="fa-solid fa-circle-user" title="Login"></i>
                         </a>
                     </li>
@@ -38,7 +38,7 @@
             <div class="ml-auto">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../pages/register.php">
+                        <a class="nav-link" href="../pages/register.php">Register
                             <i class="fa-solid fa-pen-to-square" title="Register"></i>
                         </a>
                     </li>
