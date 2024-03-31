@@ -46,6 +46,14 @@
 
         echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
     } 
+
+    // Retrieve and display error messages
+    if (isset($_SESSION['error'])) {
+        $errorMsg = $_SESSION['error'];
+        unset($_SESSION['error']); 
+        
+        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
+    }
     ?>
 <main> 
     <!-- Carousel -->
