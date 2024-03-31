@@ -58,7 +58,7 @@ if (isset($_SESSION['error'])) {
             </thead>
             <tbody>
                 <?php while($row = $result->fetch_assoc()): ?>
-                    <tr>
+                    <tr class="<?php echo $row['ProjectStatus'] == 'Completed' ? 'table-info' : ''; ?>">
                         <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
                         <td><?php echo htmlspecialchars($row['ProjectExpiryDate']); ?></td>
                         <td><?php echo htmlspecialchars($row['ProjectStatus']); ?></td>

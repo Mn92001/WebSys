@@ -31,7 +31,8 @@ $query = "
     FROM Project p
     LEFT JOIN LockInRecord lr ON lr.ProjectID = p.ProjectID
     LEFT JOIN PentesterReport pr ON pr.LockedInID = lr.LockedInID
-    WHERE ClientID = ?;
+    WHERE ClientID = ?
+    ORDER BY FIELD(p.ProjectStatus, 'NotStarted', 'In-progress', 'Completed'), p.ProjectName ASC;
 ";
 
 // Statement for query
