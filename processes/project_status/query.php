@@ -18,16 +18,19 @@ $clientID = retrieveClientID($conn, $user_id);
 // Query to get project info
 $query = "
     SELECT
-        ProjectID,
-        ProjectName,
-        ProjectDescription,
-        ProjectExpiryDate,
-        CoinsOffered,
-        ROEFileName,
-        ScopeFileName,
-        DateOfCompletion,
-        ProjectStatus
-    FROM Project
+        p.ProjectID,
+        p.ProjectName,
+        p.ProjectDescription,
+        p.ProjectExpiryDate,
+        p.CoinsOffered,
+        p.ROEFileName,
+        p.ScopeFileName,
+        p.DateOfCompletion,
+        p.ProjectStatus,
+        pr.ClientApprovalStatus
+    FROM Project p
+    LEFT JOIN LockInRecord lr ON lr.ProjectID = p.ProjectID
+    LEFT JOIN PentesterReport pr ON pr.LockedInID = lr.LockedInID
     WHERE ClientID = ?;
 ";
 

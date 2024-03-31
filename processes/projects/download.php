@@ -13,6 +13,10 @@ if (isset($_GET['type']) && isset($_GET['id'])) {
     // Retrieve the file information based on the type
     if ($type === 'roe') {
         $query = "SELECT ROEData, ROEFileName FROM Project WHERE ProjectID = ?";
+    } elseif ($type === 'briefReport'){
+        $query = "SELECT pr.BriefReportData, pr.BriefReportFileName FROM PentesterReport pr JOIN LockInRecord lr ON lr.LockedInID = pr.LockedInID JOIN Project p ON p.ProjectID = lr.ProjectID WHERE p.ProjectID = ?";
+    } elseif ($type === 'fullReport'){
+        $query = "SELECT pr.ReportData, pr.ReportFileName FROM PentesterReport pr JOIN LockInRecord lr ON lr.LockedInID = pr.LockedInID JOIN Project p ON p.ProjectID = lr.ProjectID WHERE p.ProjectID = ?";
     } else {
         $query = "SELECT ScopeData, ScopeFileName FROM Project WHERE ProjectID = ?";
     }
