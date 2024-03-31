@@ -103,7 +103,6 @@ section {
 
 .carousel-inner {
     position: relative; 
-    padding-top: 40px;
 }
 
 .carousel-item {
@@ -325,10 +324,6 @@ section {
         justify-content: space-between;
     }
 
-    .carousel-inner {
-        padding-top: 40px;
-    }
-
     .carousel-caption {
         left: 5%;
         bottom: 10%;
@@ -336,8 +331,7 @@ section {
         transform: translateX(0);
         max-width: none;
         width: auto;
-        font-size: calc(8px + (17 - 8) * ((100vw - 320px) / (1920 - 320)));
-
+        font-size: calc(10px + (17 - 10) * ((100vw - 320px) / (1920 - 320)));
     }
 
     .carousel-caption h3 {

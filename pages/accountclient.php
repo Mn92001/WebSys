@@ -4,20 +4,28 @@
 <head>
     <title>New Projects</title>
     <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/header.inc.php"; ?> 
+    <!-- <?php include "../inc/header.inc.php"; ?>  -->
     <?php include '../inc/db.php';?> 
 
     <style>
         /* Adjust layout to display data fields top-down */
+        body {
+            /* background-color: #557085; */
+            font-family:'Verdana', sans-serif;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 20px;
+            margin-top: 50px;
+            padding-bottom: 100px; 
         }
 
         .container .table {
-            width: 100%; /* Adjust width of tables */
+            position: relative;
+            width: 800px;
+            height: 500px; /* Adjust width of tables */
         }
 
         .container .data-fields table {

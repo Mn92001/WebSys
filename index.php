@@ -44,7 +44,7 @@
         $successMsg = $_SESSION['success'];
         unset($_SESSION['success']); 
 
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
     } 
     ?>
 <main> 

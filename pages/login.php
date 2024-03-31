@@ -15,7 +15,7 @@ if (isset($_SESSION['error'])) {
 <head>
     <title>Login</title>
     <?php include "../inc/head.inc.php"; ?>
-     <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
     
 </head>
 
