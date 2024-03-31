@@ -4,8 +4,46 @@
 <head>
     <title>New Projects</title>
     <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/header.inc.php"; ?> 
+    <!-- <?php include "../inc/header.inc.php"; ?>  -->
     <?php include '../inc/db.php';?> 
+
+    <style>
+        /* Adjust layout to display data fields top-down */
+        body {
+            /* background-color: #557085; */
+            font-family:'Verdana', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 50px;
+            padding-bottom: 100px; 
+        }
+
+        .container .table {
+            position: relative;
+            width: 800px;
+            height: 500px; /* Adjust width of tables */
+        }
+
+        .container .data-fields table {
+            margin-top: 10px; /* Add margin between header fields and data fields */
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 5px; /* Add margin between buttons and data fields */
+        }
+
+        .btn-group .btn {
+            margin-right: 10px; /* Add margin between buttons */
+        }
+    </style>
+
 </head> 
 
 <body>
