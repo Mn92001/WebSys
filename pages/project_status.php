@@ -20,8 +20,6 @@
 <?php
 session_start();
 
-$userID = $_SESSION['user_id'];
-
 include '../inc/db.php';
 include "../inc/navclient.inc.php";
 include "../processes/project_status/query.php";
@@ -47,12 +45,14 @@ if (isset($_SESSION['error'])) {
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main class="container mt-4">
         <h2>Project Status</h2>
+
         <table class="table">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Expiry Date</th>
                     <th>Status</th>
+                    <th>Report</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -63,14 +63,27 @@ if (isset($_SESSION['error'])) {
                         <td><?php echo htmlspecialchars($row['ProjectExpiryDate']); ?></td>
                         <td><?php echo htmlspecialchars($row['ProjectStatus']); ?></td>
                         <td>
+                            <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
+                                <a href="../processes/projects/download.php?type=briefReport&id=<?php echo $row['ProjectID']; ?>" class="btn btn-link btn-sm">Download Brief Report</a>
+                            <?php elseif($row['ClientApprovalStatus'] == 'Approved'): ?>
+                                <a href="../processes/projects/download.php?type=fullReport&id=<?php echo $row['ProjectID']; ?>" class="btn btn-link link-success btn-sm">Download Full Report</a>
+                            <?php else:?>
+                                <p>-</p>   
+                            <?php endif; ?>
+                        </td>
+                        <td>
                             <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
 
-                            <?php if ($row['ProjectStatus'] == 'Completed'): ?>
-                                <button class="btn btn-primary" onclick="openApprovePopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">Approve</button>
+                            <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
+                                <form action="../processes/process_payment_detail.php" method="post">
+                                    <input type="hidden" name="projectID" value="<?php echo $row['ProjectID']; ?>">
+                                    <input type="hidden" name="receiver" value="Pentester">
+                                    <button class="btn btn-success" type="submit">Approve</a>
+                                </form>
                             <?php endif; ?>
-                            </td>
-                            </tr>
-                            <?php endwhile; ?>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
         
@@ -99,6 +112,7 @@ if (isset($_SESSION['error'])) {
             // Write content to popup window
             popupWindow.document.write(popupContent);
         }
+
     </script>
 
 </body> 
