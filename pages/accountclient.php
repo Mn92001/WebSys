@@ -120,6 +120,9 @@
                             <td><input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();"></td>
                             <td><input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();"></td>
                         </tr>
+                        <tr>
+                            <td><a href='authenticator_pair.php' class="btn btn-secondary btn-sm" role='button'>Enable Two Factor Authentication</a></td>
+                        </tr>
                         </tr>
                         <?php endwhile; ?>
                     </thead>

@@ -1,7 +1,6 @@
 <?php 
 session_start(); 
 
-// Check for any error messages
 $errorMsg = "";
 if (isset($_SESSION['error'])) {
     $errorMsg = $_SESSION['error'];

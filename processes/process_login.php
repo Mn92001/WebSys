@@ -1,6 +1,7 @@
 <?php
     session_start();
-
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
     $errorMsg = "";
 
     include '../inc/db.php';
@@ -53,40 +54,53 @@
                      header("Location: ../pages/login.php");
                      exit;
                 } else {
-                    // Password verified, login successful
-                    echo "<div class='result-container'>";
-                    echo "<h1>Login successful!</h1>";
-                    echo "<p>Welcome back, " . $row['FullName'] . " </p>";
+                    $is2FAEnabled = check2FAEnabled($conn, $username);
 
+                    if ($is2FAEnabled) {
+                        session_start(); 
+                        $_SESSION['username'] = $username;
+                        $_SESSION['role'] = $row['Role'];
+                        $_SESSION['user_id'] = $row['UserID'];
+                        header('Location: ../pages/login_2fa.php');
+                        exit;
+                    } else {
+                        // Start session after successful login
+                        session_start(); 
+                        $_SESSION['username'] = $username;
+                        $_SESSION['role'] = $row['Role'];
+                        $_SESSION['user_id'] = $row['UserID'];
+                        $_SESSION['success'] = "Login successful.";
+                        $_SESSION['approved'] = "Approved";
+
+                        // Option to return to home page
+                        header("Location: ../index.php");
+                        exit;
+                    }   
+                }
+            } else {
+
+                $is2FAEnabled = check2FAEnabled($conn, $username);
+
+                if ($is2FAEnabled) {
+                    session_start(); 
+                    $_SESSION['username'] = $username;
+                    $_SESSION['role'] = $row['Role'];
+                    $_SESSION['user_id'] = $row['UserID'];
+                    header('Location: ../pages/login_2fa.php.php');
+                    exit;
+                } else {
                     // Start session after successful login
                     session_start(); 
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = $row['Role'];
                     $_SESSION['user_id'] = $row['UserID'];
                     $_SESSION['success'] = "Login successful.";
-                    $_SESSION['approved'] = "Approved";
+
 
                     // Option to return to home page
                     header("Location: ../index.php");
                     exit;
-                }
-            } else {
-                // Password verified, login successful
-                echo "<div class='result-container'>";
-                echo "<h1>Login successful!</h1>";
-                echo "<p>Welcome back, " . $row['FullName'] . " </p>";
-
-                // Start session after successful login
-                session_start(); 
-                $_SESSION['username'] = $username;
-                $_SESSION['role'] = $row['Role'];
-                $_SESSION['user_id'] = $row['UserID'];
-                $_SESSION['success'] = "Login successful.";
-
-
-                // Option to return to home page
-                header("Location: ../index.php");
-                exit;
+                }             
             }           
         } else {
             // Password incorrect
@@ -146,6 +160,27 @@
             }
         }
         return $approvalStatus;
+    }
+
+    function check2FAEnabled($conn, $username){
+        $query2fa = "SELECT TwoFactorEnabled FROM UserMaster WHERE Username = ?";
+
+        if($stmt = $conn->prepare($query2fa)){
+
+            $stmt->bind_param("s", $username); 
+
+            if(!$stmt->execute()){
+                $stmt->close();
+                return false;
+            } else {
+                $result = $stmt->get_result();
+                $row = $result->fetch_assoc();
+                $stmt->close(); 
+                return $row['TwoFactorEnabled'] == 1;
+            }            
+        } else {
+            return false;
+        }
     }
     
     ?>
