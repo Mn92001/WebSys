@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Current Projects</title>
+    <title>My Projects</title>
     <?php include "../inc/head.inc.php"; ?>
     <?php include "../inc/header.inc.php"; ?> 
     <?php include '../inc/db.php';?> 
@@ -33,11 +33,11 @@
         echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
     }
     ?>
+ 
 
-    
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container mt-4">
-            <h2>Current Projects</h2>
+            <h2>My Projects</h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -50,7 +50,7 @@
                 <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         
-                        <tr>
+                        <tr class="<?php echo $row['ClientApprovalStatus'] == 'Approved' ? 'table-secondary' : ''; ?>">
                             <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
                             <td><?php echo htmlspecialchars($row['LockedInExpiryDate']); ?></td>
                             <td><?php echo htmlspecialchars($row['ReportStatus']); ?></td>

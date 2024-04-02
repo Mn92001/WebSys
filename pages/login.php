@@ -1,7 +1,6 @@
 <?php 
 session_start(); 
 
-// Check for any error messages
 $errorMsg = "";
 if (isset($_SESSION['error'])) {
     $errorMsg = $_SESSION['error'];
@@ -15,7 +14,7 @@ if (isset($_SESSION['error'])) {
 <head>
     <title>Login</title>
     <?php include "../inc/head.inc.php"; ?>
-     <link rel="stylesheet" href="/assets/css/login.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
     
 </head>
 
