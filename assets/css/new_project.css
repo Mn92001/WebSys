@@ -4,7 +4,10 @@ body {
 }
 
 .container {
-    margin-top: 50px;
-    background-color: skyblue;
+    margin-top: 60px;
+    color: white;
 }
 
+.container a{
+    color: lightblue; 
+}
