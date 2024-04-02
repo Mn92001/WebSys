@@ -17,6 +17,18 @@
         .form-popup {
             display: none;
         }
+
+        .table {
+            border-bottom: 2px solid black; 
+        }
+
+        #viewDetailsBtn {
+            margin-bottom: 10px; 
+        }
+
+        #approveBtn {
+            padding: 5px;
+        }
     </style>
 
 </head> 
@@ -79,13 +91,13 @@ if (isset($_SESSION['error'])) {
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
-
+                                    <button class="btn btn-primary" id="viewDetailsBtn" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
+                                    <br>                
                                     <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
                                         <form action="../processes/process_payment_detail.php" method="post">
                                             <input type="hidden" name="projectID" value="<?php echo $row['ProjectID']; ?>">
                                             <input type="hidden" name="receiver" value="Pentester">
-                                            <button class="btn btn-success" type="submit">Approve</a>
+                                            <button class="btn btn-success" id= "approveBtn" type="submit">Approve</a>
                                         </form>
                                     <?php endif; ?>
                                 </td>

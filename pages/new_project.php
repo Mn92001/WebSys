@@ -26,21 +26,24 @@
     ?>
      
      <main class="container">
-        <h1>New Project</h1>
-        <p>
-            To check on existing projects, please go to the
-            <a href="../pages/project_status.php">Project Status page</a>.
-        </p>
+        <div class="row content-container">
+            <h1>New Project</h1>
+            <p>
+                To check on existing projects, please go to the
+                <a href="../pages/project_status.php">Project Status page</a>.
+            </p>
 
-        <?php if (!empty($errorMsg)): ?>
-                <div class="alert alert-danger" role="alert">
-                <?php echo htmlspecialchars($errorMsg); ?>
+            <?php if (!empty($errorMsg)): ?>
+                    <div class="alert alert-danger" role="alert">
+                    <?php echo htmlspecialchars($errorMsg); ?>
+                </div>
+            <?php endif; ?>
+
+            <!-- Add Project Form -->
+            <div class="col-6 img-container order-2">
+                <img src="../assets/images/new_project.png" alt="New Project Image">
             </div>
-        <?php endif; ?>
-
-        <!-- Add Project Form -->
-        <section>
-            <div class= "form-container">
+            <div class= "col-6 form-container order-1">
                 <form  action="../processes/new_project.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Project Name:</label>
@@ -78,8 +81,9 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
-            </div>
-        </section>
+            </div> 
+        </div> 
+        
     </main>   
     <?php include "../inc/footer.inc.php"; ?> 
 </body> 
