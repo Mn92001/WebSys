@@ -37,6 +37,7 @@
             flex-direction: row;
             align-items: center;
             margin-top: 5px; /* Add margin between buttons and data fields */
+            color: blue; 
         }
 
         .btn-group .btn {
