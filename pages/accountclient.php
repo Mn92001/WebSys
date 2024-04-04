@@ -7,28 +7,11 @@
     <?php include '../inc/db.php';?> 
     <?php include "../inc/navclient.inc.php";?> 
     <?php include "../processes/account_client/query.php";?>
+    <?php include "../inc/clientcheck.inc.php";?>s
+    <?php include "../inc/session.inc.php"; ?>
     <link rel="stylesheet" href="/assets/css/accountclient.css">
 </head> 
 
-<?php
-    $userID = $_SESSION['user_id'];
-
-    // Retrieve and display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-
-    // Retrieve and display error messages
-    if (isset($_SESSION['error'])) {
-        $errorMsg = $_SESSION['error'];
-        unset($_SESSION['error']); 
-
-        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($errorMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    }
-?>
 
 <body>
     <?php if(mysqli_num_rows($result) > 0): ?>

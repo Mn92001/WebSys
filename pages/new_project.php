@@ -3,27 +3,14 @@
 
 <head>
     <title>New Project</title>
-    <?php
-    include "../inc/head.inc.php";
-    ?>
+    <?php include "../inc/head.inc.php"; ?>
+    include "../inc/navclient.inc.php";
+    <?php include "../inc/clientcheck.inc.php";?>s
+    <?php include "../inc/session.inc.php"; ?>
     <link rel="stylesheet" href="/assets/css/new_project.css">
 </head>
 
 <body>
-    <?php
-
-    session_start();
-   
-    include "../inc/navclient.inc.php";
-
-    // Display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-    ?>
      
      <main class="container">
         <div class="row content-container">
