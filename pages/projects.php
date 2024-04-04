@@ -8,14 +8,7 @@
     <?php include "../inc/navpentester.inc.php";?>
     <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/session.inc.php";?>
-
-    <style>
-        /* Popup form hidden by default */
-        .form-popup {
-            display: none;
-        }
-    </style>
-
+    <link rel="stylesheet" href="/assets/css/projects.css">
 </head> 
 
 <?php
@@ -87,26 +80,69 @@
 <?php endif; ?>
 
 
-    <?php include "../inc/footer.inc.php"; ?> 
+<div id="popup" class="form-popup">
+    <div class="form-container">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>Project Details</h2>
+        <table class="table">
+            <tr>
+                <td><strong>Project:</strong></td>
+                <td id="projectName"></td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td id="projectDescription"></td>
+            </tr>
+            <tr>
+                <td><strong>Coins Offered:</strong></td>
+                <td id="coinsOffered"></td>
+            </tr>
+            <tr>
+                <td><strong>Expiry Date:</strong></td>
+                <td id="expiryDate"></td>
+            </tr>
+            <tr>
+                <td><strong>Rules of Engagement:</strong></td>
+                <td><a id="roeLink" href="#" class="btn btn-primary">Download Rules of Engagement</a></td>
+            </tr>
+            <tr>
+                <td><strong>Scope:</strong></td>
+                <td><a id="scopeLink" href="#" class="btn btn-primary">Download Scope</a></td>
+            </tr>
+            <tr>
+                <td><strong>Completion Date:</strong></td>
+                <td id="completionDate"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    function openPopup(name, description, coinsOffered, expiryDate, projectID, completionDate) {
+        document.getElementById("projectName").innerHTML = name;
+        document.getElementById("projectDescription").innerHTML = description;
+        document.getElementById("coinsOffered").innerHTML = coinsOffered;
+        document.getElementById("expiryDate").innerHTML = expiryDate;
+        document.getElementById("completionDate").innerHTML = completionDate;
+
+        var roeLink = document.getElementById("roeLink");
+        roeLink.href = "../processes/projects/download.php?type=roe&id=" + projectID;
+
+        var scopeLink = document.getElementById("scopeLink");
+        scopeLink.href = "../processes/projects/download.php?type=scope&id=" + projectID;
+
+        document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+
+<?php include "../inc/footer.inc.php"; ?> 
  
-    <script>
-        function openPopup(name, description, coinsOffered, expiryDate, projectID, completionDate) {
-            // Create popup content
-            var popupContent = "<p><strong>Project:</strong> " + name + "</p>" +
-                                "<p><strong>Description:</strong> " + description + "</p>" +
-                               "<p><strong>Coins Offered:</strong> " + coinsOffered + "</p>" +
-                               "<p><strong>Expiry Date:</strong> " + expiryDate + "</p>" +
-                               "<p><strong>Download Resume:</strong> <a href='../processes/projects/download.php?type=roe&id=" + projectID + "' class='btn btn-link btn-sm'>Download Rules of Engagemnt</a></p>" +
-                                "<p><strong>Download Certification:</strong> <a href='../processes/projects/download.php?type=scope&id=" + projectID + "' class='btn btn-link btn-sm'>Download Scope</a></p>" +
-                               "<p><strong>Completion Date:</strong> " + completionDate + "</p>" 
-
-            // Create popup window
-            var popupWindow = window.open("", "_blank", "width=400,height=400");
-
-            // Write content to popup window
-            popupWindow.document.write(popupContent);
-        }
-    </script>
+    
 
 </body> 
 
