@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>New Projects</title>
+    <title>Pentester Projects</title>
     <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/head.inc.php"; ?>
     <?php include '../inc/db.php';?> 
