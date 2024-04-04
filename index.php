@@ -5,9 +5,7 @@
     <?php include "inc/head.inc.php"; ?>
 </head> 
 
-<body>
-
-    <?php
+<?php
     session_start();
     
     // Check if the user is logged in
@@ -38,24 +36,15 @@
         // Default navigation for guest
         include "inc/nav.inc.php";
     }
+     
+    include "inc/session.inc.php"; 
 
-    // Display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-
-    // Retrieve and display error messages
-    if (isset($_SESSION['error'])) {
-        $errorMsg = $_SESSION['error'];
-        unset($_SESSION['error']); 
-        
-        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
-    }
     ?>
+
+<body>
+
 <main> 
+
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
         <!-- Indicators/dots -->

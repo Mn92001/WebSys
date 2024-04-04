@@ -4,8 +4,10 @@
 <head>
     <title>New Projects</title>
     <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/header.inc.php"; ?> 
     <?php include '../inc/db.php';?> 
+    <?php include "../inc/navpentester.inc.php";?>
+    <?php include "../inc/pentestercheck.inc.php";?>
+    <?php include "../inc/session.inc.php";?>
 
     <style>
         /* Popup form hidden by default */
@@ -16,52 +18,29 @@
 
 </head> 
 
-<body>
 <?php
-session_start();
+// Check if the user role is not set or is not equal to "user"
+    $userID = $_SESSION['user_id'];
+    $queryPentester = "SELECT NoActiveLockedIn FROM Pentester WHERE UserID = ?";
+    $pentesterLockedIn = 0;
 
-$userID = $_SESSION['user_id'];
-$queryPentester = "SELECT NoActiveLockedIn FROM Pentester WHERE UserID = ?";
-        $pentesterLockedIn = 0;
+    // Statement for queryPentester to get the pentesterID
+    if ($stmt = $conn->prepare($queryPentester)) {
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
 
-        // Statement for queryPentester to get the pentesterID
-        if ($stmt = $conn->prepare($queryPentester)) {
-            $stmt->bind_param("i", $userID);
-            $stmt->execute();
-    
-            $result = $stmt->get_result();
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $pentesterLockedIn = $row['NoActiveLockedIn']; 
-            } 
-    
-            $stmt->close();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $pentesterLockedIn = $row['NoActiveLockedIn']; 
         } 
 
-include '../inc/db.php';
-include "../inc/navpentester.inc.php";
-include "../processes/projects/query.php";
-
-// Retrieve and display success message
-if (isset($_SESSION['success'])) {
-    $successMsg = $_SESSION['success'];
-    unset($_SESSION['success']); 
-
-    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-} 
-
-// Retrieve and display error messages
-if (isset($_SESSION['error'])) {
-    $errorMsg = $_SESSION['error'];
-    unset($_SESSION['error']); 
-    
-    echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
-}
-
-
-
+        $stmt->close();
+    } 
 
 ?>
+
+<?php include "../processes/projects/query.php";?>
 
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main class="container mt-4">

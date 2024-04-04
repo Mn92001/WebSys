@@ -4,27 +4,21 @@
 <head>
     <title>Client Account</title>
     <?php include "../inc/head.inc.php"; ?>
-    <!-- <?php include "../inc/header.inc.php"; ?>  -->
     <?php include '../inc/db.php';?> 
+    <?php include "../inc/navclient.inc.php";?> 
+    <?php include "../processes/account_client/query.php";?>
     <link rel="stylesheet" href="/assets/css/accountclient.css">
 </head> 
 
-<body>
-    <?php
-    session_start();
-
+<?php
     $userID = $_SESSION['user_id'];
-
-    include '../inc/db.php';
-    include "../inc/navclient.inc.php";
-    include "../processes/account_client/query.php";
 
     // Retrieve and display success message
     if (isset($_SESSION['success'])) {
         $successMsg = $_SESSION['success'];
         unset($_SESSION['success']); 
 
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
     } 
 
     // Retrieve and display error messages
@@ -32,16 +26,17 @@
         $errorMsg = $_SESSION['error'];
         unset($_SESSION['error']); 
 
-        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($errorMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
     }
-    ?>
+?>
 
+<body>
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container">
             <h1>Account</h1>
             <!-- Header Fields -->
             <div>
-                <table class="table table-responsive-sm table-borderless">
+                <table class="table">
                     <thead>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
@@ -85,18 +80,17 @@
                             <td><input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();"></td>
                         </tr>
                         <tr>
-                            <td><a href='authenticator_pair.php' class="btntwofa" type='button'>Enable Two Factor Authentication</a></td>
+                            <td><a href='authenticator_pair.php' class="btn btn-secondary btn-sm" role='button'>Enable Two Factor Authentication</a></td>
                         </tr>
                         </tr>
                         <?php endwhile; ?>
                     </thead>
                 </table>
             </div>
-
             
             <div class="coinsform-popup" id="coinsFormPopup">
                 <!-- Coins Top-up Form -->
-                <form id="coinsForm" action="../processes/account_client/update.php" method="post">
+                <form id="coinsForm" style="display:none;" action="../processes/account_client/update.php" method="post">
                     <input type="hidden" name="update_type" value="coins">
                     <h2>Top-up Coins</h2>
                     <div class="mb-3">
@@ -128,15 +122,15 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <button type="submit" class="btnsubmit">Submit</button>
-                        <button type="button" class="btnclose" onclick="closeForm()">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
                     </div>
                 </form>
             </div>
 
             <div class="emailform-popup" id="emailFormPopup">
             <!-- The email Registration Form -->
-            <form id="emailForm" action="../processes/account_client/update.php" method="post">
+            <form id="emailForm" style="display:none;" action="../processes/account_client/update.php" method="post">
                 <input type="hidden" name="update_type" value="email">
                 <h2>Change Email</h2>
                 <div class="mb-3">
@@ -148,15 +142,15 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btnsubmit">Submit</button>
-                    <button type="button" class="btnclose" onclick="closeForm()">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
                 </div>
             </form>
             </div>
 
         <div class="numberform-popup" id="numberFormPopup">
             <!-- number Registration Form -->
-            <form id="numberForm" action="../processes/account_client/update.php" method="post" enctype="multipart/form-data">
+            <form id="numberForm" style="display:none;" action="../processes/account_client/update.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="update_type" value="number">
                 <h2>Change Number</h2>
                 
@@ -166,15 +160,15 @@
                     title="Phone number must contain only numbers and can start with a + for international numbers.">
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btnsubmit">Submit</button>
-                    <button type="button" class="btnclose" onclick="closeForm()">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
                 </div>
             </form>
         </div>
 
         <div class="passwordform-popup" id="passwordFormPopup">
             <!-- The password Registration Form -->
-            <form id="passwordForm"  action="../processes/account_client/update.php" method="post">
+            <form id="passwordForm" style="display:none;" action="../processes/account_client/update.php" method="post">
                 <input type="hidden" name="update_type" value="password">
                 <h2>Change Password</h2>
                 <div class="mb-3">
@@ -191,21 +185,21 @@
                         title="Password must contain at least 8 characters, including at least one number, one uppercase letter, one lowercase letter, and one special character.">
                 </div>
                 <div class="mb-3">
-                <button type="submit" class="btnsubmit">Submit</button>
-                    <button type="button" class="btnclose" onclick="closeForm()">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
                 </div>
             </form>
             </div>
 
             <div class="deleteform-popup" id="deleteFormPopup">
             <!-- Delete Account Form -->
-            <form id="deleteForm" action="../processes/account_client/update.php" method="post">
+            <form id="deleteForm" style="display:none;" action="../processes/account_client/update.php" method="post">
             <input type="hidden" name="update_type" value="delete">
                 <h2>Delete Account Confirmation</h2>
                 <p>Are you sure you want to delete your account?</p>
                 <div class="mb-3">
-                    <button type="submit" class="btnsubmit">Yes, Delete My Account</button>
-                    <button type="button" class="btnclose" onclick="closeForm()">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
+                    <button type="button" class="btn btn-primary" onclick="closeForm()">Cancel</button>
                 </div>
             </form>
             </div>

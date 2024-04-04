@@ -7,10 +7,17 @@
     <title>Pentester - Our Services</title>
     <link rel="stylesheet" href="services.css">
     <?php include "../inc/head.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
 </head>
 
+<?php
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+?>
+
 <body>
-    <?php include "../inc/nav.inc.php"; ?>
+
     <main>
         <section id="service1" class="blue-bg">
             <div class="service-section">

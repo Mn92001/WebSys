@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+?>
+
+
 <head>
     <title> Pentester - Contact Us </title> 
     <?php include "../inc/head.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -90,8 +98,9 @@
     </style>
 </head> 
 
+
+
 <body> 
-    <?php include "../inc/nav.inc.php"; ?>
     <main>
         <section id="contact-form" class="contact-box">
             <h2>Send us a message</h2>

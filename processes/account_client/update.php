@@ -44,7 +44,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $success = false;
             }
             $stmt->close();
+
+            if ($success) {  
+                $_SESSION['success'] = "Email has been updated.";
+                header("Location: ../../pages/accountclient.php");
+                exit;  
+            } else {  
+                $_SESSION['error'] = $errorMsg;
+                header("Location: ../../pages/accountclient.php"); 
+                exit;
+            }
             break;
+
+
 
         case "number":
             // Handle phone number update
@@ -66,7 +78,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->close();
                 }
             } 
+            if ($success) {  
+                $_SESSION['success'] = "Phone number has been updated.";
+                header("Location: ../../pages/accountclient.php");
+                exit;  
+            } else {  
+                $_SESSION['error'] = $errorMsg;
+                header("Location: ../../pages/accountclient.php"); 
+                exit;
+            }
             break;
+
+
 
         case "password":
             // Handle password update
@@ -101,6 +124,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->close();
                 }
             } 
+            if ($success) {  
+                $_SESSION['success'] = "Phone number has been updated.";
+                header("Location: ../../pages/accountclient.php");
+                exit;  
+            } else {  
+                $_SESSION['error'] = $errorMsg;
+                header("Location: ../../pages/accountclient.php"); 
+                exit;
+            }
             break;
 
         case "delete":
@@ -121,41 +153,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else {
                         // Deletion successful
                         session_destroy();
+                        $_SESSION['success'] = "Account has been deleted.";
                         header("Location: ../../index.php");
                         exit;
                     }
                 }
 
-                // Close the statement
-                $stmt->close();
+
+
             break;
 
 
             case "coins":
                 // Handle coins top-up
-                    if (!empty($_POST["coins"])) {
-                        $coins = sanitize_input($_POST["coins"]);
+                if (!empty($_POST["coins"])) {
+                    $coins = sanitize_input($_POST["coins"]);
                 
-                        // Ensure coins is a positive integer
-                        if (!is_numeric($coins) || $coins <= 0 || floor($coins) != $coins) {
-                            $errorMsg .= "Invalid coins value. Coins must be a positive integer.";
-                            $success = false;
-                        } else {
-                            // Update total coins for the user
-                            $stmt = $conn->prepare("UPDATE UserMaster SET TotalCoins = TotalCoins + ? WHERE UserID = ?");
-                            $stmt->bind_param("ii", $coins, $userID);
-                            $stmt->execute();
+                    // Ensure coins is a positive integer
+                    if (!is_numeric($coins) || $coins <= 0 || floor($coins) != $coins) {
+                        $errorMsg .= "Invalid coins value. Coins must be a positive integer.";
+                        $success = false;
+                    } else {
+                        // Update total coins for the user
+                        $stmt = $conn->prepare("UPDATE UserMaster SET TotalCoins = TotalCoins + ? WHERE UserID = ?");
+                        $stmt->bind_param("ii", $coins, $userID);
+                        $stmt->execute();
                             if ($stmt->affected_rows === 0) {
                                 $errorMsg = "Failed to update coins.";
                                 $success = false;
                             }
-                            $stmt->close();
-                        }
-                    } else {
-                        $errorMsg .= "Coins value is required.";
-                        $success = false;
+                        $stmt->close();
                     }
-                break;
+
+                } 
+                if ($success) {  
+                    $_SESSION['success'] = "Coin top-up successful.";
+                    header("Location: ../../pages/accountclient.php");
+                    exit;  
+                } else {  
+                    $_SESSION['error'] = $errorMsg;
+                    header("Location: ../../pages/accountclient.php"); 
+                    exit;
+                }
+            break;
             
 
 
@@ -168,15 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
     // Redirect based on success or failure
-    if ($success) {  
-        $_SESSION['success'] = "Update successful.";
-        header("Location: ../../index.php");
-        exit;  
-    } else {  
-        $_SESSION['error'] = $errorMsg;
-        header("Location: ../../pages/accountclient.php"); 
-        exit;
-    }
+    
 } else {  
     $_SESSION['error'] = "Invalid request method.";
     header("Location: ../../pages/accountclient.php"); 

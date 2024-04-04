@@ -4,35 +4,16 @@
 <head>
     <title>Report Submission</title>
     <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/header.inc.php"; ?> 
+    <?php include "../inc/navpentester.inc.php";?> 
     <?php include '../inc/db.php';?> 
+    <?php include "../inc/pentestercheck.inc.php";?>
+    <?php include "../inc/session.inc.php";?>
+    <?php include "../processes/report/query.php";?>
 </head> 
 
+
+
 <body>
-    <?php
-
-    include "../inc/navpentester.inc.php";
-    include "../processes/report/query.php";
-
-    // Retrieve and display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-
-    // Retrieve and display error messages
-
-    if (isset($_SESSION['error'])) {
-        $errorMsg = $_SESSION['error'];
-        unset($_SESSION['error']); 
-        
-        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
-    }
-    ?>
-
-    
     <main class="container mt-4">
         <h2>Report Submission</h2>
         
