@@ -5,15 +5,22 @@
     <title>FortifyTech - About us</title>
     <link rel="stylesheet" href="about_us.css">
     <!-- Include Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
     <?php include "../inc/head.inc.php"; ?>
+    <?php include "../inc/nav.inc.php"; ?>
 </head>
+
+<?php
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+?>
 
 <body> 
     <header>
         <h1> About us </h1> 
     </header>
-    <?php include "../inc/nav.inc.php"; ?>
+    
 
     <!-- About Us Section -->
     <section id="about-us" class="image-section">
