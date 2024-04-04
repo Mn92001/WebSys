@@ -3,9 +3,9 @@
 
 <head>
     <title>New Project</title>
+    <?php include "../inc/clientcheck.inc.php";?>
     <?php include "../inc/head.inc.php"; ?>
-    include "../inc/navclient.inc.php";
-    <?php include "../inc/clientcheck.inc.php";?>s
+    <?php include "../inc/navclient.inc.php";?> 
     <?php include "../inc/session.inc.php"; ?>
     <link rel="stylesheet" href="/assets/css/new_project.css">
 </head>

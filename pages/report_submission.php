@@ -3,17 +3,19 @@
 
 <head>
     <title>Report Submission</title>
+    <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/head.inc.php"; ?>
     <?php include "../inc/navpentester.inc.php";?> 
     <?php include '../inc/db.php';?> 
-    <?php include "../inc/pentestercheck.inc.php";?>
-    <?php include "../inc/session.inc.php";?>
     <?php include "../processes/report/query.php";?>
 </head> 
 
 
 
+
 <body>
+    
+    
     <main class="container mt-4">
         <h2>Report Submission</h2>
         

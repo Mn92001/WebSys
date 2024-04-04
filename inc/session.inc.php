@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
     // Retrieve and display success message
     if (isset($_SESSION['success'])) {
         $successMsg = $_SESSION['success'];

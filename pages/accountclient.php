@@ -3,12 +3,12 @@
 
 <head>
     <title>Client Account</title>
+    <?php include "../inc/clientcheck.inc.php";?>s
     <?php include "../inc/head.inc.php"; ?>
     <?php include '../inc/db.php';?> 
     <?php include "../inc/navclient.inc.php";?> 
-    <?php include "../processes/account_client/query.php";?>
-    <?php include "../inc/clientcheck.inc.php";?>s
     <?php include "../inc/session.inc.php"; ?>
+    <?php include "../processes/account_client/query.php";?>
     <link rel="stylesheet" href="/assets/css/accountclient.css">
 </head> 
 
