@@ -17,15 +17,20 @@ h1 {
     padding-bottom: 20px;
 }
 
-.table {
+table {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
+    
 }
 
-th, td {
+th {
     padding: 10px; 
     text-align: left;
+    border: none;
+}
+
+td {
+    padding: 10px;
     border: none;
 }
 
@@ -38,10 +43,6 @@ tr {
     padding-bottom: 50px;
 }
 
-th, td {
-    padding: 10px; 
-    text-align: left; 
-}
 
 input[type="button"] {
     width: 100%;
@@ -49,33 +50,25 @@ input[type="button"] {
     display: inline-block;
 }
 
-#emailForm {
+#emailForm, #numberForm {
     padding: 20px;
-}
-
-#numberForm {
-    padding: 20px;
-}
-
-.btn-group .btn {
-    margin-right: 10px; 
 }
 
 #coinsFormPopup, #emailFormPopup, #numberFormPopup, #passwordFormPopup, #deleteFormPopup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    display: none; 
+    position: fixed; 
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; /* Full width */
+    width: 100%;
     max-width: 800px;
-    height: auto; /* Full height */
+    height: auto; 
     max-height: 75%;
     padding: 20px;
     border: 1px solid #888;
-    overflow: auto; /* Enable scroll if needed */
+    overflow: auto; 
     background-color: white; 
-    background-color: #eee0c9; /* White background with opacity */
+    background-color: #eee0c9; 
     z-index: 9999;
 }
 
@@ -86,16 +79,17 @@ input[type="button"] {
 
 #btncoins {
     background-color: gold;
+    width: 100%;
 }
 
 #btncoins:hover {
-    background-color: black; 
-    color: white;
+    background-color: yellow; 
 }
 
 
 #btnemail, #btnpassword, #btnnumber {
     background-color: #febe8c;
+    width: 100%;
 }
 
 #btnemail:hover {
@@ -164,12 +158,11 @@ input[type="button"] {
         font-size: 1.5rem; 
     }
 
-    .table {
+    table {
         font-size: 0.9rem; 
     }
 
-    input[type="button"], button {
-        padding: 8px 16px; 
+    input[type="button"], button { 
         font-size: smaller; 
     }
 
@@ -180,7 +173,7 @@ input[type="button"] {
 }
 
 @media (max-width: 480px) {
-    .table, th, td {
+    table, th {
         padding: 8px;
     }
 
