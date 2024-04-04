@@ -70,58 +70,5 @@ input[type="button"] {
     margin-right: 10px; 
 }
 
-/* @media (max-width: 768px) {
-    section .container .email-registrationBx {
-        flex-direction: column;
-    }
-} */
-    
-/* @keyframes enlarge {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.05); 
-} */
-
-/* .form-container {
-    animation: enlarge 0.3s ease forwards;
-  } */
-  
-  /* Optional: Animate the form on focus */
-  /* .form-container input:focus,
-  .form-container textarea:focus,
-  .form-container select:focus {
-    animation: enlarge 0.3s ease forwards;
-} */
-  
-/* @media (max-width: 768px) {
-    section .container {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-    section .container .email-registrationBx {
-        width: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-
-    section .container .email-registrationBx .email-formBx {
-        width: 100%;
-        order: 2;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}  */
 
 
