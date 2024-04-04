@@ -1,12 +1,15 @@
 body {
     font-family:'Verdana', sans-serif;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+    margin: 0;
 }
 
 main {
-    margin-top: 60px;
+    margin-top: 80px;
     position: relative;
-    flex: 1;
+    flex: 1 0 auto;
 }
 
 h1 {
@@ -14,14 +17,25 @@ h1 {
     padding-bottom: 20px;
 }
 
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px; 
+    text-align: left;
+    border: none;
+}
+
+tr {
+    border: none;
+}
+
 .container {
     width: 80%;
     padding-bottom: 50px;
-}
-
-table {
-    width: 80%; 
-    table-layout: fixed; 
 }
 
 th, td {
@@ -31,31 +45,8 @@ th, td {
 
 input[type="button"] {
     width: 100%;
-}
-
-.emailtform-popup, .numberform-popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; /* Full width */
-    max-width: 800px;
-    height: auto; /* Full height */
-    max-height: 75%;
-    padding: 20px;
-    border: 1px solid #888;
-    overflow: auto; /* Enable scroll if needed */
-    background-color: white; 
-    background-color: #e6f7ff; /* White background with opacity */
-    z-index: 9999; /* Sit on top */
-}
-
-.emailform-popup h2, .numberform-popup h2 {
-    text-transform: uppercase;
-    padding: 20px;
-    justify-content: center;
-    text-align: center;
+    padding: 4px;
+    display: inline-block;
 }
 
 #emailForm {
@@ -70,5 +61,131 @@ input[type="button"] {
     margin-right: 10px; 
 }
 
+#coinsFormPopup, #emailFormPopup, #numberFormPopup, #passwordFormPopup, #deleteFormPopup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Full width */
+    max-width: 800px;
+    height: auto; /* Full height */
+    max-height: 75%;
+    padding: 20px;
+    border: 1px solid #888;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: white; 
+    background-color: #eee0c9; /* White background with opacity */
+    z-index: 9999;
+}
 
+ h2 {
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+#btncoins {
+    background-color: gold;
+}
+
+#btncoins:hover {
+    background-color: black; 
+    color: white;
+}
+
+
+#btnemail, #btnpassword, #btnnumber {
+    background-color: #febe8c;
+}
+
+#btnemail:hover {
+    background-color: #ffd9c0;
+}
+
+#btnpassword:hover {
+    background-color: #ffd9c0;
+}
+
+#btndelete:hover {
+    background-color: #ffd9c0;
+}
+
+#btnnumber:hover {
+    background-color: #ffd9c0;
+}
+
+#btndelete {
+    background-color: black;
+    color: white; 
+}
+
+#btndelete:hover {
+    background-color: red;
+}
+
+.btnsubmit {
+    background-color: green;
+    color: white;
+}
+
+.btnsubmit:hover {
+    background-color: darkgreen;
+}
+
+.btnclose {
+    background-color: red;
+    color: white;
+}
+
+.btnclose:hover {
+    background-color: darkred;
+}
+
+.btntwofa {
+    background-color: grey;
+    display: inline-block;
+    padding: 10px 20px; 
+    color: #fff; 
+    text-decoration: none;
+    border: black 2px solid;
+    
+}
+
+.btntwofa:hover {
+    background-color: darkgray;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%; 
+    }
+
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    .table {
+        font-size: 0.9rem; 
+    }
+
+    input[type="button"], button {
+        padding: 8px 16px; 
+        font-size: smaller; 
+    }
+
+    #coinsFormPopup, #emailFormPopup, #numberFormPopup, #passwordFormPopup, #deleteFormPopup {
+        width: 90%;
+        max-width: none; 
+    }
+}
+
+@media (max-width: 480px) {
+    .table, th, td {
+        padding: 8px;
+    }
+
+    input[type="button"], button {
+        font-size: smaller;
+    }
+}
 

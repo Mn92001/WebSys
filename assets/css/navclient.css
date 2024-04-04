@@ -4,6 +4,6 @@
 
 footer {
     background-color: #eee0c9;
-    min-height: 65px;
-    padding-top: 33px;
+    padding: 1vh 0;
+    padding-top: 20px;
 }
