@@ -1,8 +1,9 @@
+
 <!-- <nav class="navbar navbar-expand-sm bg-secondary" data-bs-theme="dark">
     <a class="navbar-brand" href="#">
         <img src="../images/logo.jpg" width="100" alt="">
     </a> -->
-<nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm">
 <div class="container-fluid" id="navbar"> 
     <div class="navbar-brand">
         <img src="../assets/images/logo.png" alt="Logo" class="logo">
@@ -13,20 +14,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collpase navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="../index.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../pages/new_project.php">New Project</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../pages/project_status.php">Project Status</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../pages/accountclient.php">Account</a>
-            </li>
-        </ul>
+       
         <div class="ms-auto">
             <ul class="navbar-nav">
                 <li class="nav-item">
