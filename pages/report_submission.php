@@ -54,6 +54,7 @@
                             <th>Severity Level</th>
                             <th>OWASP</th>
                             <th>CVEDetails</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,6 +80,10 @@
                                     <td><?php echo htmlspecialchars($severityLevels[$i]); ?></td>
                                     <td><?php echo htmlspecialchars($owasps[$i]); ?></td>
                                     <td><?php echo htmlspecialchars($cveDetails[$i]); ?></td>
+                                    <td>
+                                        <button type="button" class="btn btn-info edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" data-findingid="<?php echo htmlspecialchars($findingids[$i]); ?>" data-description="<?php echo htmlspecialchars($descriptions[$i]); ?>" data-severitylevel="<?php echo htmlspecialchars($severityLevels[$i]); ?>" data-owasp="<?php echo htmlspecialchars($owasps[$i]); ?>" data-cvedetails="<?php echo htmlspecialchars($cveDetails[$i]); ?>">Edit</button>
+                                    </td>
+
                                 </tr>
                                 
                             <?php endfor;?>                          
@@ -143,6 +148,32 @@
     </div>
     </div>
 
+    <!-- Edit Finding Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Finding</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="../processes/report/edit.php" method="post">
+                <div class="modal-body">
+                    <input type="hidden" name="findingID" id="editFindingID">
+                    <div class="mb-3">
+                        <label for="editDescription" class="form-label">Description:</label>
+                        <input type="text" class="form-control" id="editDescription" name="description" required>
+                    </div>
+                    <!-- Add other fields as necessary -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
     </main>
@@ -175,6 +206,26 @@
             });
         });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const editButtons = document.querySelectorAll('.edit-btn');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const findingID = this.getAttribute('data-findingid');
+                const description = this.getAttribute('data-description');
+                // Get other data attributes as needed
+
+                // Populate the modal fields
+                document.getElementById('editFindingID').value = findingID;
+                document.getElementById('editDescription').value = description;
+                // Populate other fields similarly
+            });
+        });
+    });
+</script>
+
 
 
 
