@@ -3,9 +3,6 @@ body {
     font-family:'Verdana', sans-serif;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     background-image: url('/assets/images/new_project.jpg');
     background-size: cover;
     background-position: center; 
@@ -23,6 +20,7 @@ body {
 .container {
     padding-top: 60px;
     color: black;
+    flex-grow: 1;
 }
 
 .row {

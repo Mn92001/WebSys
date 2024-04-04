@@ -18,10 +18,10 @@
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main>
         <section class="container container-fluid">
-            <div class="container mt-4">
+            <div class="container">
                 <h2>Project Status</h2>
 
-                <table class="table table-bordered table-hover table-responsive-sm">
+                <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
                             <th>Name</div></th>
@@ -64,12 +64,13 @@
             </div>
         </section>   
     </main>
+    <?php include "../inc/footer.inc.php"; ?> 
 <?php else: ?>
     <p>No projects found.</p>
 <?php endif; ?>
 
 
-    <?php include "../inc/footer.inc.php"; ?> 
+    
  
     <script>
         function openPopup(name, description, coinsOffered, expiryDate, projectID, completionDate) {

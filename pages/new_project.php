@@ -11,8 +11,7 @@
 </head>
 
 <body>
-     
-     <main class="container">
+    <main class="container">
         <div class="row content-container">
             <h1>New Project</h1>
             <p>
