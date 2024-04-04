@@ -3,35 +3,16 @@
 
 <head>
     <title>My Projects</title>
-    <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/header.inc.php"; ?> 
+    <?php include "../inc/admincheck.inc.php";?>s
+    <?php include "../inc/head.inc.php"; ?> 
     <?php include '../inc/db.php';?> 
+    <?php include "../inc/session.inc.php"; ?>
+    <?php include "../inc/navadmin.inc.php"; ?>
+    <?php include "../processes/process_adminprojects.php"; ?>
 </head> 
 
 <body>
     <?php
-
-    include "../inc/navadmin.inc.php";
-    include "../processes/process_adminprojects.php";
-
-
-    // Retrieve and display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-
-    // Retrieve and display error messages
-
-    if (isset($_SESSION['error'])) {
-        $errorMsg = $_SESSION['error'];
-        unset($_SESSION['error']); 
-        
-        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
-    }
-
     function getProjectStatus($reportStatus, $clientApprovalStatus) {
         if ($reportStatus == 'Pending') {
             return 'In Progress';
@@ -43,7 +24,6 @@
             return '-';
         }
     }
-
     ?>
  
 

@@ -104,17 +104,29 @@
     <main>
         <section id="contact-form" class="contact-box">
             <h2>Send us a message</h2>
-            <form action="submit.php" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+            <form id="clientForm" action="../processes/process_contactus.php" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter name" pattern="^[a-zA-Z\s]+$" 
+                    title="Name must contain only letters and spaces." required>
+                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input required type="email" id="email" name="email" class="form-control" placeholder="Enter email"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Enter a valid email address">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                </div>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" class="form-control" required></textarea>
+                <div class="mb-3">
+                        <label for="message" class="form-label">Message:</label>
+                        <input type="text" id="message" name="message" class="form-control" placeholder="Enter message" pattern="^[a-zA-Z0-9_\s]{20,}$" 
+                        title="Message must be at least 20 characters long and can contain letters, numbers, and underscores." required>
+                </div>
 
-                <button type="submit">Send</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </section>
 
