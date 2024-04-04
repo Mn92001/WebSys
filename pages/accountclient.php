@@ -18,9 +18,9 @@
         <main class="container">
             <h1>Account</h1>
             <!-- Header Fields -->
-            <div>
-                <table class="table">
-                    <thead>
+            <div class="table-responsive">
+                <table>
+                    <thead >
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <th>Name:</th>
@@ -110,7 +110,7 @@
                     </div>
                 </form>
             </div>
-
+            
             <div class="emailform-popup" id="emailFormPopup">
             <!-- The email Registration Form -->
             <form id="emailForm" style="display:none;" action="../processes/account_client/update.php" method="post">
@@ -151,7 +151,7 @@
 
         <div class="passwordform-popup" id="passwordFormPopup">
             <!-- The password Registration Form -->
-            <form id="passwordForm" style="display:none;" action="../processes/account_client/update.php" method="post">
+            <form id="passwordForm" action="../processes/account_client/update.php" method="post">
                 <input type="hidden" name="update_type" value="password">
                 <h2>Change Password</h2>
                 <div class="mb-3">
