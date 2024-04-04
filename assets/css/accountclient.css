@@ -42,12 +42,16 @@ tr {
     width: 80%;
     padding-bottom: 50px;
 }
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 
-
-input[type="button"] {
+.col-md-6 input[type="button"],
+.col-md-6 a.btntwofa {
     width: 100%;
-    padding: 4px;
-    display: inline-block;
+    margin-bottom: 10px;
 }
 
 #emailForm, #numberForm {
@@ -80,6 +84,7 @@ input[type="button"] {
 #btncoins {
     background-color: gold;
     width: 100%;
+    padding: 5px;
 }
 
 #btncoins:hover {
@@ -90,6 +95,7 @@ input[type="button"] {
 #btnemail, #btnpassword, #btnnumber {
     background-color: #febe8c;
     width: 100%;
+    padding: 5px;
 }
 
 #btnemail:hover {
@@ -111,6 +117,7 @@ input[type="button"] {
 #btndelete {
     background-color: black;
     color: white; 
+    padding: 5px;
 }
 
 #btndelete:hover {
@@ -138,11 +145,11 @@ input[type="button"] {
 .btntwofa {
     background-color: grey;
     display: inline-block;
-    padding: 10px 20px; 
+    padding: 5px; 
     color: #fff; 
     text-decoration: none;
     border: black 2px solid;
-    
+    text-align: center;
 }
 
 .btntwofa:hover {

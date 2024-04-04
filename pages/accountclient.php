@@ -39,60 +39,75 @@
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container">
             <h1>Account</h1>
-            <!-- Header Fields -->
-            <div class="table-responsive">
-                <table>
-                    <thead >
-                    <?php while($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <th>Name:</th>
-                            <td><?php echo htmlspecialchars($row['FullName']); ?></td>
-                        </tr>
-                        <tr>
-                            <th>Role:</th>
-                            <td><?php echo htmlspecialchars($row['Role']); ?></td>
-                        </tr>
-                        <tr>
-                            <th>Coins:</th>
-                            <td><?php echo htmlspecialchars($row['TotalCoins']); ?></td>
-                            <td><input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();"></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>Total Projects:</th>
-                            <td><?php echo htmlspecialchars($row['Projects']); ?></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>Username:</th>
-                            <td><?php echo htmlspecialchars($row['Username']); ?></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>Email:</th>
-                            <td><?php echo htmlspecialchars($row['Email']); ?></td>
-                            <td><input type="button" id="btnemail" value="Change Email" onclick="showForm('email'); openemailForm();"> </td>
-                            
-                             
-                        </tr>
-                        <tr>
-                            <th>Phone Number:</th>
-                            <td><?php echo htmlspecialchars($row['PhoneNumber']); ?></td>
-                            <td><input type="button" id= "btnnumber" value="Change Number" onclick="showForm('number'); opennumberForm();"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();"></td>
-                            <td><input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();"></td>
-                        </tr>
-                        <tr>
-                            <td><a href='authenticator_pair.php' class="btntwofa" type='button'>Enable Two Factor Authentication</a></td>
-                        </tr>
-                        </tr>
-                        <?php endwhile; ?>
-                    </thead>
-                </table>
-            </div>
+                <!-- Header Fields -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                            <?php while($row = $result->fetch_assoc()): ?>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td><?php echo htmlspecialchars($row['FullName']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Role:</th>
+                                    <td><?php echo htmlspecialchars($row['Role']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Coins:</th>
+                                    <td><?php echo htmlspecialchars($row['TotalCoins']); ?></td>
+                                    <!-- <td><input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();"></td> -->
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Total Projects:</th>
+                                    <td><?php echo htmlspecialchars($row['Projects']); ?></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Username:</th>
+                                    <td><?php echo htmlspecialchars($row['Username']); ?></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td><?php echo htmlspecialchars($row['Email']); ?></td>
+                                    <!-- <td><input type="button" id="btnemail" value="Change Email" onclick="showForm('email'); openemailForm();"> </td> -->
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                    <th>Phone Number:</th>
+                                    <td><?php echo htmlspecialchars($row['PhoneNumber']); ?></td>
+                                    <!-- <td><input type="button" id= "btnnumber" value="Change Number" onclick="showForm('number'); opennumberForm();"></td> -->
+                                </tr>
+                                <!-- <tr> -->
+                                    <!-- <td><input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();"></td> -->
+                                    <!-- <td><input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();"></td> -->
+                                <!-- </tr> -->
+                                <!-- <tr>
+                                    <td><a href='authenticator_pair.php' class="btntwofa" type='button'>Enable Two Factor Authentication</a></td>
+                                </tr> -->
+                                </tr>
+                                <?php endwhile; ?>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            
 
+              
+                <div class="col-md-6">
+                    <input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();">
+                    <input type="button" id="btnemail" value="Change Email" onclick="showForm('email'); openemailForm();">
+                    <input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();">
+                    <input type="button" id= "btnnumber" value="Change Number" onclick="showForm('number'); opennumberForm();">
+                    <input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();">
+                    <a href='authenticator_pair.php' class="btntwofa" type='button'>Enable Two Factor Authentication</a>
+                </div>
+            </div>
+            
             
             <div class="coinsform-popup" id="coinsFormPopup">
                 <!-- Coins Top-up Form -->
@@ -154,7 +169,7 @@
             </form>
             </div>
 
-        <div class="numberform-popup" id="numberFormPopup">
+            <div class="numberform-popup" id="numberFormPopup">
             <!-- number Registration Form -->
             <form id="numberForm" action="../processes/account_client/update.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="update_type" value="number">
@@ -170,9 +185,9 @@
                     <button type="button" class="btnclose" onclick="closeForm()">Close</button>
                 </div>
             </form>
-        </div>
+            </div>
 
-        <div class="passwordform-popup" id="passwordFormPopup">
+            <div class="passwordform-popup" id="passwordFormPopup">
             <!-- The password Registration Form -->
             <form id="passwordForm" action="../processes/account_client/update.php" method="post">
                 <input type="hidden" name="update_type" value="password">
