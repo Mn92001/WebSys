@@ -1,7 +1,4 @@
-<!-- <nav class="navbar navbar-expand-sm bg-secondary" data-bs-theme="dark">
-    <a class="navbar-brand" href="#">
-        <img src="../images/logo.jpg" width="100" alt="">
-    </a> -->
+<link rel="stylesheet" href="/assets/css/navclient.css">
 <nav class="navbar navbar-expand-sm">
 <div class="container-fluid" id="navbar"> 
     <div class="navbar-brand">

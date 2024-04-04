@@ -1,0 +1,44 @@
+
+main {
+    margin-top: 40px;
+    position: relative;
+}
+
+
+h2 {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.container {
+    padding-bottom: 40px;
+}
+
+.table-header {
+    background-color: lightblue;
+}
+
+/* Popup form hidden by default */
+.form-popup {
+    display: none;
+}
+
+#viewDetailsBtn {
+    margin-bottom: 10px; 
+}
+
+#approveBtn {
+    padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}

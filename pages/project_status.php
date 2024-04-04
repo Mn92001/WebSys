@@ -2,35 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>New Projects</title>
+    <title>Project Status</title>
     <?php include "../inc/head.inc.php"; ?>
     <?php include '../inc/db.php';?> 
-
-    <style>
-        main {
-            margin-top: 40px;
-            position: relative;
-            min-height: 100vh;
-        }
-        
-        /* Popup form hidden by default */
-        .form-popup {
-            display: none;
-        }
-
-        .table {
-            border-bottom: 2px solid black; 
-        }
-
-        #viewDetailsBtn {
-            margin-bottom: 10px; 
-        }
-
-        #approveBtn {
-            padding: 5px;
-        }
-    </style>
-
+    <link rel="stylesheet" href="/assets/css/project_status.css">
 </head> 
 
 <body>
@@ -61,14 +36,14 @@ if (isset($_SESSION['error'])) {
 
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main>
-        <section class="container">
+        <section class="container container-fluid">
             <div class="container mt-4">
                 <h2>Project Status</h2>
 
-                <table class="table">
-                    <thead>
+                <table class="table table-bordered table-hover table-responsive-sm">
+                    <thead class="table-dark">
                         <tr>
-                            <th>Name</th>
+                            <th>Name</div></th>
                             <th>Expiry Date</th>
                             <th>Status</th>
                             <th>Report</th>
@@ -128,7 +103,7 @@ if (isset($_SESSION['error'])) {
 
             // Create popup window
             var popupWindow = window.open("", "_blank", "width=400,height=400");
-
+            
             // Write content to popup window
             popupWindow.document.write(popupContent);
         }

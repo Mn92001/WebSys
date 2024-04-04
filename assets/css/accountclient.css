@@ -1,100 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    height: 100vh;
-    width: auto;
-}
-
-section {
-    position: relative;
+    font-family:'Verdana', sans-serif;
     min-height: 100vh;
-    background: #557085;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    transition: 0.5s;
-    box-sizing: border-box;
 }
 
-section .container {
+main {
+    margin-top: 60px;
     position: relative;
-    width: 800px;
-    height: 500px;
-    background: #fff;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-    display: flex;
+    flex: 1;
 }
 
-section .container .email-registrationBx {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-
-section .container .email-registrationBx .email-formBx {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    order: 1;
-}
-
-section .container .email-registrationBx .email-formBx h2 {
-    font-size: 18px;
-    font-weight: 600;
+h1 {
     text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
-    color: #555;
-} 
-
-section .container .email-registrationBx .email-formBx input {
-    width: 100%;
-    padding: 10px;
-    background: #f5f5f5;
-    color: #333;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    font-size: 14px;
-    margin: 8px 0;
-    letter-spacing: 1px;
-    font-weight: 300;
+    padding-bottom: 20px;
 }
 
-section .container .email-registrationBx .email-formBx input[type="button"] {
-    max-width: auto;
-    background: #677eff;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;    
-    transition: 0.5s;
-    margin-top: 20px;
+.container {
+    width: 80%;
+    padding-bottom: 50px;
 }
 
-section .container .email-registrationBx .email-formBx p {
-    margin-top: 20px;
+table {
+    width: 80%; 
+    table-layout: fixed; 
+}
+
+th, td {
+    padding: 10px; 
+    text-align: left; 
+}
+
+input[type="button"] {
+    width: 100%;
 }
 
 .emailtform-popup, .numberform-popup {
@@ -130,33 +66,36 @@ section .container .email-registrationBx .email-formBx p {
     padding: 20px;
 }
 
-@media (max-width: 768px) {
+.btn-group .btn {
+    margin-right: 10px; 
+}
+
+/* @media (max-width: 768px) {
     section .container .email-registrationBx {
         flex-direction: column;
     }
-}
+} */
     
-@keyframes enlarge {
+/* @keyframes enlarge {
     from {
       transform: scale(1);
     }
     to {
-      transform: scale(1.05); /* Adjust scale value to control the amount of enlargement */
-    }
-}
+      transform: scale(1.05); 
+} */
 
-.form-container {
-    animation: enlarge 0.3s ease forwards; /* Apply the animation with a duration of 0.3s */
-  }
+/* .form-container {
+    animation: enlarge 0.3s ease forwards;
+  } */
   
   /* Optional: Animate the form on focus */
-  .form-container input:focus,
+  /* .form-container input:focus,
   .form-container textarea:focus,
   .form-container select:focus {
     animation: enlarge 0.3s ease forwards;
-}
+} */
   
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     section .container {
         width: 100%;
         height: auto;
@@ -183,5 +122,6 @@ section .container .email-registrationBx .email-formBx p {
         flex-direction: column;
         align-items: center;
     }
-} 
+}  */
+
 
