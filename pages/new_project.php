@@ -26,10 +26,7 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Add Project Form -->
-            <!-- <div class="col-6 img-container order-2">
-                <img src="../assets/images/new_project.png" alt="New Project Image">
-            </div> -->
+           
             <div class= "form-container">
                 <form  action="../processes/new_project.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
