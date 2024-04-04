@@ -2,49 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>New Projects</title>
+    <title>Client Account</title>
     <?php include "../inc/head.inc.php"; ?>
     <!-- <?php include "../inc/header.inc.php"; ?>  -->
     <?php include '../inc/db.php';?> 
-
-    <style>
-        /* Adjust layout to display data fields top-down */
-        body {
-            /* background-color: #557085; */
-            font-family:'Verdana', sans-serif;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 50px;
-            padding-bottom: 100px; 
-        }
-
-        .container .table {
-            position: relative;
-            width: 800px;
-            height: 500px; /* Adjust width of tables */
-        }
-
-        .container .data-fields table {
-            margin-top: 10px; /* Add margin between header fields and data fields */
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top: 5px; /* Add margin between buttons and data fields */
-            color: blue; 
-        }
-
-        .btn-group .btn {
-            margin-right: 10px; /* Add margin between buttons */
-        }
-    </style>
-
+    <link rel="stylesheet" href="/assets/css/accountclient.css">
 </head> 
 
 <body>
@@ -76,9 +38,10 @@
 
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container">
+            <h1>Account</h1>
             <!-- Header Fields -->
-            <div class="table">
-                <table>
+            <div>
+                <table class="table">
                     <thead>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>

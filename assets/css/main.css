@@ -355,4 +355,7 @@ section {
 
 }
 
-
+footer {
+    min-height: 65px;
+    padding-top: 33px;
+}
