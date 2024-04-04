@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../pages/adminprojects.php">Ongoing Projects</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/enquiry.php">Enquiries</a>
+                </li>
             </ul>
             <div class="ms-auto">
                 <ul class="navbar-nav">

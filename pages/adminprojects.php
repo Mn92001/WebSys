@@ -8,7 +8,7 @@
     <?php include '../inc/db.php';?> 
     <?php include "../inc/session.inc.php"; ?>
     <?php include "../inc/navadmin.inc.php"; ?>
-    <?php include "../processes/process_adminprojects.php"; ?>
+    <?php include "../processes/admin/projectsquery.php"; ?>
 </head> 
 
 <body>
