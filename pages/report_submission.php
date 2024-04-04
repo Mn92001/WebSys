@@ -8,16 +8,17 @@
     <?php include "../inc/navpentester.inc.php";?> 
     <?php include '../inc/db.php';?> 
     <?php include "../processes/report/query.php";?>
+    <link rel="stylesheet" href="/assets/css/reportsubmission.css">
 </head> 
-
 
 
 
 <body>
     
-    
-    <main class="container mt-4">
-        <h2>Report Submission</h2>
+    <main>
+        <section class="container container-fluid">
+            <div class="container mt-4">
+            <h2>Report Submission</h2>
         
         <!-- Check for any currently locked records that have not yet been submitted-->
         <?php if ($hasLockInRecords): 
@@ -28,8 +29,8 @@
 
             if($row['FindingsDescriptions'] != NULL): ?>
                 
-                <table class="table">
-                    <thead>
+                <table class="table table-bordered table-hover table-responsive-sm">
+                    <thead class="table-dark">
                         <tr>
                             <th></th>
                             <th>No.</th>
@@ -93,7 +94,8 @@
                     </div>
                 </div>
                 </form>
-
+                </div>
+        </section> 
             <?php else: ?>
                 <hr>
                 <p>No findings.</p>

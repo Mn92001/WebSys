@@ -3,12 +3,13 @@
 
 <head>
     <title>New Projects</title>
+    <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/head.inc.php"; ?>
     <?php include '../inc/db.php';?> 
     <?php include "../inc/navpentester.inc.php";?>
-    <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/session.inc.php";?>
     <link rel="stylesheet" href="/assets/css/projects.css">
+    <link rel="stylesheet" href="/assets/css/details.css">
 </head> 
 
 <?php
@@ -35,11 +36,15 @@
 
 <?php include "../processes/projects/query.php";?>
 
+
+<body> 
 <?php if(mysqli_num_rows($result) > 0): ?>
-    <main class="container mt-4">
+    <main>
+    <section class="container container-fluid">
+        <div class="container mt-4">
         <h2>New projects</h2>
-        <table class="table">
-            <thead>
+        <table class="table table-bordered table-hover table-responsive-sm">
+            <thead class="table-dark">
                 <tr>
                     <th>Name</th>
                     <th>Expiry Date</th>
@@ -73,7 +78,8 @@
                 <?php endwhile; ?>
             </tbody>
         </table>
-        
+        </div>
+    </section>  
     </main>
 <?php else: ?>
     <p>No projects found.</p>
@@ -139,11 +145,9 @@
     }
 </script>
 
+</body> 
 
 <?php include "../inc/footer.inc.php"; ?> 
  
-    
-
-</body> 
 
 </html> 

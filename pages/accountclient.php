@@ -3,39 +3,18 @@
 
 <head>
     <title>Client Account</title>
+    <?php include "../inc/clientcheck.inc.php";?>s
     <?php include "../inc/head.inc.php"; ?>
-    <!-- <?php include "../inc/header.inc.php"; ?>  -->
     <?php include '../inc/db.php';?> 
+    <?php include "../inc/navclient.inc.php";?> 
+    <?php include "../inc/session.inc.php"; ?>
+    <?php include "../processes/account_client/query.php";?>
     <link rel="stylesheet" href="/assets/css/accountclient.css">
 </head> 
 
+
+
 <body>
-    <?php
-    session_start();
-
-    $userID = $_SESSION['user_id'];
-
-    include '../inc/db.php';
-    include "../inc/navclient.inc.php";
-    include "../processes/account_client/query.php";
-
-    // Retrieve and display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-
-    // Retrieve and display error messages
-    if (isset($_SESSION['error'])) {
-        $errorMsg = $_SESSION['error'];
-        unset($_SESSION['error']); 
-
-        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
-    }
-    ?>
-
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container">
             <h1>Account</h1>
@@ -309,6 +288,8 @@
         }
     </script>
 
-    <?php include "../inc/footer.inc.php"; ?> 
+
 </body> 
+
+<?php include "../inc/footer.inc.php"; ?> 
 </html>

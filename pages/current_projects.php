@@ -9,21 +9,25 @@
     <?php include "../inc/session.inc.php"; ?>
     <?php include "../processes/current_projects/query.php"; ?>
     <?php include "../processes/current_projects/details.php"; ?>
-    <link rel="stylesheet" href="/assets/css/projects.css">
+    <link rel="stylesheet" href="/assets/css/currentprojects.css">
+    <link rel="stylesheet" href="/assets/css/details.css">
 </head> 
 
 <body>
  
     <?php if(mysqli_num_rows($result) > 0): ?>
-        <main class="container mt-4">
+        <main>
+        <section class="container container-fluid">
+            <div class="container mt-4">
             <h2>My Projects</h2>
-            <table class="table">
-                <thead>
+            <table class="table table-bordered table-hover table-responsive-sm">
+                <thead class="table-dark">
                     <tr>
                         <th>Name</th>
                         <th>Expiry Date</th>
                         <th>Report Submission Status</th>
                         <th>Report Approval Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,7 +54,8 @@
                     <?php endwhile; ?>
                 </tbody>
             </table>
-            
+            </div>
+        </section> 
         </main>
 
     <?php else: ?>
@@ -116,12 +121,7 @@
     }
 </script>
 
-
-    <?php include "../inc/footer.inc.php"; ?> 
- 
-
-
-
 </body> 
 
+<?php include "../inc/footer.inc.php"; ?> 
 </html> 

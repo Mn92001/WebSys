@@ -7,6 +7,7 @@
     <?php include "../inc/navpentester.inc.php";?>
     <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/session.inc.php"; ?>
+    <link rel="stylesheet" href="/assets/css/addfindings.css">
 </head>
 
 <body>
@@ -16,7 +17,9 @@
     } 
     ?>
      
-     <main class="container">
+     <main>
+        <section class="container container-fluid">
+            <div class="container mt-4">
         <h1>Add Findings</h1>
 
         <?php if (!empty($errorMsg)): ?>
@@ -59,9 +62,10 @@
             </div>
         </form>
 
-
+        </div>
+        </section> 
     </main>   
-    <?php include "../inc/footer.inc.php"; ?> 
-</body> 
 
+</body> 
+<?php include "../inc/footer.inc.php"; ?> 
 </html> 
