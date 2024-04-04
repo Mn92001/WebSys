@@ -1,7 +1,19 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 990px;
+}
 
 main {
-    margin-top: 40px;
+    margin-top: 60px;
     position: relative;
+    /* display: flex; */
 }
 
 
@@ -14,10 +26,6 @@ h2 {
     padding-bottom: 40px;
 }
 
-.table-header {
-    background-color: lightblue;
-}
-
 /* Popup form hidden by default */
 .form-popup {
     display: none;
@@ -25,10 +33,20 @@ h2 {
 
 #viewDetailsBtn {
     margin-bottom: 10px; 
+    border: 1px solid black;
+}
+
+#viewDetailsBtn:hover {
+    background-color: darkblue;
 }
 
 #approveBtn {
     padding: 5px;
+    border: 1px solid black;
+}
+
+#approveBtn:hover {
+    background-color: darkgreen;
 }
 
 @media screen and (max-width: 768px) {
