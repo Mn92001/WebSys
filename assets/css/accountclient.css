@@ -1,187 +1,190 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
-    margin: 0;
-    padding: 0;
+    font-family:'Verdana', sans-serif;
     display: flex;
-    height: 100vh;
-    width: auto;
-}
-
-section {
-    position: relative;
+    flex-direction: column;
     min-height: 100vh;
-    background: #557085;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    transition: 0.5s;
-    box-sizing: border-box;
+    margin: 0;
 }
 
-section .container {
+main {
+    margin-top: 80px;
     position: relative;
-    width: 800px;
-    height: 500px;
-    background: #fff;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-    display: flex;
+    flex: 1 0 auto;
 }
 
-section .container .email-registrationBx {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-
-section .container .email-registrationBx .email-formBx {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    order: 1;
-}
-
-section .container .email-registrationBx .email-formBx h2 {
-    font-size: 18px;
-    font-weight: 600;
+h1 {
     text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
-    color: #555;
-} 
+    padding-bottom: 20px;
+}
 
-section .container .email-registrationBx .email-formBx input {
+table {
     width: 100%;
-    padding: 10px;
-    background: #f5f5f5;
-    color: #333;
+    table-layout: fixed;
+    
+}
+
+th {
+    padding: 10px; 
+    text-align: left;
     border: none;
-    outline: none;
-    box-shadow: none;
-    font-size: 14px;
-    margin: 8px 0;
-    letter-spacing: 1px;
-    font-weight: 300;
 }
 
-section .container .email-registrationBx .email-formBx input[type="button"] {
-    max-width: auto;
-    background: #677eff;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;    
-    transition: 0.5s;
-    margin-top: 20px;
+td {
+    padding: 10px;
+    border: none;
 }
 
-section .container .email-registrationBx .email-formBx p {
-    margin-top: 20px;
+tr {
+    border: none;
 }
 
-.emailtform-popup, .numberform-popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+.container {
+    width: 80%;
+    padding-bottom: 50px;
+}
+.row {
+    justify-content: end;
+    padding: 5px; 
+}
+
+input[type="button"] {
+    width: 100%;
+    padding: 4px;
+    display: inline-block;
+}
+
+#emailForm, #numberForm {
+    padding: 20px;
+}
+
+#coinsFormPopup, #emailFormPopup, #numberFormPopup, #passwordFormPopup, #deleteFormPopup {
+    display: none; 
+    position: fixed; 
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; /* Full width */
+    width: 100%;
     max-width: 800px;
-    height: auto; /* Full height */
+    height: auto; 
     max-height: 75%;
     padding: 20px;
     border: 1px solid #888;
-    overflow: auto; /* Enable scroll if needed */
+    overflow: auto; 
     background-color: white; 
-    background-color: #e6f7ff; /* White background with opacity */
-    z-index: 9999; /* Sit on top */
+    background-color: #eee0c9; 
+    z-index: 9999;
 }
 
-.emailform-popup h2, .numberform-popup h2 {
+ h2 {
     text-transform: uppercase;
-    padding: 20px;
-    justify-content: center;
-    text-align: center;
+    padding: 10px;
 }
 
-#emailForm {
-    padding: 20px;
+#btncoins {
+    background-color: gold;
+    width: 100%;
+    padding: 5px;
 }
 
-#numberForm {
-    padding: 20px;
+#btncoins:hover {
+    background-color: yellow; 
 }
 
-@media (max-width: 768px) {
-    section .container .email-registrationBx {
-        flex-direction: column;
-    }
+
+#btnemail, #btnpassword, #btnnumber {
+    background-color: #febe8c;
+    width: 100%;
+    padding: 5px;
 }
+
+#btnemail:hover {
+    background-color: #ffd9c0;
+}
+
+#btnpassword:hover {
+    background-color: #ffd9c0;
+}
+
+#btndelete:hover {
+    background-color: #ffd9c0;
+}
+
+#btnnumber:hover {
+    background-color: #ffd9c0;
+}
+
+#btndelete {
+    background-color: black;
+    color: white; 
+    padding: 5px;
+}
+
+#btndelete:hover {
+    background-color: red;
+}
+
+.btnsubmit {
+    background-color: green;
+    color: white;
+}
+
+.btnsubmit:hover {
+    background-color: darkgreen;
+}
+
+.btnclose {
+    background-color: red;
+    color: white;
+}
+
+.btnclose:hover {
+    background-color: darkred;
+}
+
+.btntwofa {
+    background-color: grey;
+    display: inline-block;
+    padding: 10px 20px; 
+    color: #fff; 
+    text-decoration: none;
+    border: black 2px solid;
     
-@keyframes enlarge {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.05); /* Adjust scale value to control the amount of enlargement */
-    }
 }
 
-.form-container {
-    animation: enlarge 0.3s ease forwards; /* Apply the animation with a duration of 0.3s */
-  }
-  
-  /* Optional: Animate the form on focus */
-  .form-container input:focus,
-  .form-container textarea:focus,
-  .form-container select:focus {
-    animation: enlarge 0.3s ease forwards;
+.btntwofa:hover {
+    background-color: darkgray;
 }
-  
+
 @media (max-width: 768px) {
-    section .container {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-    section .container .email-registrationBx {
-        width: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
+    .container {
+        width: 95%; 
     }
 
-
-
-    section .container .email-registrationBx .email-formBx {
-        width: 100%;
-        order: 2;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    h1 {
+        font-size: 1.5rem; 
     }
-} 
+
+    table {
+        font-size: 0.9rem; 
+    }
+
+    input[type="button"], button { 
+        font-size: smaller; 
+    }
+
+    #coinsFormPopup, #emailFormPopup, #numberFormPopup, #passwordFormPopup, #deleteFormPopup {
+        width: 90%;
+        max-width: none; 
+    }
+}
+
+@media (max-width: 480px) {
+    table, th {
+        padding: 8px;
+    }
+
+    input[type="button"], button {
+        font-size: smaller;
+    }
+}
 

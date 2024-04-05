@@ -2,61 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>New Projects</title>
+    <title>Project Status</title>
+    <?php include "../inc/clientcheck.inc.php";?>
     <?php include "../inc/head.inc.php"; ?>
     <?php include '../inc/db.php';?> 
-
-    <style>
-        main {
-            margin-top: 40px;
-            position: relative;
-            min-height: 100vh;
-        }
-        
-        /* Popup form hidden by default */
-        .form-popup {
-            display: none;
-        }
-    </style>
-
+    <?php include "../inc/navclient.inc.php";?> 
+    <?php include "../inc/session.inc.php"; ?>
+    <?php include "../processes/project_status/query.php";?> 
+    <link rel="stylesheet" href="/assets/css/project_status.css">
 </head> 
 
 <body>
-<?php
-session_start();
 
-include '../inc/db.php';
-include "../inc/navclient.inc.php";
-include "../processes/project_status/query.php";
-
-// Retrieve and display success message
-if (isset($_SESSION['success'])) {
-    $successMsg = $_SESSION['success'];
-    unset($_SESSION['success']); 
-
-    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-} 
-
-// Retrieve and display error messages
-if (isset($_SESSION['error'])) {
-    $errorMsg = $_SESSION['error'];
-    unset($_SESSION['error']); 
-    
-    echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
-}
-
-?>
 
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main>
-        <section class="container">
+        <section class="container container-fluid">
             <div class="container mt-4">
                 <h2>Project Status</h2>
 
-                <table class="table">
-                    <thead>
+                <table class="table table-bordered table-hover table-responsive-sm">
+                    <thead class="table-dark">
                         <tr>
-                            <th>Name</th>
+                            <th>Name</div></th>
                             <th>Expiry Date</th>
                             <th>Status</th>
                             <th>Report</th>
@@ -79,13 +47,13 @@ if (isset($_SESSION['error'])) {
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
-
+                                    <button class="btn btn-primary" id="viewDetailsBtn" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
+                                    <br>                
                                     <?php if ($row['ClientApprovalStatus'] == 'Pending'): ?>
                                         <form action="../processes/process_payment_detail.php" method="post">
                                             <input type="hidden" name="projectID" value="<?php echo $row['ProjectID']; ?>">
                                             <input type="hidden" name="receiver" value="Pentester">
-                                            <button class="btn btn-success" type="submit">Approve</a>
+                                            <button class="btn btn-success" id= "approveBtn" type="submit">Approve</a>
                                         </form>
                                     <?php endif; ?>
                                 </td>
@@ -116,7 +84,7 @@ if (isset($_SESSION['error'])) {
 
             // Create popup window
             var popupWindow = window.open("", "_blank", "width=400,height=400");
-
+            
             // Write content to popup window
             popupWindow.document.write(popupContent);
         }

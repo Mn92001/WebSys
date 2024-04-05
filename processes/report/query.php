@@ -19,6 +19,7 @@
             pr.ReportStatus,
             pr.ReportFileName,
             pr.ReportData,
+            GROUP_CONCAT(rf.FindingID) AS FindingIDs,
             GROUP_CONCAT(rf.Description) AS FindingsDescriptions,
             GROUP_CONCAT(rf.SeverityLevel) AS SeverityLevels,
             GROUP_CONCAT(rf.OWASP) AS OWASPs,

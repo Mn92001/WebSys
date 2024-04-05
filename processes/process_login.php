@@ -104,23 +104,19 @@
             }           
         } else {
             // Password incorrect
-            echo "<div class='result-container'>";
-            echo "<h1>Oops!</h1>";
-            echo "<h4>The following errors were detected:</h4>";
-            echo "<p>Password doesn't match...</p>";
-            // Option to return to login page
-            echo '<a href="../pages/login.php"" class="btn btn-warning">Return to Login</a>';
-            echo "</div>";
+            session_start();
+            $errorMsg .= "Password is incorrect.";
+            $_SESSION['error'] = $errorMsg; 
+            header("Location: ../pages/login.php"); 
+            exit;
         }
     } else {
         // User not found
-        echo "<div class='result-container'>";
-        echo "<h1>Oops!</h1>";
-        echo "<h4>The following errors were detected:</h4>";
-        echo "<p>Email not found</p>";
-        // Option to return to login page
-        echo '<a href="../pages/login.php"" class="btn btn-warning">Return to Login</a>';
-        echo "</div>";
+        session_start();
+        $errorMsg .= "Account not found.";
+        $_SESSION['error'] = $errorMsg; 
+        header("Location: ../pages/login.php"); 
+        exit;
     }
 
     // Close connection

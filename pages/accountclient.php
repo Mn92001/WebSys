@@ -2,48 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>New Projects</title>
+    <title>Client Account</title>
     <?php include "../inc/head.inc.php"; ?>
     <!-- <?php include "../inc/header.inc.php"; ?>  -->
     <?php include '../inc/db.php';?> 
-
-    <style>
-        /* Adjust layout to display data fields top-down */
-        body {
-            /* background-color: #557085; */
-            font-family:'Verdana', sans-serif;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 50px;
-            padding-bottom: 100px; 
-        }
-
-        .container .table {
-            position: relative;
-            width: 800px;
-            height: 500px; /* Adjust width of tables */
-        }
-
-        .container .data-fields table {
-            margin-top: 10px; /* Add margin between header fields and data fields */
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top: 5px; /* Add margin between buttons and data fields */
-        }
-
-        .btn-group .btn {
-            margin-right: 10px; /* Add margin between buttons */
-        }
-    </style>
-
+    <link rel="stylesheet" href="/assets/css/accountclient.css">
 </head> 
 
 <body>
@@ -75,8 +38,9 @@
 
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container">
+            <h1>Account</h1>
             <!-- Header Fields -->
-            <div class="table">
+            <div class="table-responsive">
                 <table>
                     <thead>
                     <?php while($row = $result->fetch_assoc()): ?>
@@ -91,7 +55,7 @@
                         <tr>
                             <th>Coins:</th>
                             <td><?php echo htmlspecialchars($row['TotalCoins']); ?></td>
-                            <td><input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();"></td>
+                            <!-- <td><input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();"></td> -->
                             <td></td>
                         </tr>
                         <tr>
@@ -107,31 +71,42 @@
                         <tr>
                             <th>Email:</th>
                             <td><?php echo htmlspecialchars($row['Email']); ?></td>
-                            <td><input type="button" id="btnemail" value="Change Email" onclick="showForm('email'); openemailForm();"> </td>
+                            <!-- <td><input type="button" id="btnemail" value="Change Email" onclick="showForm('email'); openemailForm();"> </td> -->
                             
                              
                         </tr>
                         <tr>
                             <th>Phone Number:</th>
                             <td><?php echo htmlspecialchars($row['PhoneNumber']); ?></td>
-                            <td><input type="button" id= "btnnumber" value="Change Number" onclick="showForm('number'); opennumberForm();"></td>
+                            <!-- <td><input type="button" id= "btnnumber" value="Change Number" onclick="showForm('number'); opennumberForm();"></td> -->
                         </tr>
-                        <tr>
-                            <td><input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();"></td>
-                            <td><input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();"></td>
-                        </tr>
-                        <tr>
-                            <td><a href='authenticator_pair.php' class="btn btn-secondary btn-sm" role='button'>Enable Two Factor Authentication</a></td>
-                        </tr>
+                        <!-- <tr> -->
+                            <!-- <td><input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();"></td> -->
+                            <!-- <td><input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();"></td> -->
+                        <!-- </tr> -->
+                        <!-- <tr>
+                            <td><a href='authenticator_pair.php' class="btntwofa" type='button'>Enable Two Factor Authentication</a></td>
+                        </tr> -->
                         </tr>
                         <?php endwhile; ?>
                     </thead>
                 </table>
             </div>
-            
+
+            <div class="row">  
+                <div class="col-12 col-md-6 col-lg-4 mb-2">
+                    <input type="button" id= "btncoins" value="Topup Coins" onclick="showForm('coins'); opencoinsForm();">
+                    <input type="button" id="btnemail" value="Change Email" onclick="showForm('email'); openemailForm();">
+                    <input type="button" id= "btnpassword" value="Change Password" onclick="showForm('password'); openpasswordForm();">
+                    <input type="button" id= "btnnumber" value="Change Number" onclick="showForm('number'); opennumberForm();">
+                    <input type="button" id= "btndelete" value="Delete Account" onclick="showForm('delete'); opendeleteForm();">
+                    <a href='authenticator_pair.php' class="btntwofa" type='button'>Enable Two Factor Authentication</a>
+                </div>
+            </div>
+
             <div class="coinsform-popup" id="coinsFormPopup">
                 <!-- Coins Top-up Form -->
-                <form id="coinsForm" style="display:none;" action="../processes/account_client/update.php" method="post">
+                <form id="coinsForm" action="../processes/account_client/update.php" method="post">
                     <input type="hidden" name="update_type" value="coins">
                     <h2>Top-up Coins</h2>
                     <div class="mb-3">
@@ -163,15 +138,15 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
+                        <button type="submit" class="btnsubmit">Submit</button>
+                        <button type="button" class="btnclose" onclick="closeForm()">Close</button>
                     </div>
                 </form>
             </div>
-
+            
             <div class="emailform-popup" id="emailFormPopup">
             <!-- The email Registration Form -->
-            <form id="emailForm" style="display:none;" action="../processes/account_client/update.php" method="post">
+            <form id="emailForm" action="../processes/account_client/update.php" method="post">
                 <input type="hidden" name="update_type" value="email">
                 <h2>Change Email</h2>
                 <div class="mb-3">
@@ -183,15 +158,15 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
+                    <button type="submit" class="btnsubmit">Submit</button>
+                    <button type="button" class="btnclose" onclick="closeForm()">Close</button>
                 </div>
             </form>
             </div>
 
         <div class="numberform-popup" id="numberFormPopup">
             <!-- number Registration Form -->
-            <form id="numberForm" style="display:none;" action="../processes/account_client/update.php" method="post" enctype="multipart/form-data">
+            <form id="numberForm" action="../processes/account_client/update.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="update_type" value="number">
                 <h2>Change Number</h2>
                 
@@ -201,15 +176,15 @@
                     title="Phone number must contain only numbers and can start with a + for international numbers.">
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
+                    <button type="submit" class="btnsubmit">Submit</button>
+                    <button type="button" class="btnclose" onclick="closeForm()">Close</button>
                 </div>
             </form>
         </div>
 
         <div class="passwordform-popup" id="passwordFormPopup">
             <!-- The password Registration Form -->
-            <form id="passwordForm" style="display:none;" action="../processes/account_client/update.php" method="post">
+            <form id="passwordForm" action="../processes/account_client/update.php" method="post">
                 <input type="hidden" name="update_type" value="password">
                 <h2>Change Password</h2>
                 <div class="mb-3">
@@ -226,21 +201,21 @@
                         title="Password must contain at least 8 characters, including at least one number, one uppercase letter, one lowercase letter, and one special character.">
                 </div>
                 <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
+                <button type="submit" class="btnsubmit">Submit</button>
+                    <button type="button" class="btnclose" onclick="closeForm()">Close</button>
                 </div>
             </form>
             </div>
 
             <div class="deleteform-popup" id="deleteFormPopup">
             <!-- Delete Account Form -->
-            <form id="deleteForm" style="display:none;" action="../processes/account_client/update.php" method="post">
+            <form id="deleteForm" action="../processes/account_client/update.php" method="post">
             <input type="hidden" name="update_type" value="delete">
                 <h2>Delete Account Confirmation</h2>
                 <p>Are you sure you want to delete your account?</p>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-danger">Yes, Delete My Account</button>
-                    <button type="button" class="btn btn-primary" onclick="closeForm()">Cancel</button>
+                    <button type="submit" class="btnsubmit">Yes, Delete My Account</button>
+                    <button type="button" class="btnclose" onclick="closeForm()">Cancel</button>
                 </div>
             </form>
             </div>

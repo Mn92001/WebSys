@@ -3,27 +3,14 @@
 
 <head>
     <title>Add Findings</title>
-    <?php
-    include "../inc/head.inc.php";
-    include "../inc/header.inc.php";
-    ?>
+    <?php include "../inc/head.inc.php";?>
+    <?php include "../inc/navpentester.inc.php";?>
+    <?php include "../inc/pentestercheck.inc.php";?>
+    <?php include "../inc/session.inc.php"; ?>
 </head>
 
 <body>
     <?php
-
-    session_start();
-   
-    include "../inc/navpentester.inc.php";
-
-    // Display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-
     if (isset($_SESSION['PenReportID'])) {
         $penReportID = $_SESSION['PenReportID'];
     } 

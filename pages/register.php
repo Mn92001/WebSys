@@ -1,13 +1,3 @@
-<?php
-session_start(); 
-
-$errorMsg = "";
-if (isset($_SESSION['error'])) {
-    $errorMsg = $_SESSION['error'];
-    unset($_SESSION['error']); 
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,21 +5,37 @@ if (isset($_SESSION['error'])) {
     <title>Registration</title>
     <?php
     include "../inc/head.inc.php";
-    ?>
-    <link rel="stylesheet" href="/assets/css/register.css">
-</head>
-
-<body>
-    <?php
     include "../inc/nav.inc.php";
     ?>
+    <link rel="stylesheet" href="/assets/css/register.css">
+
+</head>
+
+<?php
+session_start(); 
+
+// Display success message
+if (isset($_SESSION['success'])) {
+    $successMsg = $_SESSION['success'];
+    unset($_SESSION['success']); 
+
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+} 
+
+// Retrieve and display error messages
+if (isset($_SESSION['error'])) {
+    $errorMsg = $_SESSION['error'];
+    unset($_SESSION['error']); 
+    
+    echo "<div class='alert alert-danger alert-dismissible fade show' role='alert' style='margin-top: 45px; margin-bottom: 0;'>" . htmlspecialchars($errorMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+}
+?>
+
+<body>
+   
     
     <main> 
-        <?php if (!empty($errorMsg)): ?>
-                <div class="alert alert-danger" role="alert">
-                <?php echo htmlspecialchars($errorMsg); ?>
-            </div>
-        <?php endif; ?>
+
 
         <section>
             <div class="container">

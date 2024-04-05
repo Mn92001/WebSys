@@ -3,43 +3,33 @@
 
 <head>
     <title>New Project</title>
-    <?php
-    include "../inc/head.inc.php";
-    ?>
+    <?php include "../inc/clientcheck.inc.php";?>
+    <?php include "../inc/head.inc.php"; ?>
+    <?php include "../inc/navclient.inc.php";?> 
+    <?php include "../inc/session.inc.php"; ?>
     <link rel="stylesheet" href="/assets/css/new_project.css">
 </head>
 
 <body>
-    <?php
-
-    session_start();
-   
-    include "../inc/navclient.inc.php";
-
-    // Display success message
-    if (isset($_SESSION['success'])) {
-        $successMsg = $_SESSION['success'];
-        unset($_SESSION['success']); 
-
-        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
-    } 
-    ?>
      
      <main class="container">
-        <h1>New Project</h1>
-        <p>
-            To check on existing projects, please go to the
-            <a href="../pages/project_status.php">Project Status page</a>.
-        </p>
+        <div class="row content-container">
+            <h1>New Project</h1>
+            <p>
+                To check on existing projects, please go to the
+                <a href="../pages/project_status.php">Project Status page</a>.
+            </p>
 
-        <?php if (!empty($errorMsg)): ?>
-                <div class="alert alert-danger" role="alert">
-                <?php echo htmlspecialchars($errorMsg); ?>
-            </div>
-        <?php endif; ?>
+            <?php if (!empty($errorMsg)): ?>
+                    <div class="alert alert-danger" role="alert">
+                    <?php echo htmlspecialchars($errorMsg); ?>
+                </div>
+            <?php endif; ?>
 
-        <!-- Add Project Form -->
-        <section>
+            <!-- Add Project Form -->
+            <!-- <div class="col-6 img-container order-2">
+                <img src="../assets/images/new_project.png" alt="New Project Image">
+            </div> -->
             <div class= "form-container">
                 <form  action="../processes/new_project.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
@@ -78,8 +68,9 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
-            </div>
-        </section>
+            </div> 
+        </div> 
+        
     </main>   
     <?php include "../inc/footer.inc.php"; ?> 
 </body> 
