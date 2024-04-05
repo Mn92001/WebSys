@@ -40,10 +40,9 @@
 <body> 
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main>
-    <section class="container container-fluid">
         <div class="container mt-4">
         <h2>New projects</h2>
-            <div class="table-responsive">
+            <div class="table-responsive" style="overflow-x: auto;">
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
@@ -80,8 +79,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section>  
+        </div>  
     </main>
 <?php else: ?>
     <p>No projects found.</p>

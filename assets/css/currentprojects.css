@@ -1,9 +1,8 @@
-body {
+/* body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    min-width: 900px;
-}
+} */
 
 main {
     margin-top: 40px;
@@ -37,7 +36,7 @@ h2 {
 .btn-primary:hover {
     background-color: #0056b3;
 }
-
+/* 
 @media screen and (max-width: 768px) {
     body {
         font-size: 14px;
@@ -48,4 +47,5 @@ h2 {
     body {
         font-size: 12px;
     }
-}
+} */
+

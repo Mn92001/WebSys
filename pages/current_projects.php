@@ -17,12 +17,11 @@
  
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main>
-        <section class="container">
             <div class="container mt-4">
                 <h2>My Projects</h2>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
-                        <thead class="table-dark">
+                        <thead class="table-dark" style="background-color: Lightblue;">
                             <tr>
                                 <th>Name</th>
                                 <th>Expiry Date</th>
@@ -57,7 +56,6 @@
                     </table>
                 </div>
             </div>
-        </section> 
         </main>
 
     <?php else: ?>
