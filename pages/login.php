@@ -52,7 +52,6 @@ if (isset($_SESSION['error'])) {
                             </div>
                             <div class="mb-3">
                                 <p class="register">Don't have an account? <a href="register.php">Register</a></p>
-                                <p class="forgotPassword"> Forgotten your password? <a href="#">Forget Password</a><p> 
                             </div>
                         </form>
                     </div>

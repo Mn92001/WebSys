@@ -173,7 +173,7 @@ function saveUserClientToDB($username, $pwd_hashed, $fullname, $email, $phoneNum
         $userID = mysqli_insert_id($conn);
 
         // Insert client into Client table with the retrieved UserID
-        $stmt = $conn->prepare("INSERT INTO Client (userID, coins, projects, totalCoinsPaid) VALUES (?, 0, 0, 0)");  
+        $stmt = $conn->prepare("INSERT INTO Client (userID, projects) VALUES (?, 0)");  
         $stmt->bind_param("i", $userID); 
      
         if (!$stmt->execute()) {  
