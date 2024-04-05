@@ -19,35 +19,13 @@ h2 {
     padding-bottom: 40px;
 }
 
-.table-header {
-    background-color: lightblue;
-}
-
 /* Popup form hidden by default */
 .form-popup {
     display: none;
 }
 
-/* Primary Button */
-.btn-primary {
-    background-color: #387adf;
-    color: #fff;
-    border: 1px solid black;
-}
-
-.btn-primary:hover {
-    background-color: darkblue;
-}
-
-/* Danger Button */
-.btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-    border: 1px solid black;
-}
-
-.btn-danger:hover {
-    background-color: darkred;
+.table-responsive {
+    padding-bottom: 10px;
 }
 
 .edit-btn {
@@ -55,7 +33,35 @@ h2 {
 }
 
 .edit-btn:hover {
-    background-color: #9ad0c2;
+    background-color: #97E7E1;
+}
+
+.btn-primary {
+    background-color: #387adf;
+    color: #fff;
+    border: 1px solid black;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid black;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+#penReportForm {
+    padding-top: 60px;
+}
+
+.btn-close:hover {
+    background-color: darkred; /* Add your desired hover background color */
 }
 
 @media screen and (max-width: 768px) {

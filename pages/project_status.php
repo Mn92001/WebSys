@@ -18,12 +18,11 @@
 
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main>
-        <section class="container container-fluid">
-            <div class="container">
-                <h2>Project Status</h2>
-
+        <div class="container">
+            <h2>Project Status</h2>
+            <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-info">
                         <tr>
                             <th>Name</div></th>
                             <th>Expiry Date</th>
@@ -63,7 +62,7 @@
                     </tbody>
                 </table>
             </div>
-        </section>   
+        </div>   
     </main>
     <?php include "../inc/footer.inc.php"; ?> 
 <?php else: ?>

@@ -101,7 +101,6 @@
                 } else {
                     $errorMsg .= "No changes were made.";
                     $_SESSION['error'] = $errorMsg;
-
                     header("Location: ../../pages/report_submission.php");
                     exit;
                 }
@@ -123,7 +122,7 @@
 
     // function to validate and process pdf
     function processPdfUpload($file) {
-        $maxFileSize = 5 * 1024 * 1024;
+        $maxFileSize = 2 * 1024 * 1024;
     
         if ($file['type'] != 'application/pdf') {
             return false;

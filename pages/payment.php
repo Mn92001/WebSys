@@ -5,7 +5,6 @@
     <title>Transaction</title>
     <?php
     include "../inc/head.inc.php";
-    include "../inc/header.inc.php";
     ?>
 </head>
 
@@ -64,36 +63,36 @@
     }
     ?>
      
-     <main class="container">
-        <h1>Transaction</h1>
+     <main style="min-height: 100vh;">
+        <div class="container">
+            <h1 style="padding-top: 60px;">Transaction</h1>
 
-        <?php if (!empty($errorMsg)): ?>
-                <div class="alert alert-danger" role="alert">
-                <?php echo htmlspecialchars($errorMsg); ?>
-            </div>
-        <?php endif; ?>
+            <?php if (!empty($errorMsg)): ?>
+                    <div class="alert alert-danger" role="alert">
+                    <?php echo htmlspecialchars($errorMsg); ?>
+                </div>
+            <?php endif; ?>
 
-        <form action="../processes/process_payment.php" method="post">
-            <div class="mb-3">
-                <label for="sender" class="form-label">Sender:</label>
-                <input disabled type="text" id="sender" name="sender" class="form-control" placeholder="<?php echo htmlspecialchars($details['SenderUserName']); ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="receiver" class="form-label">Receiver:</label>
-                <input disabled type="text" id="receiver" name="receiver" class="form-control" placeholder="<?php echo htmlspecialchars($details['ReceiverUserName']); ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="receiver" class="form-label">Payable Coins:</label>
-                <input disabled type="text" id="receiver" name="receiver" class="form-control" placeholder="<?php echo htmlspecialchars($details['CoinsOffered']); ?>" required>
-            </div>
+            <form action="../processes/process_payment.php" method="post">
+                <div class="mb-3">
+                    <label for="sender" class="form-label">Sender:</label>
+                    <input disabled type="text" id="sender" name="sender" class="form-control" placeholder="<?php echo htmlspecialchars($details['SenderUserName']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="receiver" class="form-label">Receiver:</label>
+                    <input disabled type="text" id="receiver" name="receiver" class="form-control" placeholder="<?php echo htmlspecialchars($details['ReceiverUserName']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="receiver" class="form-label">Payable Coins:</label>
+                    <input disabled type="text" id="receiver" name="receiver" class="form-control" placeholder="<?php echo htmlspecialchars($details['CoinsOffered']); ?>" required>
+                </div>
 
-            <div class="mb-3">
-                <button type="button" class="btn btn-secondary" onclick="history.back();">Cancel</button>
-                <button type="submit" class="btn btn-primary">Transfer</button>
-            </div>
-        </form>
-
-
+                <div class="mb-3">
+                    <button type="button" class="btn btn-secondary" onclick="history.back();">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Transfer</button>
+                </div>
+            </form>
+        </div>
     </main>   
     <?php include "../inc/footer.inc.php"; ?> 
 </body> 

@@ -15,11 +15,13 @@
 ?>
 
 
+    
+<body>
     <!-- About Us Section -->
     <section id="about-us" class="image-section">
-    <img src="assets/images/about_us.png" alt="About Us Image" class="about-us-image">
+        <img src="assets/images/about_us.png" alt="About Us Image" class="about-us-image">
         <div class="image-text">
-            <h2>About Us</h2>
+            <h2 style="color: white; text-align: center;">About Us</h2>
         </div>
     </section>
 

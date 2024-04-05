@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Login</title>
-    <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/nav.inc.php"; ?>
-    <link rel="stylesheet" href="/assets/css/login.css">
+
+<title>Login</title>
+<?php include "../inc/head.inc.php"; ?>
+<?php include "../inc/nav.inc.php"; ?>
+<link rel="stylesheet" href="/assets/css/login.css">
     
-</head>
+
 
 
 <?php

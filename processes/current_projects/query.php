@@ -14,7 +14,6 @@
         SELECT 
             lr.LockedInID,
             lr.LockedInExpiryDate,
-            lr.ApprovalStatus,
             lr.ProjectID,
             lr.PentesterID,
             pr.ClientApprovalStatus,
