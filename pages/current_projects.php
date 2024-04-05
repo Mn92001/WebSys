@@ -17,43 +17,45 @@
  
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main>
-        <section class="container container-fluid">
+        <section class="container">
             <div class="container mt-4">
-            <h2>My Projects</h2>
-            <table class="table table-bordered table-hover table-responsive-sm">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>Expiry Date</th>
-                        <th>Report Submission Status</th>
-                        <th>Report Approval Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
-                        
-                        <tr class="<?php echo $row['ClientApprovalStatus'] == 'Approved' ? 'table-secondary' : ''; ?>">
-                            <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
-                            <td><?php echo htmlspecialchars($row['LockedInExpiryDate']); ?></td>
-                            <td><?php echo htmlspecialchars($row['ReportStatus']); ?></td>
-                            <td>
-                                <?php echo $row['ClientApprovalStatus'] != null ? htmlspecialchars($row['ClientApprovalStatus']) : '-'; ?>
-                            </td>
-                            <td>
-                                <button class="btn btn-primary" onclick="openPopup(
-                                    '<?php echo htmlspecialchars($row['ProjectName']); ?>', 
-                                    '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', 
-                                    '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', 
-                                    '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', 
-                                    '<?php echo htmlspecialchars($row['ProjectID']); ?>', 
-                                    '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details
-                                </button>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
+                <h2>My Projects</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Expiry Date</th>
+                                <th>Report Submission Status</th>
+                                <th>Report Approval Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($row = $result->fetch_assoc()): ?>
+                                
+                                <tr class="<?php echo $row['ClientApprovalStatus'] == 'Approved' ? 'table-secondary' : ''; ?>">
+                                    <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['LockedInExpiryDate']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['ReportStatus']); ?></td>
+                                    <td>
+                                        <?php echo $row['ClientApprovalStatus'] != null ? htmlspecialchars($row['ClientApprovalStatus']) : '-'; ?>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="openPopup(
+                                            '<?php echo htmlspecialchars($row['ProjectName']); ?>', 
+                                            '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', 
+                                            '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', 
+                                            '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', 
+                                            '<?php echo htmlspecialchars($row['ProjectID']); ?>', 
+                                            '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section> 
         </main>

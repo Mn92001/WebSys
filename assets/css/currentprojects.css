@@ -29,12 +29,13 @@ h2 {
     display: none;
 }
 
-#viewDetailsBtn {
-    margin-bottom: 10px; 
+.btn-primary {
+    background-color: #387adf;
+    border: 1px solid black;
 }
 
-#approveBtn {
-    padding: 5px;
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
 @media screen and (max-width: 768px) {

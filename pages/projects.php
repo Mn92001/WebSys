@@ -43,41 +43,43 @@
     <section class="container container-fluid">
         <div class="container mt-4">
         <h2>New projects</h2>
-        <table class="table table-bordered table-hover table-responsive-sm">
-            <thead class="table-dark">
-                <tr>
-                    <th>Name</th>
-                    <th>Expiry Date</th>
-                    <th>Coins Offered</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while($row = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
-                        <td><?php echo htmlspecialchars($row['ProjectExpiryDate']); ?></td>
-                        <td><?php echo htmlspecialchars($row['CoinsOffered']); ?></td>
-                        <td>
-                            <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
-                            <?php
-                                if ($pentesterLockedIn != 0) {
-                                    // There is an active locked-in project, hide lock in button
-                                    echo '<p>A project has already been locked in</p>';
-                                } else {
-                                    // No active locked-in projects, show lock in button
-                                    echo '<form action="../processes/projects/lockin.php" method="post">';
-                                    echo '<input type="hidden" name="project_id" value="' . htmlspecialchars($row['ProjectID']) . '">'; // Hidden input field to send project ID
-                                    echo '<input type="hidden" name="project_expiry_date" value="' . htmlspecialchars($row['ProjectExpiryDate']) . '">'; // Hidden input field to send project expiry date
-                                    echo '<button type="submit" class="btn btn-primary">Lock In</button>';
-                                    echo '</form>';
-                                }
-                            ?>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Expiry Date</th>
+                            <th>Coins Offered</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['ProjectName']); ?></td>
+                                <td><?php echo htmlspecialchars($row['ProjectExpiryDate']); ?></td>
+                                <td><?php echo htmlspecialchars($row['CoinsOffered']); ?></td>
+                                <td>
+                                    <button class="btn btn-primary" onclick="openPopup('<?php echo htmlspecialchars($row['ProjectName']); ?>', '<?php echo htmlspecialchars($row['ProjectDescription']); ?>', '<?php echo htmlspecialchars($row['CoinsOffered']); ?>', '<?php echo htmlspecialchars($row['ProjectExpiryDate']); ?>', '<?php echo htmlspecialchars($row['ProjectID']); ?>', '<?php echo htmlspecialchars($row['DateOfCompletion']); ?>')">View Details</button>
+                                    <?php
+                                        if ($pentesterLockedIn != 0) {
+                                            // There is an active locked-in project, hide lock in button
+                                            echo '<p>A project has already been locked in</p>';
+                                        } else {
+                                            // No active locked-in projects, show lock in button
+                                            echo '<form action="../processes/projects/lockin.php" method="post">';
+                                            echo '<input type="hidden" name="project_id" value="' . htmlspecialchars($row['ProjectID']) . '">'; // Hidden input field to send project ID
+                                            echo '<input type="hidden" name="project_expiry_date" value="' . htmlspecialchars($row['ProjectExpiryDate']) . '">'; // Hidden input field to send project expiry date
+                                            echo '<button type="submit" class="btn btn-primary">Lock In</button>';
+                                            echo '</form>';
+                                        }
+                                    ?>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>  
     </main>

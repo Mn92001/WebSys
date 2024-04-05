@@ -7,7 +7,7 @@ body {
 main {
     margin-top: 40px;
     position: relative;
-    min-width: 100vh;
+    min-height: 100vh;
 }
 
 h2 {
@@ -28,13 +28,30 @@ h2 {
     display: none;
 }
 
-#viewDetailsBtn {
-    margin-bottom: 10px; 
+.edit-btn:hover {
+    background-color: #97E7E1;
 }
 
-#approveBtn {
-    padding: 5px;
+.btn-primary {
+    background-color: #387adf;
+    color: #fff;
+    border: 1px solid black;
 }
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid black;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
 
 @media screen and (max-width: 768px) {
     body {
