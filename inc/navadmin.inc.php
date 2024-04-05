@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="/assets/css/navclient.css">
 <nav class="navbar navbar-expand-sm">
     <div class="container-fluid" id="navbar"> 
         <div class="navbar-brand">

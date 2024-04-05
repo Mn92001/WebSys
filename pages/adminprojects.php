@@ -9,6 +9,7 @@
     <?php include "../inc/session.inc.php"; ?>
     <?php include "../inc/navadmin.inc.php"; ?>
     <?php include "../processes/admin/projectsquery.php"; ?>
+    <link rel="stylesheet" href="../assets/css/adminprojects.css">
 </head> 
 
 <body>
@@ -30,9 +31,10 @@
     <?php if(mysqli_num_rows($result) > 0): ?>
         <main class="container mt-4">
             <h2>Ongoing Projects</h2>
-            <table class="table">
+            <div class="table-responsive">
+                <table class="table table-bordered border-info table-hover">
                 <thead>
-                    <tr>
+                    <tr class="table-info">
                         <th>Project</th>
                         <th>Client</th>
                         <th>Pentester</th>
@@ -50,7 +52,7 @@
                     <?php endwhile; ?>
                 </tbody>
             </table>
-            
+                </div> 
         </main>
 
     <?php else: ?>
