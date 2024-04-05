@@ -16,21 +16,20 @@
 <body>
     
     <main>
-        <section class="container container-fluid">
-            <div class="container mt-4">
+        <div class="container mt-4">
             <h2>Report Submission</h2>
-        
-        <!-- Check for any currently locked records that have not yet been submitted-->
-        <?php if ($hasLockInRecords): 
+    
+    <!-- Check for any currently locked records that have not yet been submitted-->
+    <?php if ($hasLockInRecords): 
 
-            // Check for the first row, if description is not null, display table. Else, no findings 
-            $result->data_seek(0);
-            $row = $row = $result->fetch_assoc();
+        // Check for the first row, if description is not null, display table. Else, no findings 
+        $result->data_seek(0);
+        $row = $row = $result->fetch_assoc();
 
-            if($row['FindingsDescriptions'] != NULL): ?>
-                
-                <table class="table table-bordered table-hover table-responsive-sm">
-                    <thead class="table-dark">
+        if($row['FindingsDescriptions'] != NULL): ?>
+            <div class="table-responsive"> 
+                <table class="table table-bordered table-hover">
+                    <thead class="table-info">
                         <tr>
                             <th></th>
                             <th>No.</th>
@@ -65,7 +64,7 @@
                                     <td><?php echo htmlspecialchars($owasps[$i]); ?></td>
                                     <td><?php echo htmlspecialchars($cveDetails[$i]); ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-info edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" data-findingid="<?php echo htmlspecialchars($findingids[$i]); ?>" data-description="<?php echo htmlspecialchars($descriptions[$i]); ?>" data-severitylevel="<?php echo htmlspecialchars($severityLevels[$i]); ?>" data-owasp="<?php echo htmlspecialchars($owasps[$i]); ?>" data-cvedetails="<?php echo htmlspecialchars($cveDetails[$i]); ?>">Edit</button>
+                                        <button type="button" class="btn btn-warning edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" data-findingid="<?php echo htmlspecialchars($findingids[$i]); ?>" data-description="<?php echo htmlspecialchars($descriptions[$i]); ?>" data-severitylevel="<?php echo htmlspecialchars($severityLevels[$i]); ?>" data-owasp="<?php echo htmlspecialchars($owasps[$i]); ?>" data-cvedetails="<?php echo htmlspecialchars($cveDetails[$i]); ?>">Edit</button>
                                     </td>
 
                                 </tr>
@@ -74,28 +73,28 @@
                         <?php endwhile; ?>                                     
                     </tbody>                  
                 </table>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-findingid="findingIDs[]">Delete</button>
+            </div>
 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="add_findings.php" class="btn btn-primary me-md-2" type="button">Add Findings</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-findingid="findingIDs[]">Delete</button>
+            <form id="penReportForm" action="../processes/report/submit.php" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="reportPdf" class="form-label">Pentester Report (PDF):</label>
+                    <input type="file" id="reportPdf" name="reportPdf" class="form-control" accept="application/pdf" required>
                 </div>
-
-                <form id="penReportForm" action="../processes/report/submit.php" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="reportPdf" class="form-label">Pentester Report (PDF):</label>
-                        <input type="file" id="reportPdf" name="reportPdf" class="form-control" accept="application/pdf" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="briefReportPdf" class="form-label">Brief Pentester Report (PDF):</label>
-                        <input type="file" id="briefReportPdf" name="briefReportPdf" class="form-control" accept="application/pdf" required>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                <div class="mb-3">
+                    <label for="briefReportPdf" class="form-label">Brief Pentester Report (PDF):</label>
+                    <input type="file" id="briefReportPdf" name="briefReportPdf" class="form-control" accept="application/pdf" required>
                 </div>
-                </form>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-        </section> 
+            </div>
+            </form>
+            </div>
+        
             <?php else: ?>
                 <hr>
                 <p>No findings.</p>

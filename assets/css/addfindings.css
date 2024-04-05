@@ -2,10 +2,11 @@
 main {
     margin-top: 40px;
     position: relative;
+    min-height: 100vh;
 }
 
 
-h2 {
+h1 {
     text-transform: uppercase;
     padding-bottom: 20px;
 }
@@ -23,12 +24,20 @@ h2 {
     display: none;
 }
 
-#viewDetailsBtn {
-    margin-bottom: 10px; 
+.btn-secondary {
+    background-color: red;
 }
 
-#approveBtn {
-    padding: 5px;
+.btn-secondary:hover {
+    background-color: #FFBFBF;
+}
+
+.btn-primary {
+    background-color: green;
+}
+
+.btn-primary:hover {
+    background-color: lightgreen;
 }
 
 @media screen and (max-width: 768px) {

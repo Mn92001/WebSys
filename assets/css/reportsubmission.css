@@ -19,13 +19,17 @@ h2 {
     padding-bottom: 40px;
 }
 
-.table-header {
-    background-color: lightblue;
-}
-
 /* Popup form hidden by default */
 .form-popup {
     display: none;
+}
+
+.table-responsive {
+    padding-bottom: 10px;
+}
+
+.edit-btn {
+    border: 1px solid black;
 }
 
 .edit-btn:hover {
@@ -52,6 +56,9 @@ h2 {
     background-color: #c82333;
 }
 
+#penReportForm {
+    padding-top: 60px;
+}
 
 @media screen and (max-width: 768px) {
     body {

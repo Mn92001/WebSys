@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $stmt5->bind_param("i", $lockInRecordID);
                             if ($stmt5->execute()) {
                                // Redirect to index.php or another page
-                               header("Location: ../../index.php");
+                               header("Location: ../../pages/current_projects.php");
                                exit;
                             } else {
                                $errorMsg .= "Failed to insert LockedInID into PentesterReport table.";
