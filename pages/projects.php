@@ -44,7 +44,7 @@
         <h2>New projects</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-info">
                         <tr>
                             <th>Name</th>
                             <th>Expiry Date</th>

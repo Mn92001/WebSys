@@ -60,6 +60,10 @@ h2 {
     padding-top: 60px;
 }
 
+.btn-close:hover {
+    background-color: darkred; /* Add your desired hover background color */
+}
+
 @media screen and (max-width: 768px) {
     body {
         font-size: 14px;
