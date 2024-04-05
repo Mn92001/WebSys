@@ -2,8 +2,24 @@
     background-color: #eee0c9;
 }
 
-footer {
-    background-color: #eee0c9;
-    padding: 1vh 0;
-    padding-top: 20px;
+footer { 
+    background-color: #eee0c9; 
+    padding: 1vh 0; 
+    min-width: 100%; 
+    display: flex; 
+    box-sizing: border-box; 
 }
+
+/* @media (max-width: 768px) {
+    footer {
+        min-width: 100%; 
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 468px) {
+    footer {
+        min-width: 100%; 
+        box-sizing: border-box; 
+    }
+} */

@@ -4,8 +4,6 @@
 <head>
     <title>FortifyTech - About us</title>
     <link rel="stylesheet" href="about_us.css">
-    <!-- Include Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
     <?php include "../inc/head.inc.php"; ?>
     <?php include "../inc/nav.inc.php"; ?>
 </head>
@@ -16,11 +14,6 @@
     session_destroy();
 ?>
 
-<body> 
-    <header>
-        <h1> About us </h1> 
-    </header>
-    
 
     <!-- About Us Section -->
     <section id="about-us" class="image-section">
@@ -117,9 +110,9 @@
 
     <?php include "../inc/footer.inc.php"; ?>
 
-    <!-- Include Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Include Bootstrap 5 JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

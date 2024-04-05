@@ -1,21 +1,14 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     display: flex;
     flex-direction: column;
-    min-width: 990px;
+    margin: 0;
 }
 
 main {
-    margin-top: 60px;
+    margin-top: 40px;
     position: relative;
-    /* display: flex; */
+    min-height: 100vh;
 }
-
 
 h2 {
     text-transform: uppercase;
@@ -26,27 +19,43 @@ h2 {
     padding-bottom: 40px;
 }
 
+.table-header {
+    background-color: lightblue;
+}
+
 /* Popup form hidden by default */
 .form-popup {
     display: none;
 }
 
-#viewDetailsBtn {
-    margin-bottom: 10px; 
+/* Primary Button */
+.btn-primary {
+    background-color: #387adf;
+    color: #fff;
     border: 1px solid black;
 }
 
-#viewDetailsBtn:hover {
+.btn-primary:hover {
     background-color: darkblue;
 }
 
-#approveBtn {
-    padding: 5px;
+/* Danger Button */
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
     border: 1px solid black;
 }
 
-#approveBtn:hover {
-    background-color: darkgreen;
+.btn-danger:hover {
+    background-color: darkred;
+}
+
+.edit-btn {
+    border: 1px solid black;
+}
+
+.edit-btn:hover {
+    background-color: #9ad0c2;
 }
 
 @media screen and (max-width: 768px) {
