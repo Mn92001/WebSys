@@ -3,18 +3,35 @@
 
 <head>
     <title>Report Submission</title>
-    <?php include "../inc/pentestercheck.inc.php";?>
     <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/navpentester.inc.php";?> 
+    <?php include "../inc/header.inc.php"; ?> 
     <?php include '../inc/db.php';?> 
-    <?php include "../processes/report/query.php";?>
 </head> 
 
-
-
-
 <body>
-    
+    <?php
+
+    include "../inc/navpentester.inc.php";
+    include "../processes/report/query.php";
+
+    // Retrieve and display success message
+    if (isset($_SESSION['success'])) {
+        $successMsg = $_SESSION['success'];
+        unset($_SESSION['success']); 
+
+        echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+    } 
+
+    // Retrieve and display error messages
+
+    if (isset($_SESSION['error'])) {
+        $errorMsg = $_SESSION['error'];
+        unset($_SESSION['error']); 
+        
+        echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
+    }
+    ?>
+
     
     <main class="container mt-4">
         <h2>Report Submission</h2>
@@ -109,7 +126,7 @@
         <p>No current locked in record found. Please go to the <a href="projects.php">New Projects</a> page.</p>
     <?php endif; ?>
 
-    <!-- Delete Confirmation Modal -->
+    <!-- Delete Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -131,7 +148,7 @@
     </div>
     </div>
 
-    <!-- Edit Finding Modal -->
+    <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -146,12 +163,34 @@
                         <label for="editDescription" class="form-label">Description:</label>
                         <input type="text" class="form-control" id="editDescription" name="description" required>
                     </div>
-                    <!-- Add other fields as necessary -->
+                    <div class="mb-3">
+                        <label for="editSeverityLevel" class="form-label">Severity Level</label>
+                            <select class="form-select" id="editSeverityLevel" name="severityLevel" aria-label="Severity Level" required>
+                                <option selected disabled value="">Please select severity level</option>
+                                <option value="Information">Information</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                    <div class="mb-3">
+                        <label for="owasp" class="form-label">OWASP</label>
+                        <input type="text" id="editOwasp" name="owasp" class="form-control" placeholder="Enter OWASP" pattern="^[a-zA-Z0-9_\s]{10,}$" 
+                        title="Must be at least 10 characters long and can contain letters, numbers, and underscores." required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cveDetail" class="form-label">CVE Details</label>
+                        <input type="text" id="editCveDetail" name="cveDetail" class="form-control" placeholder="Enter CVEDetail" pattern="^[a-zA-Z0-9_\s]{10,}$" 
+                        title="Must be at least 10 characters long and can contain letters, numbers, and underscores." required>
+                    </div>
+
+                    
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
             </form>
         </div>
     </div>
@@ -197,13 +236,18 @@
         editButtons.forEach(button => {
             button.addEventListener('click', function () {
                 const findingID = this.getAttribute('data-findingid');
+                const owasp = this.getAttribute('data-owasp');
+                const cvedetails = this.getAttribute('data-cvedetails');
                 const description = this.getAttribute('data-description');
-                // Get other data attributes as needed
+                const severitylevel = this.getAttribute('data-severitylevel');
+                
 
-                // Populate the modal fields
                 document.getElementById('editFindingID').value = findingID;
                 document.getElementById('editDescription').value = description;
-                // Populate other fields similarly
+                document.getElementById('editSeverityLevel').value = severitylevel;
+                document.getElementById('editOwasp').value = cvedetails;
+                document.getElementById('editCveDetail').value = cvedetails;
+
             });
         });
     });

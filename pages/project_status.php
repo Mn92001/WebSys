@@ -2,29 +2,73 @@
 <html lang="en">
 
 <head>
-    <title>Project Status</title>
-    <?php include "../inc/clientcheck.inc.php";?>
+    <title>New Projects</title>
     <?php include "../inc/head.inc.php"; ?>
     <?php include '../inc/db.php';?> 
-    <?php include "../inc/navclient.inc.php";?> 
-    <?php include "../inc/session.inc.php"; ?>
-    <?php include "../processes/project_status/query.php";?> 
-    <link rel="stylesheet" href="/assets/css/project_status.css">
+
+    <style>
+        main {
+            margin-top: 40px;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Popup form hidden by default */
+        .form-popup {
+            display: none;
+        }
+
+        .table {
+            border-bottom: 2px solid black; 
+        }
+
+        #viewDetailsBtn {
+            margin-bottom: 10px; 
+        }
+
+        #approveBtn {
+            padding: 5px;
+        }
+    </style>
+
 </head> 
 
 <body>
+<?php
+session_start();
 
+include '../inc/db.php';
+include "../inc/navclient.inc.php";
+include "../processes/project_status/query.php";
+
+// Retrieve and display success message
+if (isset($_SESSION['success'])) {
+    $successMsg = $_SESSION['success'];
+    unset($_SESSION['success']); 
+
+    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" . htmlspecialchars($successMsg) . "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" . "</div>";
+} 
+
+// Retrieve and display error messages
+if (isset($_SESSION['error'])) {
+    $errorMsg = $_SESSION['error'];
+    unset($_SESSION['error']); 
+    
+    echo "<div class='alert alert-danger' role='alert'>" . htmlspecialchars($errorMsg) . "</div>";
+}
+
+?>
 
 <?php if(mysqli_num_rows($result) > 0): ?>
     <main>
-        <section class="container container-fluid">
+        <section class="container">
             <div class="container mt-4">
                 <h2>Project Status</h2>
 
-                <table class="table table-bordered table-hover table-responsive-sm">
-                    <thead class="table-dark">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <th>Name</div></th>
+                            <th>Name</th>
                             <th>Expiry Date</th>
                             <th>Status</th>
                             <th>Report</th>
@@ -84,7 +128,7 @@
 
             // Create popup window
             var popupWindow = window.open("", "_blank", "width=400,height=400");
-            
+
             // Write content to popup window
             popupWindow.document.write(popupContent);
         }
