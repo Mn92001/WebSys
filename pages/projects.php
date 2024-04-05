@@ -8,8 +8,8 @@
     <?php include '../inc/db.php';?> 
     <?php include "../inc/navpentester.inc.php";?>
     <?php include "../inc/session.inc.php";?>
-    <link rel="stylesheet" href="/assets/css/projects.css">
     <link rel="stylesheet" href="/assets/css/details.css">
+    <link rel="stylesheet" href="/assets/css/projects.css">
 </head> 
 
 <?php
@@ -38,12 +38,13 @@
 
 
 <body> 
-<?php if(mysqli_num_rows($result) > 0): ?>
     <main>
+
         <div class="container mt-4">
         <h2>New projects</h2>
+        <?php if(mysqli_num_rows($result) > 0): ?>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered border-info table-hover">
                     <thead class="table-info">
                         <tr>
                             <th>Name</th>
@@ -78,13 +79,13 @@
                         <?php endwhile; ?>
                     </tbody>
                 </table>
-            </div>
-        </div>  
-    </main>
+            </div>  
+        </div>
+    
 <?php else: ?>
     <p>No projects found.</p>
 <?php endif; ?>
-
+</main>
 
 <div id="popup" class="form-popup">
     <div class="form-container">
