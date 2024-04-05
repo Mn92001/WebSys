@@ -20,19 +20,21 @@ var currentScrollPos = window.pageYOffset;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  var navbarToggler = document.querySelector('.navbar-toggler');
   var navbarMenu = document.querySelector('.collapse.navbar-collapse');
 
-  navbarToggler.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default anchor click behavior
-    var bsCollapse = new bootstrap.Collapse(navbarMenu, {
-      toggle: false
-    });
-    // Toggle the "show" class manually
-    if (navbarMenu.classList.contains('show')) {
-      bsCollapse.hide();
-    } else {
-      bsCollapse.show();
+  navbarMenu.addEventListener('click', function(event) {
+    // Check if the clicked element is the navbar toggler button
+    if (event.target.classList.contains('navbar-toggler')) {
+      event.preventDefault(); // Prevent the default anchor click behavior
+      navbarMenu.classList.toggle('show'); // Toggle the 'show' class to expand or collapse the menu
+    }
+  });
+
+  // Add an event listener to the document to collapse the navbar when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!navbarMenu.contains(event.target) && !event.target.classList.contains('navbar-toggler')) {
+      navbarMenu.classList.remove('show'); // Collapse the navbar menu if clicking outside
     }
   });
 });
+
