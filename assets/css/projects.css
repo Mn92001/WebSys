@@ -34,19 +34,8 @@ h2 {
     vertical-align: middle;
 }
 
-.lock-in-btn-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100%; 
-}
-
-.lock-in-btn-container button {
-    flex: 0 0 auto;
-}
-
 .btn-primary {
-    background-color: ;
+    background-color: green;
     border: 1px solid black; 
 }
 

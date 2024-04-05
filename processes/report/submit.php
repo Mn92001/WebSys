@@ -101,7 +101,6 @@
                 } else {
                     $errorMsg .= "No changes were made.";
                     $_SESSION['error'] = $errorMsg;
-
                     header("Location: ../../pages/report_submission.php");
                     exit;
                 }
