@@ -20,7 +20,7 @@
      <main>
         <section class="container container-fluid">
             <div class="container mt-4">
-        <h1>Add Findings</h1>
+            <h1>Add Findings</h1>
 
         <?php if (!empty($errorMsg)): ?>
                 <div class="alert alert-danger" role="alert">
@@ -57,8 +57,8 @@
             </div>
 
             <div class="mb-3">
-                <button type="button" class="btn btn-secondary" onclick="history.back();">Cancel</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" onclick="history.back();">Cancel</button>
             </div>
         </form>
 

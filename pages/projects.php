@@ -42,7 +42,7 @@
     <main>
         <div class="container mt-4">
         <h2>New projects</h2>
-            <div class="table-responsive" style="overflow-x: auto;">
+            <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
