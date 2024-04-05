@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>FortifyTech - About us</title>
-    <link rel="stylesheet" href="about_us.css">
-    <!-- Include Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/nav.inc.php"; ?>
-</head>
+<title>FAbout us</title>
+<link rel="stylesheet" href="about_us.css">
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+<?php include "../inc/head.inc.php"; ?>
+<?php include "../inc/nav.inc.php"; ?>
 
 <?php
     session_start();
@@ -16,12 +14,7 @@
     session_destroy();
 ?>
 
-<body> 
-    <header>
-        <h1> About us </h1> 
-    </header>
-    
-
+<body>     
     <!-- About Us Section -->
     <section id="about-us" class="image-section">
     <img src="assets/images/about_us.png" alt="About Us Image" class="about-us-image">

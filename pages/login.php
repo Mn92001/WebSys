@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Login</title>
-    <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/nav.inc.php"; ?>
-    <link rel="stylesheet" href="/assets/css/login.css">
+
+<title>Login</title>
+<?php include "../inc/head.inc.php"; ?>
+<?php include "../inc/nav.inc.php"; ?>
+<link rel="stylesheet" href="/assets/css/login.css">
     
-</head>
+
 
 
 <?php
@@ -34,13 +34,13 @@ if (isset($_SESSION['error'])) {
         <section>
             <div class="container">
                 <div class="user loginBx">
-                    <div class="imgBx"><img src="../assets/images/login.png"></div>
+                    <div class="imgBx"><img src="../assets/images/login.png" alt="login"></div>
                     <div class="formBx">
                         <form action="../processes/process_login.php" method="post"> 
                             <h2>Login</h2>
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username:</label>
-                                <input required maxlength="45" required type="username" id="username" name="username" class="form-control" placeholder="Enter username">
+                                <input required maxlength="45" type="username" id="username" name="username" class="form-control" placeholder="Enter username">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password:</label>

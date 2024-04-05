@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pentester - Our Services</title>
-    <link rel="stylesheet" href="services.css">
-    <?php include "../inc/head.inc.php"; ?>
-    <?php include "../inc/nav.inc.php"; ?>
-</head>
+
+    
+<title>Pentester - Our Services</title>
+<link rel="stylesheet" href="services.css">
+<?php include "../inc/head.inc.php"; ?>
+<?php include "../inc/nav.inc.php"; ?>
+
 
 <?php
     session_start();
@@ -22,19 +21,19 @@
         <section id="service1" class="blue-bg">
             <div class="service-section">
                 <div class="box" onclick="scrollToSection('service2')">
-                    <img src="../assets/images/services (1).jpg" alt="Vulnerability Assessment">
-                    <p>Vulnerability Assessment</p>
+                    <img src="../assets/images/services(1).jpg" alt="Vulnerability Assessment">
+                    <p style="text-align: center;">Vulnerability Assessment</p>
                 </div>
                 <div class="box" onclick="scrollToSection('service3')">
-                    <img src="../assets/images/services (2).jpg" alt="Penetration Testing">
+                    <img src="../assets/images/services(2).jpg" alt="Penetration Testing">
                     <p>Penetration Testing</p>
                 </div>
                 <div class="box" onclick="scrollToSection('service4')">
-                    <img src="../assets/images/services (3).jpg" alt="Security Audit">
+                    <img src="../assets/images/services(3).jpg" alt="Security Audit">
                     <p>Security Audit</p>
                 </div>
                 <div class="box" onclick="scrollToSection('service5')">
-                    <img src="../assets/images/services (4).jpg" alt="Security Training">
+                    <img src="../assets/images/services(4).jpg" alt="Security Training">
                     <p>Security Training</p>
                 </div>
             </div>

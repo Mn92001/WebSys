@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Registration</title>
-    <?php
-    include "../inc/head.inc.php";
-    include "../inc/nav.inc.php";
-    ?>
-    <link rel="stylesheet" href="/assets/css/register.css">
 
-</head>
+<title>Registration</title>
+<?php
+include "../inc/head.inc.php";
+include "../inc/nav.inc.php";
+?>
+<link rel="stylesheet" href="/assets/css/register.css">
+
+
 
 <?php
 session_start(); 
@@ -35,12 +35,10 @@ if (isset($_SESSION['error'])) {
    
     
     <main> 
-
-
         <section>
             <div class="container">
                 <div class="client-registrationBx">
-                    <div class="imgBx"><img src="../assets/images/Registration.png"></div>
+                    <div class="imgBx"><img src="../assets/images/Registration.png" alt="register"></div>
                     <div class="client-formBx">
                         <form> 
                             <h2>Registration</h2>

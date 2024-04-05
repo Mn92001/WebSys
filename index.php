@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <?php include "inc/head.inc.php"; ?>
-</head> 
+
+<?php include "inc/head.inc.php"; ?>
+
 
 <?php
     session_start();
@@ -171,10 +171,6 @@
             </div>  
         </div>
     </section>
-
-
-        
-</section>
 
 
 </main>     
