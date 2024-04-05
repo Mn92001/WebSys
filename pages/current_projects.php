@@ -21,7 +21,7 @@
                 <h2>My Projects</h2>
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
-                        <thead class="table-dark" style="background-color: Lightblue;">
+                        <thead class="table-info">
                             <tr>
                                 <th>Name</th>
                                 <th>Expiry Date</th>
