@@ -2,7 +2,7 @@ body {
     background-color: #557085;
     font-family:'Verdana', sans-serif;
     margin: 0;
-    padding: 0;
+    padding-bottom: 30px;
     background-image: url('/assets/images/new_project.jpg');
     background-size: cover;
     background-position: center; 

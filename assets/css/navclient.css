@@ -2,12 +2,12 @@
     background-color: #eee0c9;
 }
 
-footer {
-    background-color: #eee0c9;
-    padding: 1vh 0;
-    min-width: 100%;
-    display: flex;
-    box-sizing: border-box;
+footer { 
+    background-color: #eee0c9; 
+    padding: 1vh 0; 
+    min-width: 100%; 
+    display: flex; 
+    box-sizing: border-box; 
 }
 
 /* @media (max-width: 768px) {
